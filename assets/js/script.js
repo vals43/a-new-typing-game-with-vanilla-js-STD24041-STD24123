@@ -1,0 +1,187 @@
+/**
+ * Point culture (en Français car je suis un peu obligé):
+ * Dans ce genre de jeu, un mot equivaut a 5 caractères, y compris les espaces.
+ * La precision, c'est le pourcentage de caractères tapées correctement sur toutes les caractères tapées.
+ *
+ * Sur ce... Amusez-vous bien !
+ */
+
+
+
+//Les mots utilisés
+const wordLists = {
+    en: {
+      easy: ["apple", "banana", "grape", "orange", "cherry", "blue", "green", "red", "yellow", "pink", "cat", "dog", "bird", "fish", "rabbit", "one", "two", "three", "four", "five", "table", "chair", "book", "lamp", "door", "see", "read", "eat", "sleep", "play"],
+      medium: ["keyboard", "monitor", "printer", "charger", "battery", "mouse", "screen", "keyboard", "file", "folder", "big", "small", "fast", "slow", "new", "watch", "listen", "work", "understand", "try", "france", "china", "japan", "brazil", "canada", "paris", "rome", "tokyo", "london", "berlin"],
+      hard: ["synchronize", "complicated", "development", "extravagant", "misconception", "attention", "difficult", "important", "different", "collection", "absolutely", "probably", "unfortunately", "finally", "organization", "madagascar", "antananarivo", "montgolfier", "constantinople", "renaissance"]
+    },
+    fr: {
+      easy: ["pomme", "banane", "raisin", "orange", "cerise", "bleu", "vert", "rouge", "jaune", "rose", "chat", "chien", "oiseau", "poisson", "lapin", "un", "deux", "trois", "quatre", "cinq", "table", "chaise", "livre", "lampe", "porte", "voir", "lire", "manger", "dormir", "jouer"],
+      medium: ["clavier", "écran", "imprimante", "chargeur", "batterie", "souris", "écran", "clavier", "fichier", "dossier", "grand", "petit", "rapide", "lent", "nouveau", "regarder", "écouter", "travailler", "comprendre", "essayer", "france", "chine", "japon", "brésil", "canada", "paris", "rome", "tokyo", "londres", "berlin"],
+      hard: ["synchroniser", "compliqué", "développement", "extravagant", "malentendu", "attention", "difficile", "important", "différent", "collection", "absolument", "probablement", "malheureusement", "finalement", "organisation", "madagascar", "antananarivo", "montgolfier", "constantinople", "renaissance"]
+    },
+    es: {
+      easy: ["manzana", "plátano", "uva", "naranja", "cereza", "azul", "verde", "rojo", "amarillo", "rosa", "gato", "perro", "pájaro", "pez", "conejo", "uno", "dos", "tres", "cuatro", "cinco", "mesa", "silla", "libro", "lámpara", "puerta", "ver", "leer", "comer", "dormir", "jugar"],
+      medium: ["teclado", "monitor", "impresora", "cargador", "batería", "ratón", "pantalla", "teclado", "archivo", "carpeta", "grande", "pequeño", "rápido", "lento", "nuevo", "mirar", "escuchar", "trabajar", "comprender", "intentar", "francia", "china", "japón", "brasil", "canadá", "parís", "roma", "tokio", "londres", "berlín"],
+      hard: ["sincronizar", "complicado", "desarrollo", "extravagante", "malentendido", "atención", "difícil", "importante", "diferente", "colección", "absolutamente", "probablemente", "desafortunadamente", "finalmente", "organización", "madagascar", "antananarivo", "montgolfier", "constantinopla", "renacimiento"]
+    }
+  };
+
+// les const du DOM
+const modeSelect = document.getElementById("mode");
+const wordDisplay = document.getElementById("word-display");
+const inputField = document.getElementById("input-field");
+const results = document.getElementById("results");
+const Wpm = document.getElementById("wpm");
+const Accuracy = document.getElementById("accuracy");
+const progres = document.getElementById("progres");
+const Langue = document.getElementById("Langue");
+let currentWords = wordLists[Langue.value];
+
+
+
+Langue.addEventListener('change' , () => {
+    currentWords = wordLists[Langue.value];
+    
+    startTest()
+    
+})
+
+let startTime = null, previousEndTime = null;
+let currentWordIndex = 0;
+const wordsToType = [];
+
+
+
+
+
+
+// Generate a random word from the selected mode
+const getRandomWord = (mode) => {
+    const wordList = currentWords[mode];
+    return wordList[Math.floor(Math.random() * wordList.length)];
+};
+
+// Initialize the typing test
+const startTest = (wordCount = 50) => {
+    wordsToType.length = 0; // Clear previous words
+    wordDisplay.innerHTML = ""; // Clear display
+    currentWordIndex = 0;
+    startTime = null;
+    previousEndTime = null;
+
+    for (let i = 0; i < wordCount; i++) {
+        wordsToType.push(getRandomWord(modeSelect.value));
+    }
+    wordsToType.forEach((word, index) => {
+        const span = document.createElement("span");
+        span.textContent = word + " ";
+        if (index === 0) span.style.color = "red"; // Highlight first word
+        wordDisplay.appendChild(span);
+
+    });
+
+
+    inputField.value = "";
+    results.textContent = "";
+
+};
+// Start the timer when user begins typing
+const startTimer = () => {
+    if (!startTime) {
+        startTime = Date.now();
+        previousEndTime = startTime;
+    }
+};
+// Calculate and return WPM & accuracy
+const getCurrentWpm = () => {
+    const elapsedTime = (Date.now() - previousEndTime) / 1000; // Seconds
+    const wpm = (wordsToType[currentWordIndex].length / 5) / (elapsedTime / 60); // 5 chars = 1 word
+
+    return wpm.toFixed(2);
+};
+const getCurrentAccuracy = () => {
+    const accuracy = (wordsToType[currentWordIndex].length / inputField.value.length) * 100;
+
+    return accuracy.toFixed(2);
+};
+
+// Move to the next word and update stats only on spacebar press
+const updateWord = (event) => {
+    if (event.key === " ") { // Check if spacebar is pressed
+        if (inputField.value.trim() === wordsToType[currentWordIndex]) {
+
+            const wpm = getCurrentWpm();
+            const accuracy = getCurrentAccuracy();
+
+            Wpm.innerText = wpm
+            Accuracy.innerText = `${accuracy}%`
+
+            currentWordIndex++;
+            previousEndTime = Date.now();
+            highlightNextWord();
+
+            inputField.value = ""; // Clear input field after space
+            event.preventDefault(); // Prevent adding extra spaces
+
+
+        }
+    }
+
+
+};
+let interval = 1
+inputField.addEventListener("input", () => {
+    if (inputField.value.length === 1 && interval === 1) {
+        interval = 0
+        // affiche le temps
+        setInterval(() => {
+            const sec = document.querySelector(".sec")
+            const min = document.querySelector(".min")
+            sec.innerText++
+            if (sec.innerText.length == 1) {
+                sec.innerText = '0' + sec.innerText
+            }
+            if (min.innerText.length == 1) {
+                min.innerText = '0' + min.innerText
+            }
+            if (sec.innerHTML == 60) {
+                min.innerText++
+                sec.innerText = 0
+            }
+        }, 1000);
+    }
+});
+
+// Highlight the current word in red
+const highlightNextWord = () => {
+    const wordElements = wordDisplay.children;
+
+    if (currentWordIndex < wordElements.length) {
+
+        let checkCheckbox = document.getElementById("check").checked;
+        if (checkCheckbox == true || currentWordIndex > 0) {
+            wordElements[currentWordIndex - 1].style.color = "black";
+            wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
+        }
+        if (checkCheckbox == false || currentWordIndex > 0) {
+            wordElements[currentWordIndex - 1].style.color = "white";
+            wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
+        }
+        wordElements[currentWordIndex].style.color = "red";
+        wordElements[currentWordIndex].style.textShadow = "0 0 20px #ff9900";
+    }
+};
+
+// Event listeners
+// Attach `updateWord` to `keydown` instead of `input`
+inputField.addEventListener("keydown", (event) => {
+    startTimer();
+    updateWord(event);
+});
+
+
+modeSelect.addEventListener("change", () => startTest());
+
+// Start the test
+startTest();
