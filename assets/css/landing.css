@@ -94,7 +94,7 @@ body {
   }
   #clavier_img{
     float: right;
-    height: 400px;
+    height: 400px !important;
   }
   .left_cont{
     width: 60%;
