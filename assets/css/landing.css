@@ -69,7 +69,11 @@ body {
     font-size: 36px;
     margin-bottom: 20px;
   }
-  
+  .hero .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   .hero p {
     font-size: 18px;
     margin-bottom: 30px;
@@ -88,11 +92,17 @@ body {
     transform: scale(1.05);
     background-color: #1565c0;
   }
-  
+  #clavier_img{
+    float: right;
+    height: 400px;
+  }
+  .left_cont{
+    width: 60%;
+  }
   /* Features */
   .features {
     padding: 60px 20px;
-    background-color: #fff;
+    background: linear-gradient(to right, #e3f2fd, #bbdefb);
   }
   
   .feature-list {
@@ -104,10 +114,10 @@ body {
   
   .feature-card {
     background: white;
+    height: fit-content;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 30px;
-    flex: 1 1 300px;
     transition: transform 0.3s ease;
     text-align: center;
   }
@@ -228,6 +238,14 @@ body {
     nav a {
       display: block;
       margin: 10px 0;
+    }
+    .hero .container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .left_cont{
+      width: 100%;
     }
   }
   
