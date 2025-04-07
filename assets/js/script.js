@@ -36,16 +36,10 @@ const Wpm = document.getElementById("wpm");
 const Accuracy = document.getElementById("accuracy");
 const progres = document.getElementById("progres");
 const Langue = document.getElementById("Langue");
+const Number = document.getElementById("Number")
 let currentWords = wordLists[Langue.value];
 
 
-
-Langue.addEventListener('change' , () => {
-    currentWords = wordLists[Langue.value];
-    
-    startTest()
-    
-})
 
 let startTime = null, previousEndTime = null;
 let currentWordIndex = 0;
@@ -62,8 +56,27 @@ const getRandomWord = (mode) => {
     return wordList[Math.floor(Math.random() * wordList.length)];
 };
 
+// change number of word
+Number.addEventListener('change' , () => {
+    wordCount = Number.value;
+    
+    startTest(wordCount)
+})
+// change language
+Langue.addEventListener('change' , () => {
+    currentWords = wordLists[Langue.value];
+
+    
+    startTest(wordCount)
+    
+})
+//change level
+modeSelect.addEventListener("change", () => startTest(wordCount));
+
+
 // Initialize the typing test
-const startTest = (wordCount = 50) => {
+const startTest = (wordCount =  30) => {
+    
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
     currentWordIndex = 0;
@@ -73,6 +86,7 @@ const startTest = (wordCount = 50) => {
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
     }
+    
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
         span.textContent = word + " ";
@@ -81,10 +95,8 @@ const startTest = (wordCount = 50) => {
 
     });
 
-
     inputField.value = "";
     results.textContent = "";
-
 };
 // Start the timer when user begins typing
 const startTimer = () => {
@@ -106,6 +118,7 @@ const getCurrentAccuracy = () => {
     return accuracy.toFixed(2);
 };
 
+
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
@@ -116,6 +129,12 @@ const updateWord = (event) => {
 
             Wpm.innerText = wpm
             Accuracy.innerText = `${accuracy}%`
+            //initialise the progresssion
+            
+            progres = (100 / Number.value)
+            console.log(Percent_progres);
+            
+            
 
             currentWordIndex++;
             previousEndTime = Date.now();
@@ -165,7 +184,7 @@ const highlightNextWord = () => {
             wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
         }
         if (checkCheckbox == false || currentWordIndex > 0) {
-            wordElements[currentWordIndex - 1].style.color = "white";
+            wordElements[currentWordIndex - 1].style.color = "black";
             wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
         }
         wordElements[currentWordIndex].style.color = "red";
@@ -181,7 +200,7 @@ inputField.addEventListener("keydown", (event) => {
 });
 
 
-modeSelect.addEventListener("change", () => startTest());
+
 
 // Start the test
 startTest();
