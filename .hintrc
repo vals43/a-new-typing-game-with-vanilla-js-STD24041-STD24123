@@ -14,12 +14,15 @@
       {
         "list": "off"
       }
+<<<<<<< HEAD
     ],
     "axe/keyboard": [
       "default",
       {
         "nested-interactive": "off"
       }
+=======
+>>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
     ]
   }
 }
