@@ -143,7 +143,7 @@ const updateWord = (event) => {
             totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
         }else{
             const correctWord = typedWord.split("").filter((lettre, index) =>
-                index < targetWord.length && char == targetWord[index]).length;
+                index < targetWord.length && lettre == targetWord[index]).length;
             totalCorrectWord += correctWord;
 
             //montrer que le mot est faux
