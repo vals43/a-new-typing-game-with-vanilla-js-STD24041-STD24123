@@ -44,6 +44,10 @@ let currentWords = wordLists[Langue.value];
 let startTime = null, previousEndTime = null;
 let currentWordIndex = 0;
 const wordsToType = [];
+let correctWordsHistory = [];
+let incorrectWords = new Set();
+let totalTypedWord = 0;
+let totalCorrectWord = 0;
 
 
 
@@ -82,6 +86,11 @@ const startTest = (wordCount =  30) => {
     currentWordIndex = 0;
     startTime = null;
     previousEndTime = null;
+    correctWordsHistory = []
+    incorrectWords = new Set();
+    totalTypedWord = 0
+    totalCorrectWord = 0
+
 
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
@@ -113,7 +122,7 @@ const getCurrentWpm = () => {
     return wpm.toFixed(2);
 };
 const getCurrentAccuracy = () => {
-    const accuracy = (wordsToType[currentWordIndex].length / inputField.value.length) * 100;
+    const accuracy = totalTypedWord > 0 ? (totalCorrectWord / totalTypedWord) * 100 : 0;
 
     return accuracy.toFixed(2);
 };
@@ -122,23 +131,41 @@ const getCurrentAccuracy = () => {
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
-        if (inputField.value.trim() === wordsToType[currentWordIndex]) {
+        const wordElements = wordDisplay.children;
+        const currentWordElement = wordElements[currentWordIndex];
+        const typedWord = inputField.value.trim();
+        const targetWord = wordsToType[currentWordIndex]
 
-            const wpm = getCurrentWpm();
-            const accuracy = getCurrentAccuracy();
+        //compter les chars tapés
+        totalTypedWord += inputField.value.length;
 
-            Wpm.innerText = wpm
-            Accuracy.innerText = `${accuracy}%`
-            //initialise the progresssion
-            progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
+        if (typedWord == targetWord) {
+            totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
+        }else{
+            const correctWord = typedWord.split("").filter((lettre, index) =>
+                index < targetWord.length && char == targetWord[index]).length;
+            totalCorrectWord += correctWord;
 
-            currentWordIndex++;
-            previousEndTime = Date.now();
-            highlightNextWord();
-
-            inputField.value = ""; // Clear input field after space
-            event.preventDefault(); // Prevent adding extra spaces
+            //montrer que le mot est faux
+            incorrectWords.add(currentWordIndex);
+            currentWordElement.style.color = "red"
         }
+
+
+        const wpm = getCurrentWpm();
+        const accuracy = getCurrentAccuracy();
+
+        Wpm.innerText = wpm
+        Accuracy.innerText = `${accuracy}%`
+        //initialise the progresssion
+        progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
+
+        currentWordIndex++;
+        previousEndTime = Date.now();
+        highlightNextWord();
+
+        inputField.value = ""; // Clear input field after space
+        event.preventDefault(); // Prevent adding extra spaces
     }
 
 
