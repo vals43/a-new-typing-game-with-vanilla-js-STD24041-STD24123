@@ -48,7 +48,7 @@ let correctWordsHistory = [];
 let incorrectWords = new Set();
 let totalTypedWord = 0;
 let totalCorrectWord = 0;
-
+let wordCount = Number.value
 
 
 
@@ -69,7 +69,7 @@ Number.addEventListener('change' , () => {
 // change language
 Langue.addEventListener('change' , () => {
     currentWords = wordLists[Langue.value];
-
+    console.log(Langue.value);
     
     startTest(wordCount)
     
@@ -79,7 +79,7 @@ modeSelect.addEventListener("change", () => startTest(wordCount));
 
 
 // Initialize the typing test
-const startTest = (wordCount =  30) => {
+const startTest = (wordCount = 30) => {
     
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
