@@ -9,6 +9,7 @@ body {
     background-color: #f0f4f8;
     color: #1e2a3a;
     line-height: 1.6;
+    overflow-x: hidden;
   }
   
   .container {
@@ -16,7 +17,6 @@ body {
     margin: 0 auto;
     padding: 0 20px;
   }
-  
   h1, h2, h3 {
     margin: 0 0 15px;
   }

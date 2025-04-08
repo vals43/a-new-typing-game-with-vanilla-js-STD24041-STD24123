@@ -38,7 +38,7 @@ const progres = document.getElementById("progres");
 const Langue = document.getElementById("Langue");
 const Number = document.getElementById("Number")
 let currentWords = wordLists[Langue.value];
-
+let ending = document.getElementsByClassName("ending_game")
 
 
 let startTime = null, previousEndTime = null;
@@ -69,7 +69,6 @@ Number.addEventListener('change' , () => {
 // change language
 Langue.addEventListener('change' , () => {
     currentWords = wordLists[Langue.value];
-    console.log(Langue.value);
     
     startTest(wordCount)
     
@@ -159,6 +158,9 @@ const updateWord = (event) => {
         Accuracy.innerText = `${accuracy}%`
         //initialise the progresssion
         progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
+        if (progres.innerHTML == '100.00%') {
+            alert("finish the code")
+        }
 
         currentWordIndex++;
         previousEndTime = Date.now();
@@ -171,8 +173,8 @@ const updateWord = (event) => {
 
 };
 let interval = 1
-inputField.addEventListener("input", () => {
-    if (inputField.value.length === 1 && interval === 1) {
+inputField.addEventListener("keydown", () => {
+    if (interval === 1) {
         interval = 0
         // affiche le temps
         setInterval(() => {

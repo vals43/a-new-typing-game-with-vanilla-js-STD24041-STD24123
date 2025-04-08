@@ -45,16 +45,12 @@
             <option value="50" >50</option>
             <option value="60" >60</option>
         </select>
-        <label for="duration">Choose duration :</label>
-        <select id="duration">
-            <option value="">00:15</option>
-            <option value="">00:30</option>
-            <option value="">00:45</option>
-            <option value="">01:00</option>
-            <option value="">01:30</option>
-            <option value="">02:00</option>
-            <option value="">02:30</option>
-        </select>
+        
+             <div id="time">
+                 <p class="min">00</p>
+                 <p>:</p>
+                 <p class="sec">00</p>
+             </div>
     </header>
 
     <main>
@@ -70,19 +66,16 @@
             <p id="accuracy"></p>
             </p>
         </div>
-        <div class="info time">
-            <p>Time : </p>
-            <div id="time">
-                <p class="min">00</p>
-                <p>:</p>
-                <p class="sec">00</p>
-            </div>
-        </div>
+        
         <div class="info progression">
             <p>Progression : </p>
             <p id="progres" >0%</p>
         </div>
     </main>
+
+    <div class="ending_game">
+        
+    </div>
 
     <script src="assets/js/script.js"></script>
     <script src="assets/js/theme mode.js"></script>
