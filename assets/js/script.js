@@ -126,7 +126,9 @@ const getCurrentAccuracy = () => {
     return accuracy.toFixed(2);
 };
 
-
+let array_result = [
+    ['Word per minutes', 'WPM']
+]
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
@@ -156,11 +158,11 @@ const updateWord = (event) => {
 
         Wpm.innerText = wpm
         Accuracy.innerText = `${accuracy}%`
+        array_result.push([`${currentWordIndex}`, getCurrentWpm()])
+        console.log(array_result);
+        
         //initialise the progresssion
         progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
-        if (progres.innerHTML == '100.00%') {
-            alert("finish the code")
-        }
 
         currentWordIndex++;
         previousEndTime = Date.now();
@@ -221,7 +223,6 @@ inputField.addEventListener("keydown", (event) => {
     startTimer();
     updateWord(event);
 });
-
 
 
 
