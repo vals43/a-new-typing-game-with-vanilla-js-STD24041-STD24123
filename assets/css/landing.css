@@ -1,15 +1,10 @@
 /* Base */
-<<<<<<< HEAD
 *{
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
 body {
-=======
-body {
-    margin: 0;
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
     font-family: 'Inter', sans-serif;
     background-color: #f0f4f8;
     color: #1e2a3a;
@@ -28,13 +23,8 @@ body {
   
   /* Header */
   header {
-<<<<<<< HEAD
-    background-color: #1D2955;
-    padding: 10px 0;
-=======
     background-color: #0d47a1;
     padding: 20px 0;
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
     color: white;
     position: sticky;
     top: 0;
@@ -48,16 +38,11 @@ body {
   }
   
   nav a {
-<<<<<<< HEAD
     margin-right: 20px;
-=======
-    margin-left: 20px;
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
     color: #bbdefb;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
-<<<<<<< HEAD
     margin-block: auto;
   }
   nav{
@@ -110,14 +95,6 @@ body {
   filter: blur(0.2em);
 }
 
-=======
-  }
-  
-  nav a:hover {
-    color: white;
-  }
-  
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
   .cta-btn {
     background-color: #1976d2;
     padding: 10px 20px;
@@ -131,14 +108,8 @@ body {
     background-color: #1565c0;
   }
   
-<<<<<<< HEAD
   .hero {
     background: linear-gradient(90deg, #1cb5e0, #000045);
-=======
-  /* Hero */
-  .hero {
-    background: linear-gradient(to right, #e3f2fd, #bbdefb);
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
     padding: 100px 20px;
     text-align: center;
   }
@@ -147,21 +118,16 @@ body {
     font-size: 36px;
     margin-bottom: 20px;
   }
-<<<<<<< HEAD
   .hero .container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
-=======
-  
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
   .hero p {
     font-size: 18px;
     margin-bottom: 30px;
   }
   
-<<<<<<< HEAD
 .btn {
   --color: #25092E;
   --color2: #efefd7;
@@ -231,26 +197,6 @@ body {
   .features {
     padding: 60px 20px;
     background: linear-gradient(90deg, #1cb5e0, #000045);
-=======
-  .primary-btn {
-    background-color: #1976d2;
-    padding: 12px 30px;
-    color: white;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: transform 0.3s;
-  }
-  
-  .primary-btn:hover {
-    transform: scale(1.05);
-    background-color: #1565c0;
-  }
-  
-  /* Features */
-  .features {
-    padding: 60px 20px;
-    background-color: #fff;
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
   }
   
   .feature-list {
@@ -261,20 +207,12 @@ body {
   }
   
   .feature-card {
-<<<<<<< HEAD
     background: #223f9b;
     color: #efefd7;
     height: fit-content;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 30px;
-=======
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 30px;
-    flex: 1 1 300px;
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
     transition: transform 0.3s ease;
     text-align: center;
   }
@@ -396,7 +334,6 @@ body {
       display: block;
       margin: 10px 0;
     }
-<<<<<<< HEAD
     .hero .container{
       display: flex;
       flex-direction: column;
@@ -405,7 +342,5 @@ body {
     .left_cont{
       width: 100%;
     }
-=======
->>>>>>> dc51659b28c3d0a1efe02aa05792d5b16692a5c2
   }
   
