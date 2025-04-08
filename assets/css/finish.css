@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#curve_chart{
+    width: 90%;
+    height: 70vh;
+}

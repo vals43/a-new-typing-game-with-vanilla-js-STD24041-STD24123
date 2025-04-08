@@ -126,7 +126,7 @@ const getCurrentAccuracy = () => {
     return accuracy.toFixed(2);
 };
 
-let array_result = [
+export let array_result = [
     ['Word per minutes', 'WPM']
 ]
 // Move to the next word and update stats only on spacebar press
@@ -158,7 +158,7 @@ const updateWord = (event) => {
 
         Wpm.innerText = wpm
         Accuracy.innerText = `${accuracy}%`
-        array_result.push([`${currentWordIndex}`, getCurrentWpm()])
+        array_result.push([`${currentWordIndex}`, getCurrentWpm(), getCurrentAccuracy()])
         console.log(array_result);
         
         //initialise the progresssion
@@ -223,8 +223,6 @@ inputField.addEventListener("keydown", (event) => {
     startTimer();
     updateWord(event);
 });
-
-
 
 // Start the test
 startTest();
