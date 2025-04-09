@@ -126,9 +126,12 @@ const getCurrentAccuracy = () => {
     return accuracy.toFixed(2);
 };
 
-export let array_result = [
-    ['Word per minutes', 'WPM']
-]
+let array_result = [
+    ['Word per minutes', 'WPM', 'accuracy'],
+    ['1',  30 ,5],
+    ['2',  11 ,10],
+  ]
+localStorage.setItem('resultat', array_result);
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
@@ -171,8 +174,6 @@ const updateWord = (event) => {
         inputField.value = ""; // Clear input field after space
         event.preventDefault(); // Prevent adding extra spaces
     }
-
-
 };
 let interval = 1
 inputField.addEventListener("keydown", () => {
@@ -196,7 +197,6 @@ inputField.addEventListener("keydown", () => {
         }, 1000);
     }
 });
-
 // Highlight the current word in red
 const highlightNextWord = () => {
     const wordElements = wordDisplay.children;

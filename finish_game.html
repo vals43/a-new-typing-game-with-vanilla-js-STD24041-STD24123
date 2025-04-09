@@ -9,62 +9,14 @@
 <body>
     <head>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-          
-          google.charts.load('current', {'packages':['corechart']});
-          google.charts.setOnLoadCallback(drawChart);
-    
-          function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              ['Word per minutes', 'WPM', 'accuracy'],
-              ['1',  30 ,5],
-              ['2',  11 ,10],
-              ['3',  29 ,15],
-              ['3',  10 ,20],
-              ['1',  30 ,5],
-              ['2',  11 ,10],
-              ['3',  29 ,15],
-              ['3',  10 ,20],
-              ['1',  30 ,5],
-              ['2',  11 ,10],
-              ['3',  29 ,15],
-              ['3',  10 ,20]
-            ]);
-    
-            var options = {
-              title: 'Result',
-              curveType: 'function',
-              legend: { position: 'bottom' },
-              colors: ['blue','red'],
-              lineWidth: 3,
-              pointSize: 20,
-              hAxis: {title: 'Word Taped'},
-              vAxis: {title: 'WPM'},
-              hAxis: {  // x-axis
-                gridlines: {color: 'FFFFFF'}
-              },
-              vAxis: {  // y-axis
-                gridlines: {color: 'FFFFFF'}
-              },
-              series: {
-                  0: {targetAxisIndex: 0}, // Series 1 on left axis
-                  1: {targetAxisIndex: 1}  // Series 2 on right axis
-              },
-              vAxes: {
-                  0: {title: 'Word per Minutes'}, // Left axis title
-                  1: {title: 'Accuracy'}  // Right axis title
-              }
-              
-            };
-    
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-    
-            chart.draw(data, options);
-          }
-        </script>
+        <script type="text/javascript" src="assets/js/graph.js"></script>
       </head>
       <body>
         <div id="curve_chart" ></div>
+        
+        <div class="outer">
+          <div class="inner">50%</div>
+      </div>
       </body>
 </body>
 </html>
