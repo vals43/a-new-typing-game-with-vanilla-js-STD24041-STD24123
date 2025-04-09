@@ -11,21 +11,21 @@
 //Les mots utilisés
 const wordLists = {
     en: {
-        easy: ["apple", "banana", "grape", "orange", "cherry", "blue", "green", "red", "yellow", "pink", "cat", "dog", "bird", "fish", "rabbit", "one", "two", "three", "four", "five", "table", "chair", "book", "lamp", "door", "see", "read", "eat", "sleep", "play"],
-        medium: ["keyboard", "monitor", "printer", "charger", "battery", "mouse", "screen", "keyboard", "file", "folder", "big", "small", "fast", "slow", "new", "watch", "listen", "work", "understand", "try", "france", "china", "japan", "brazil", "canada", "paris", "rome", "tokyo", "london", "berlin"],
-        hard: ["synchronize", "complicated", "development", "extravagant", "misconception", "attention", "difficult", "important", "different", "collection", "absolutely", "probably", "unfortunately", "finally", "organization", "madagascar", "antananarivo", "montgolfier", "constantinople", "renaissance"]
+      easy: ["apple", "banana", "grape", "orange", "cherry", "blue", "green", "red", "yellow", "pink", "cat", "dog", "bird", "fish", "rabbit", "one", "two", "three", "four", "five", "table", "chair", "book", "lamp", "door", "see", "read", "eat", "sleep", "play"],
+      medium: ["keyboard", "monitor", "printer", "charger", "battery", "mouse", "screen", "keyboard", "file", "folder", "big", "small", "fast", "slow", "new", "watch", "listen", "work", "understand", "try", "france", "china", "japan", "brazil", "canada", "paris", "rome", "tokyo", "london", "berlin"],
+      hard: ["synchronize", "complicated", "development", "extravagant", "misconception", "attention", "difficult", "important", "different", "collection", "absolutely", "probably", "unfortunately", "finally", "organization", "madagascar", "antananarivo", "montgolfier", "constantinople", "renaissance"]
     },
     fr: {
-        easy: ["pomme", "banane", "raisin", "orange", "cerise", "bleu", "vert", "rouge", "jaune", "rose", "chat", "chien", "oiseau", "poisson", "lapin", "un", "deux", "trois", "quatre", "cinq", "table", "chaise", "livre", "lampe", "porte", "voir", "lire", "manger", "dormir", "jouer"],
-        medium: ["clavier", "écran", "imprimante", "chargeur", "batterie", "souris", "écran", "clavier", "fichier", "dossier", "grand", "petit", "rapide", "lent", "nouveau", "regarder", "écouter", "travailler", "comprendre", "essayer", "france", "chine", "japon", "brésil", "canada", "paris", "rome", "tokyo", "londres", "berlin"],
-        hard: ["synchroniser", "compliqué", "développement", "extravagant", "malentendu", "attention", "difficile", "important", "différent", "collection", "absolument", "probablement", "malheureusement", "finalement", "organisation", "madagascar", "antananarivo", "montgolfier", "constantinople", "renaissance"]
+      easy: ["pomme", "banane", "raisin", "orange", "cerise", "bleu", "vert", "rouge", "jaune", "rose", "chat", "chien", "oiseau", "poisson", "lapin", "un", "deux", "trois", "quatre", "cinq", "table", "chaise", "livre", "lampe", "porte", "voir", "lire", "manger", "dormir", "jouer"],
+      medium: ["clavier", "écran", "imprimante", "chargeur", "batterie", "souris", "écran", "clavier", "fichier", "dossier", "grand", "petit", "rapide", "lent", "nouveau", "regarder", "écouter", "travailler", "comprendre", "essayer", "france", "chine", "japon", "brésil", "canada", "paris", "rome", "tokyo", "londres", "berlin"],
+      hard: ["synchroniser", "compliqué", "développement", "extravagant", "malentendu", "attention", "difficile", "important", "différent", "collection", "absolument", "probablement", "malheureusement", "finalement", "organisation", "madagascar", "antananarivo", "montgolfier", "constantinople", "renaissance"]
     },
     es: {
-        easy: ["manzana", "plátano", "uva", "naranja", "cereza", "azul", "verde", "rojo", "amarillo", "rosa", "gato", "perro", "pájaro", "pez", "conejo", "uno", "dos", "tres", "cuatro", "cinco", "mesa", "silla", "libro", "lámpara", "puerta", "ver", "leer", "comer", "dormir", "jugar"],
-        medium: ["teclado", "monitor", "impresora", "cargador", "batería", "ratón", "pantalla", "teclado", "archivo", "carpeta", "grande", "pequeño", "rápido", "lento", "nuevo", "mirar", "escuchar", "trabajar", "comprender", "intentar", "francia", "china", "japón", "brasil", "canadá", "parís", "roma", "tokio", "londres", "berlín"],
-        hard: ["sincronizar", "complicado", "desarrollo", "extravagante", "malentendido", "atención", "difícil", "importante", "diferente", "colección", "absolutamente", "probablemente", "desafortunadamente", "finalmente", "organización", "madagascar", "antananarivo", "montgolfier", "constantinopla", "renacimiento"]
+      easy: ["manzana", "plátano", "uva", "naranja", "cereza", "azul", "verde", "rojo", "amarillo", "rosa", "gato", "perro", "pájaro", "pez", "conejo", "uno", "dos", "tres", "cuatro", "cinco", "mesa", "silla", "libro", "lámpara", "puerta", "ver", "leer", "comer", "dormir", "jugar"],
+      medium: ["teclado", "monitor", "impresora", "cargador", "batería", "ratón", "pantalla", "teclado", "archivo", "carpeta", "grande", "pequeño", "rápido", "lento", "nuevo", "mirar", "escuchar", "trabajar", "comprender", "intentar", "francia", "china", "japón", "brasil", "canadá", "parís", "roma", "tokio", "londres", "berlín"],
+      hard: ["sincronizar", "complicado", "desarrollo", "extravagante", "malentendido", "atención", "difícil", "importante", "diferente", "colección", "absolutamente", "probablemente", "desafortunadamente", "finalmente", "organización", "madagascar", "antananarivo", "montgolfier", "constantinopla", "renacimiento"]
     }
-};
+  };
 
 // les const du DOM
 const modeSelect = document.getElementById("mode");
@@ -61,17 +61,17 @@ const getRandomWord = (mode) => {
 };
 
 // change number of word
-Number.addEventListener('change', () => {
+Number.addEventListener('change' , () => {
     wordCount = Number.value;
-
+    
     startTest(wordCount)
 })
 // change language
-Langue.addEventListener('change', () => {
+Langue.addEventListener('change' , () => {
     currentWords = wordLists[Langue.value];
-
+    
     startTest(wordCount)
-
+    
 })
 //change level
 modeSelect.addEventListener("change", () => startTest(wordCount));
@@ -79,7 +79,7 @@ modeSelect.addEventListener("change", () => startTest(wordCount));
 
 // Initialize the typing test
 const startTest = (wordCount = 30) => {
-
+    
     wordsToType.length = 0; // Clear previous words
     wordDisplay.innerHTML = ""; // Clear display
     currentWordIndex = 0;
@@ -94,7 +94,7 @@ const startTest = (wordCount = 30) => {
     for (let i = 0; i < wordCount; i++) {
         wordsToType.push(getRandomWord(modeSelect.value));
     }
-
+    
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
         span.textContent = word + " ";
@@ -128,7 +128,7 @@ const getCurrentAccuracy = () => {
 
 let array_result = [
     ['Word per minutes', 'WPM', 'accuracy']
-]
+  ]
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
@@ -142,7 +142,7 @@ const updateWord = (event) => {
 
         if (typedWord == targetWord) {
             totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
-        } else {
+        }else{
             const correctWord = typedWord.split("").filter((lettre, index) =>
                 index < targetWord.length && lettre == targetWord[index]).length;
             totalCorrectWord += correctWord;
@@ -159,9 +159,9 @@ const updateWord = (event) => {
         Wpm.innerText = wpm
         Accuracy.innerText = `${accuracy}%`
         array_result.push([`${currentWordIndex}`, getCurrentWpm(), getCurrentAccuracy()])
-
+        
         //initialise the progresssion
-        progres.innerHTML = `${((currentWordIndex + 1) * 100 / Number.value).toFixed(2)}%`
+        progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
 
         currentWordIndex++;
         if (currentWordIndex == Number.value) {
@@ -170,10 +170,11 @@ const updateWord = (event) => {
                 localStorage.clear()
             }
             localStorage.setItem('resultat', array_result);
-
-
-            window.location.href = 'finish_game.html';
+        
+            
+            window.location.href='finish_game.html';
         }
+        console.log(currentWordIndex);
         previousEndTime = Date.now();
         highlightNextWord();
 
@@ -210,14 +211,8 @@ const highlightNextWord = () => {
     const wordElements = wordDisplay.children;
 
     if (currentWordIndex < wordElements.length) {
-
-        let checkCheckbox = document.getElementById("check").checked;
-        if (checkCheckbox == true || currentWordIndex > 0) {
-            wordElements[currentWordIndex - 1].style.color = "black";
-            wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
-        }
-        if (checkCheckbox == false || currentWordIndex > 0) {
-            wordElements[currentWordIndex - 1].style.color = "black";
+        if ( currentWordIndex > 0) {
+            wordElements[currentWordIndex - 1].style.color = "green";
             wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
         }
         wordElements[currentWordIndex].style.color = "red";
