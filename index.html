@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="body">
     <nav>
+        <img src="assets/img/landing_page_clavier-removebg-preview.png" alt="">
         <h1>Vanilla Type</h1>
         <label class="switch">
             <input id="check" type="checkbox" onclick="darkLight()">
@@ -18,56 +20,69 @@
     </nav>
 
     <header>
-        <h1>Typing Test</h1>
+        <h1 class="Typing_test">Typing Test</h1>
         
-        <label for="mode">Select Level :</label>
-        <select id="mode">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
+        <div class="je_sais_pas">
+            <div class="game_level">
+                <label for="mode">Select Level :</label>
+                <select id="mode">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+    
+            <div class="language">
+                <label for="Langue"><i class="fa-solid fa-earth-americas"></i></label>
+                <select name="" id="Langue">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+    
+            <div class="Number_of_word">
+                <label for="Number">Number of word :</label>
+                <select name="" id="Number">
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30" selected >30</option>
+                    <option value="40" >40</option>
+                    <option value="50" >50</option>
+                    <option value="60" >60</option>
+                </select>
+            </div>
+    
+            <div class="duration_of_the_game">
+                <label for="duration"><i class="fa-solid fa-clock"></i></label>
+                <select id="duration">
+                    <option value="">00:15</option>
+                    <option value="">00:30</option>
+                    <option value="">00:45</option>
+                    <option value="">01:00</option>
+                    <option value="">01:30</option>
+                    <option value="">02:00</option>
+                    <option value="">02:30</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="Langue">Language :</label>
-        <select name="" id="Langue">
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-        </select>
-
-        <label for="Number">Number of word :</label>
-        <select name="" id="Number">
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="30" selected >30</option>
-            <option value="40" >40</option>
-            <option value="50" >50</option>
-            <option value="60" >60</option>
-        </select>
-        <label for="duration">Choose duration :</label>
-        <select id="duration">
-            <option value="">00:15</option>
-            <option value="">00:30</option>
-            <option value="">00:45</option>
-            <option value="">01:00</option>
-            <option value="">01:30</option>
-            <option value="">02:00</option>
-            <option value="">02:30</option>
-        </select>
     </header>
 
     <main>
         <p id="word-display"></p>
         <input type="text" id="input-field" autofocus>
+        <div id="keyboard"></div>
         <div class="info word">
             <p>Wpm :
-            <p id="wpm"></p>
+                <p id="wpm"></p>
             </p>
         </div>
         <div class="info acc">
             <p>Accuracy :
-            <p id="accuracy"></p>
+                <p id="accuracy"></p>
             </p>
         </div>
         <div class="info time">

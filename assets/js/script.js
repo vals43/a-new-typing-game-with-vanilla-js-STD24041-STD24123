@@ -225,3 +225,17 @@ inputField.addEventListener("keydown", (event) => {
 
 // Start the test
 startTest();
+
+const keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const keyboard = document.getElementById("keyboard");
+const input_Field = document.getElementById("inputField");
+
+keys.forEach(key => {
+  const keyBtn = document.createElement("div");
+  keyBtn.textContent = key;
+  keyBtn.className = "key";
+  keyBtn.onclick = () => {
+    input_Field.value += key;
+  };
+  keyboard.appendChild(keyBtn);
+});
