@@ -38,7 +38,7 @@ const progres = document.getElementById("progres");
 const Langue = document.getElementById("Langue");
 const Number = document.getElementById("Number")
 let currentWords = wordLists[Langue.value];
-
+let ending = document.getElementsByClassName("ending_game")
 
 
 let startTime = null, previousEndTime = null;
@@ -69,7 +69,6 @@ Number.addEventListener('change' , () => {
 // change language
 Langue.addEventListener('change' , () => {
     currentWords = wordLists[Langue.value];
-    console.log(Langue.value);
     
     startTest(wordCount)
     
@@ -105,7 +104,7 @@ const startTest = (wordCount = 30) => {
     });
 
     inputField.value = "";
-    results.textContent = "";
+    results.innerText = "";
 };
 // Start the timer when user begins typing
 const startTimer = () => {
@@ -127,7 +126,10 @@ const getCurrentAccuracy = () => {
     return accuracy.toFixed(2);
 };
 
-
+let array_result = [
+    ['Word per minutes', 'WPM', 'accuracy']
+  ]
+  
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
@@ -157,22 +159,36 @@ const updateWord = (event) => {
 
         Wpm.innerText = wpm
         Accuracy.innerText = `${accuracy}%`
+        array_result.push([`${currentWordIndex}`, getCurrentWpm(), getCurrentAccuracy()])
+        
         //initialise the progresssion
         progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
 
         currentWordIndex++;
+        if (currentWordIndex == Number.value) {
+            let result = localStorage.getItem('resultat');
+            if (result != null) {
+                localStorage.clear()
+            }
+            localStorage.setItem('resultat', array_result);
+            localStorage.setItem('timer', document.getElementById("time").innerHTML);
+
+        
+            
+            window.location.href='finish_game.html';
+        }
         previousEndTime = Date.now();
         highlightNextWord();
 
         inputField.value = ""; // Clear input field after space
         event.preventDefault(); // Prevent adding extra spaces
     }
-
-
 };
+
+
 let interval = 1
-inputField.addEventListener("input", () => {
-    if (inputField.value.length === 1 && interval === 1) {
+inputField.addEventListener("keydown", () => {
+    if (interval === 1) {
         interval = 0
         // affiche le temps
         setInterval(() => {
@@ -192,20 +208,13 @@ inputField.addEventListener("input", () => {
         }, 1000);
     }
 });
-
 // Highlight the current word in red
 const highlightNextWord = () => {
     const wordElements = wordDisplay.children;
 
     if (currentWordIndex < wordElements.length) {
-
-        let checkCheckbox = document.getElementById("check").checked;
-        if (checkCheckbox == true || currentWordIndex > 0) {
-            wordElements[currentWordIndex - 1].style.color = "black";
-            wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
-        }
-        if (checkCheckbox == false || currentWordIndex > 0) {
-            wordElements[currentWordIndex - 1].style.color = "black";
+        if ( currentWordIndex > 0) {
+            wordElements[currentWordIndex - 1].style.color = "green";
             wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
         }
         wordElements[currentWordIndex].style.color = "red";
@@ -219,9 +228,6 @@ inputField.addEventListener("keydown", (event) => {
     startTimer();
     updateWord(event);
 });
-
-
-
 
 // Start the test
 startTest();

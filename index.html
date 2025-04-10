@@ -13,62 +13,46 @@
     <nav>
         <img src="assets/img/landing_page_clavier-removebg-preview.png" alt="">
         <h1>Vanilla Type</h1>
-        <label class="switch">
-            <input id="check" type="checkbox" onclick="darkLight()">
-            <span class="slider"></span>
-        </label>
     </nav>
 
     <header>
         <h1 class="Typing_test">Typing Test</h1>
         
-        <div class="je_sais_pas">
-            <div class="game_level">
-                <label for="mode">Select Level :</label>
-                <select id="mode">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-            </div>
-    
-            <div class="language">
-                <label for="Langue"><i class="fa-solid fa-earth-americas"></i></label>
-                <select name="" id="Langue">
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="es">Español</option>
-                </select>
-            </div>
-    
-            <div class="Number_of_word">
-                <label for="Number">Number of word :</label>
-                <select name="" id="Number">
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="30" selected >30</option>
-                    <option value="40" >40</option>
-                    <option value="50" >50</option>
-                    <option value="60" >60</option>
-                </select>
-            </div>
-    
-            <div class="duration_of_the_game">
-                <label for="duration"><i class="fa-solid fa-clock"></i></label>
-                <select id="duration">
-                    <option value="">00:15</option>
-                    <option value="">00:30</option>
-                    <option value="">00:45</option>
-                    <option value="">01:00</option>
-                    <option value="">01:30</option>
-                    <option value="">02:00</option>
-                    <option value="">02:30</option>
-                </select>
-            </div>
-        </div>
+        <label for="mode">Select Level :</label>
+        <select id="mode">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
 
+        <label for="Langue">Language :</label>
+        <select name="" id="Langue">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+        </select>
+
+        <label for="Number">Number of word :</label>
+        <select name="" id="Number">
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30" selected >30</option>
+            <option value="40" >40</option>
+            <option value="50" >50</option>
+            <option value="60" >60</option>
+        </select>
+        <label for="duration">Choose duration :</label>
+        <select id="duration">
+            <option value="">00:15</option>
+            <option value="">00:30</option>
+            <option value="">00:45</option>
+            <option value="">01:00</option>
+            <option value="">01:30</option>
+            <option value="">02:00</option>
+            <option value="">02:30</option>
+        </select>
     </header>
 
     <main>
@@ -85,21 +69,18 @@
                 <p id="accuracy"></p>
             </p>
         </div>
-        <div class="info time">
-            <p>Time : </p>
-            <div id="time">
-                <p class="min">00</p>
-                <p>:</p>
-                <p class="sec">00</p>
-            </div>
-        </div>
+        
         <div class="info progression">
             <p>Progression : </p>
             <p id="progres" >0%</p>
         </div>
     </main>
 
-    <script src="assets/js/script.js"></script>
+    <div class="ending_game">
+        
+    </div>
+
+    <script type="module" src="assets/js/script.js"></script>
     <script src="assets/js/theme mode.js"></script>
 </body>
 
