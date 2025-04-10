@@ -16,6 +16,10 @@
 }
 .time{
   display: flex;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  color: #777;
 }
 .accuracy{
   width: fit-content;

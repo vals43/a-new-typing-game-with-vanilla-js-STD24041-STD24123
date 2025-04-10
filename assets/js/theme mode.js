@@ -2,11 +2,6 @@
 let root = document.querySelector(':root');
 let theme = document.getElementById("theme")
 
-function myFunction_get() {
-  let rootStyle = getComputedStyle(root);
-  console.log("The value of --primary is: " + rootStyle.getPropertyValue('--primary'));
-  console.log("The value of --secondary is: " + rootStyle.getPropertyValue('--secondary'));
-}
 function myFunction_set(primary, secondary) {
   root.style.setProperty('--primary', primary);
   root.style.setProperty('--secondary', secondary);
@@ -34,4 +29,3 @@ theme.addEventListener('change' , () => {
 })
 
 myFunction_set()
-myFunction_get()

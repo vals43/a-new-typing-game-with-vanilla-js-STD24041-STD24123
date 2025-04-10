@@ -132,11 +132,12 @@ let array_result = [
   
 // Move to the next word and update stats only on spacebar press
 
+let wpm_acc = []
 const updateWord = (event) => {
     if (inputField.value[0] == " ") {
         inputField.value = ""
     }
-    if (event.key === " " && inputField.value.length > 2) { // Check if spacebar is pressed
+    if (event.key === " " && inputField.value.length != 0) { // Check if spacebar is pressed
         const wordElements = wordDisplay.children;
         const currentWordElement = wordElements[currentWordIndex];
         const typedWord = inputField.value.trim();
@@ -161,9 +162,17 @@ const updateWord = (event) => {
         const wpm = getCurrentWpm();
         const accuracy = getCurrentAccuracy();
 
-        Wpm.innerText = wpm
+        //the wpm debbug
+        wpm_acc.push(wpm)
+        let acc = 0
+        for (let i = 0; i < wpm_acc.length; i++) {
+            acc += Math.floor(wpm_acc[i])
+        }
+        console.log(acc);
+        acc = acc / wpm_acc.length
+        Wpm.innerText = acc.toFixed(0)
         Accuracy.innerText = `${accuracy}%`
-        array_result.push([`${currentWordIndex}`, getCurrentWpm(), getCurrentAccuracy()])
+        array_result.push([`${currentWordIndex}`, acc.toFixed(0), getCurrentAccuracy()])
         
         //initialise the progresssion
         progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
