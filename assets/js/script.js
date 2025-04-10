@@ -127,12 +127,16 @@ const getCurrentAccuracy = () => {
 };
 
 let array_result = [
-    ['Word per minutes', 'WPM', 'accuracy']
+    ['Word per minutes', 'WPM', 'accuracy (%)']
   ]
   
 // Move to the next word and update stats only on spacebar press
+
 const updateWord = (event) => {
-    if (event.key === " ") { // Check if spacebar is pressed
+    if (inputField.value[0] == " ") {
+        inputField.value = ""
+    }
+    if (event.key === " " && inputField.value.length > 2) { // Check if spacebar is pressed
         const wordElements = wordDisplay.children;
         const currentWordElement = wordElements[currentWordIndex];
         const typedWord = inputField.value.trim();

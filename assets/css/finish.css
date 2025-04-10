@@ -48,3 +48,22 @@
   font-weight: bolder;
   font-size: 1rem;
 }
+.wpm-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* Make the number big! */
+  font-weight: bold;
+  color: #333; /* A nice dark color */
+}
+
+.wpm-unit {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  color: #777;
+}
+
+#wpm-value {
+  transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
