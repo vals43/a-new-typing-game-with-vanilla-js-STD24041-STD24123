@@ -48,7 +48,6 @@ outer.style.background = `conic-gradient(blue ${(accuracy * 360)/100}deg, rgb(25
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
-
 function drawChart() {  
   var data = google.visualization.arrayToDataTable(changeStrToNumber(arrayResultant));
   
