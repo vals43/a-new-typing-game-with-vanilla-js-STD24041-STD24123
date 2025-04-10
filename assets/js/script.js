@@ -129,6 +129,7 @@ const getCurrentAccuracy = () => {
 let array_result = [
     ['Word per minutes', 'WPM', 'accuracy']
   ]
+  
 // Move to the next word and update stats only on spacebar press
 const updateWord = (event) => {
     if (event.key === " ") { // Check if spacebar is pressed
@@ -170,11 +171,12 @@ const updateWord = (event) => {
                 localStorage.clear()
             }
             localStorage.setItem('resultat', array_result);
+            localStorage.setItem('timer', document.getElementById("time").innerHTML);
+
         
             
             window.location.href='finish_game.html';
         }
-        console.log(currentWordIndex);
         previousEndTime = Date.now();
         highlightNextWord();
 

@@ -7,41 +7,25 @@ function myFunction_get() {
   console.log("The value of --primary is: " + rootStyle.getPropertyValue('--primary'));
   console.log("The value of --secondary is: " + rootStyle.getPropertyValue('--secondary'));
 }
+function myFunction_set(primary, secondary) {
+  root.style.setProperty('--primary', primary);
+  root.style.setProperty('--secondary', secondary);
+}
 theme.addEventListener('change' , () => {
   if (theme.value == 1) {
-    function myFunction_set() {
-      root.style.setProperty('--primary', 'white');
-      root.style.setProperty('--secondary', 'black');
-    }
-    myFunction_set()
+    myFunction_set('white', 'black')
   }
   if (theme.value == 2) {
-    function myFunction_set() {
-      root.style.setProperty('--primary', 'black');
-      root.style.setProperty('--secondary', 'white');
-    }
-    myFunction_set()
+    myFunction_set('black', 'white')
   }
   if (theme.value == 3) {
-    function myFunction_set() {
-      root.style.setProperty('--primary', '#2E2F5B');
-      root.style.setProperty('--secondary', '#FAF0CA');
-    }
-    myFunction_set()
+    myFunction_set('#2E2F5B', '#FAF0CA')
   }
   if (theme.value == 4) {
-    function myFunction_set() {
-      root.style.setProperty('--primary', '#004581');
-      root.style.setProperty('--secondary', '#DDE8F0');
-    }
-    myFunction_set()
+    myFunction_set('#004581', '#DDE8F0')
   }
   if (theme.value == 5) {
-    function myFunction_set() {
-      root.style.setProperty('--primary', '#915A3C');
-      root.style.setProperty('--secondary', '#E8E6E7');
-    }
-    myFunction_set()
+    myFunction_set('#915A3C', '#E8E6E7')
   }
 
 })

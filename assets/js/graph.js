@@ -34,6 +34,11 @@ let accuracy = arrayResultant[arrayResultant.length - 1][2]
 
 
 inner.innerHTML = `${accuracy}%`
+//Time
+const time = document.querySelector(".time")
+let timer = localStorage.getItem('timer');
+time.innerHTML = timer
+
 
 // border of accuracy 
 
@@ -43,9 +48,10 @@ outer.style.background = `conic-gradient(blue ${(accuracy * 360)/100}deg, rgb(25
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {  
-  var data = google.visualization.arrayToDataTable(changeStrToNumber([arrayResultant]));
 
+function drawChart() {  
+  var data = google.visualization.arrayToDataTable(changeStrToNumber(arrayResultant));
+  
   var options = {
     title: 'Result',
     curveType: 'function',
@@ -58,7 +64,8 @@ function drawChart() {
       gridlines: { color: 'FFFFFF' }
     },
     vAxis: {  // y-axis
-      gridlines: { color: 'FFFFFF' }
+      gridlines: { color: 'FFFFFF' },
+      minValue: 0,
     },
     series: {
       0: { targetAxisIndex: 0 }, // Series 1 on left axis
@@ -75,3 +82,6 @@ function drawChart() {
 
   chart.draw(data, options);
 }
+
+
+

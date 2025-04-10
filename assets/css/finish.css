@@ -1,13 +1,31 @@
-* {
+@font-face {
+  font-family: 'Quicksand';
+  src: url(../font/Quicksand-Medium.ttf);
+}
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand';
 }
+
 #curve_chart {
   width: 90%;
   height: 70vh;
 }
-.outer {
+.time{
+  display: flex;
+}
+.accuracy{
+  width: fit-content;
+  height: fit-content;
+
+}
+.accuracy p{
+  text-align: center;
+}
+.outer { 
   width: 100px;
   height: 100px;
   margin: 10px auto;
