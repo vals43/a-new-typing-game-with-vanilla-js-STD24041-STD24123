@@ -24,10 +24,14 @@ body{
 }
 nav{
     margin-bottom: 30px;
+    margin-top: 30px;
     padding-inline: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.logo{
+    display: flex;
 }
 nav h1{
     text-align: center;
@@ -138,7 +142,6 @@ header select{
   .key:hover {
     background: #ddd;
   }
-
   .key.special {
     grid-column: span 2;
     background-color: #ccc;

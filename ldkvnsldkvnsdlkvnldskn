@@ -1,0 +1,214 @@
+[33mcommit 0fcbe2535b97f6d222ea36066c1f5b1bb1b2091d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdeveloppement[m[33m, [m[1;31morigin/developpement[m[33m)[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Fri Apr 11 14:29:58 2025 +0300
+
+    feat: add theme and keyboard feature
+
+[33mcommit 356ba02d4adb5b8b75be10e1b656d8815cae3183[m
+Merge: 8f69200 ee96729
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Fri Apr 11 13:52:07 2025 +0300
+
+    Merge branch 'developpement' of https://github.com/vals43/a-new-typing-game-with-vanilla-js-STD24041-STD24123 into developpement
+
+[33mcommit 8f692005db3b116906a9797b3f4927b7402788fa[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Fri Apr 11 13:51:58 2025 +0300
+
+    resolve conflict
+
+[33mcommit ee96729e29d58e5bb66db2d3773ed9ff21b4ebbd[m
+Author: Miahy03 <hei.miahy.2@gmail.com>
+Date:   Fri Apr 11 13:50:04 2025 +0300
+
+    adding css
+
+[33mcommit cd6e38a68e39720042cb9f7346294f7c8e68324d[m
+Merge: 463ac5d cf8fae9
+Author: Miahy03 <hei.miahy.2@gmail.com>
+Date:   Fri Apr 11 13:22:32 2025 +0300
+
+    feat: add keyboard api
+
+[33mcommit 463ac5de2eb39e2e078d7ef60331c500e4cfa5c9[m
+Author: Miahy03 <hei.miahy.2@gmail.com>
+Date:   Fri Apr 11 13:20:25 2025 +0300
+
+    feat: add keyboard api
+
+[33mcommit cf8fae9d4ec34247829ae66eea0b058d8540ca30[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Thu Apr 10 20:44:39 2025 +0300
+
+    resolve conflict
+
+[33mcommit d2b2d96da2f09387fad1eb22972f0b41d18968cc[m
+Merge: 716e988 30a8544
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Thu Apr 10 14:55:26 2025 +0300
+
+    add: WPM at end game
+
+[33mcommit 716e988e13513d1c076bd47752a048849e5a43e9[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Thu Apr 10 14:51:36 2025 +0300
+
+    add: WPM at end game
+
+[33mcommit 30a85440ddb200b4fa24538a8f0bcd6f8b9975ed[m
+Merge: f20cadd b0a8cd8
+Author: Miahy03 <hei.miahy.2@gmail.com>
+Date:   Thu Apr 10 10:32:55 2025 +0300
+
+    Merge branch 'developpement' of https://github.com/vals43/a-new-typing-game-with-vanilla-js-STD24041-STD24123 into developpement
+
+[33mcommit f20caddf98379aad629eafa536fad5e8cafb24e1[m
+Author: Miahy03 <hei.miahy.2@gmail.com>
+Date:   Thu Apr 10 10:27:29 2025 +0300
+
+    commit update interface
+
+[33mcommit b0a8cd881af64206506eebf67510dbffbb3a3936[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Thu Apr 10 10:21:28 2025 +0300
+
+    adding git ignore
+
+[33mcommit f1dde2c494857f076eefa18ca9cb9d3e3da41351[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Thu Apr 10 09:23:15 2025 +0300
+
+    fix: add accuracy at the end
+
+[33mcommit dfcc452510bc405462075ee1359b6fb2acd51a16[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Thu Apr 10 09:22:18 2025 +0300
+
+    feat: add timer at the end
+
+[33mcommit a2686554405c053a69c77ff9e3db7070de923e80[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Wed Apr 9 20:55:24 2025 +0300
+
+    adding some theme
+
+[33mcommit b7ae6b38ca3d207782b6a2d106a7f2950a7e841c[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Wed Apr 9 19:43:32 2025 +0300
+
+    adding progres bar accuracy for finish game
+
+[33mcommit e1760f3ec871f71f3aa7009ced76141981a3efce[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Wed Apr 9 16:10:16 2025 +0300
+
+    update ending page
+
+[33mcommit 72a190e06b5fb0ed98dc24caee97dd2cbbe809c0[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Tue Apr 8 17:59:33 2025 +0300
+
+    creating ending page
+
+[33mcommit b4e37a09be6f6fd92538cdcf3a9e63d2898802d5[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Tue Apr 8 16:19:15 2025 +0300
+
+    changing some css
+
+[33mcommit e7210b9afc7eb39a1d844611e098c526ea4637dd[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Tue Apr 8 14:01:36 2025 +0300
+
+    changing some css
+
+[33mcommit 10174fa43b3beddd89f2faf025fd3704333c0fe6[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Tue Apr 8 09:18:17 2025 +0300
+
+    resolving some conflict
+
+[33mcommit d7400080cee82a255251d67f8a1865c18ee3fa83[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Tue Apr 8 09:14:53 2025 +0300
+
+    testing some code for the game
+
+[33mcommit 162b2ce60d157c25cf7a63e3ae62afd7caed8b6c[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Mon Apr 7 11:18:39 2025 +0300
+
+    resolving bug of accuracy
+
+[33mcommit 987f4a3b09788d6210de184d028f9d42c28dcbb3[m
+Merge: 069728f dc51659
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Mon Apr 7 10:17:16 2025 +0300
+
+    resolving conflict
+
+[33mcommit dc51659b28c3d0a1efe02aa05792d5b16692a5c2[m
+Author: Miahy03 <hei.miahy.2@gmail.com>
+Date:   Mon Apr 7 10:03:25 2025 +0300
+
+    commit for update interface
+
+[33mcommit 069728f76cfa69f56396bc38b0f12ca0e9823728[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Mon Apr 7 09:31:33 2025 +0300
+
+    modification for landing page and accuracy bug
+
+[33mcommit f55c16ddeb1f909f307e8330238f45911b473ce1[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Sun Apr 6 15:25:09 2025 +0300
+
+    modification for landing page 0.1.6
+
+[33mcommit 78418e1ca58444350e8a685a0b1521b8792545c8[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Sun Apr 6 14:29:18 2025 +0300
+
+    modification for landing page 0.1.5
+
+[33mcommit 299a601051d79c0e9f047f1273788d0eaf8e39d1[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Sat Apr 5 21:25:53 2025 +0300
+
+    modification for landing page 0.1.0
+
+[33mcommit df417bd76abe5f622e93fdba9895699a6e51351c[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Sat Apr 5 21:15:30 2025 +0300
+
+    modification for landing page
+
+[33mcommit bd298e08848f008b1a684c4e948fb4a8e9d5136d[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Sat Apr 5 20:34:55 2025 +0300
+
+    adding feature like progres, language and limit words
+
+[33mcommit 63b01ef6046994fab965bf39564d871e32196feb[m[33m ([m[1;31morigin/Teddy[m[33m, [m[1;32mTeddy[m[33m)[m
+Author: vals43 <hei.teddy.3@gmail.com>
+Date:   Fri Apr 4 19:06:23 2025 +0300
+
+    first commit
+
+[33mcommit 58168e1332202bbc40c8d8e7a3d15276a76f3fe1[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Tokimahery <101268219+tokyramarozaka@users.noreply.github.com>
+Date:   Wed Apr 2 21:50:07 2025 +0300
+
+    feat: update deadline from 17 to 19th of april
+
+[33mcommit 8a08d648b31bc62b1e99a4b4db28ff3fe4d0fde8[m
+Author: Tokimahery <101268219+tokyramarozaka@users.noreply.github.com>
+Date:   Wed Apr 2 21:06:18 2025 +0300
+
+    feat: add basic readme
+
+[33mcommit 17d1a00fef9b5052e559c50a55ea87e3de91e653[m
+Author: tokyramarozaka <tokyramarozaka@gmail.com>
+Date:   Wed Apr 2 20:37:45 2025 +0300
+
+    Initial commit setting the barebone project

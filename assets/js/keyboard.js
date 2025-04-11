@@ -6,24 +6,29 @@ const keyboardLayout = [
   ];
 
   const keyboard = document.getElementById('keyboard');
-  const textInput = document.getElementById('textInput');
+  const textInput = document.getElementById('input-field');
+  let lastIndex = ''
+  textInput.addEventListener("input", () => {
+    lastIndex = textInput.value[textInput.value.length-1].toUpperCase()
 
+});
+
+  
   keyboardLayout.forEach(key => {
     const keyButton = document.createElement('button');
     keyButton.textContent = key;
     keyButton.classList.add('key');
-
+    
     if (key === '←' || key === 'ESPACE') {
       keyButton.classList.add('special');
     }
-
     keyButton.addEventListener('click', () => {
       if (key === '←') {
         textInput.value = textInput.value.slice(0, -1);
       } else if (key === 'ESPACE') {
         textInput.value += ' ';
       } else {
-        textInput.value += key;
+        textInput.value += key.toLowerCase();
       }
     });
 

@@ -167,8 +167,7 @@ const updateWord = (event) => {
         let acc = 0
         for (let i = 0; i < wpm_acc.length; i++) {
             acc += Math.floor(wpm_acc[i])
-        }
-        console.log(acc);
+        }  
         acc = acc / wpm_acc.length
         Wpm.innerText = acc.toFixed(0)
         Accuracy.innerText = `${accuracy}%`
@@ -200,7 +199,7 @@ const updateWord = (event) => {
 
 
 let interval = 1
-inputField.addEventListener("keydown", () => {
+inputField.addEventListener("input", () => {
     if (interval === 1) {
         interval = 0
         // affiche le temps
