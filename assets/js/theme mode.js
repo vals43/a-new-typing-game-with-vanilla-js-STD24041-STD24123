@@ -25,6 +25,9 @@ theme.addEventListener('change' , () => {
   if (theme.value == 6) {
     myFunction_set('#333', '#149414')
   }
+  if (theme.value == 7) {
+    myFunction_set('#37404F', '#E0E4EB')
+  }
 
 })
 

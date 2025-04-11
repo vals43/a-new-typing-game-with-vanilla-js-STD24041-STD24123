@@ -27,7 +27,6 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid red;
 }
 nav h1{
     text-align: center;
@@ -86,14 +85,12 @@ header label, header select{
     display: flex;
     flex-direction: row;
     gap: 20px;
-    border: 1px solid red;
     justify-content: center;
     width: 90%;
     padding:10px;
     border-radius: 10px;
 }
 #word-display{
-    border: 1px solid red;
     text-align: center;
     font-size: 1.9rem;
 }
@@ -119,7 +116,6 @@ header label, header select{
     gap: 5px;
     margin-left: 180px;
     margin-top: 20px;
-    border: 1px solid red;
     width: 70%;
   }
 
