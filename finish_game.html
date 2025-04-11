@@ -14,19 +14,22 @@
 
 
     <div id="curve_chart"></div>
-    <div class="time"></div>
-    <div class="wpm-container">
-      <span id="wpm-value">0</span>
-      <span class="wpm-unit">WPM</span>
-    </div>
-    <div class="accuracy">
-      <div class="outer">
-        <div class="inner">0%</div>
+    
+    <div class="tsyaiko">
+      <div class="time"></div>
+      <div class="wpm-container">
+        <span id="wpm-value">0</span>
+        <span class="wpm-unit">WPM</span> 
       </div>
-      <p>Accuracy</p>
+      <div class="accuracy">
+        <div class="outer">
+          <div class="inner">0%</div>
+        </div>
+        <p>Accuracy</p>
+      </div>
     </div>
     
-    <button><a href="index.html">Restart Test</a></button>
+    <button id="btn-restart"><a href="index.html">Restart Test</a></button>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="assets/js/graph.js"></script>
   </body>
