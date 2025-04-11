@@ -13,12 +13,14 @@
 :root{
     --primary: white;
     --secondary: black;
+    --tertiary: #37404f;
 }
 
 body{
     background-color: var(--primary);
     color: var(--secondary);
     transition: all 0.4s ease;
+    margin-inline: 40px;
 }
 nav{
     margin-bottom: 30px;
@@ -52,6 +54,7 @@ nav h1{
 }
 #word-display{
     animation: 1s fadeIn 1;
+
 }
 @keyframes fadeIn {
     from {
@@ -65,13 +68,9 @@ nav h1{
 header{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 10px;
-    align-items: center; 
     margin-bottom: 30px;
-}
-header h1{
-    font-size: 2.5em;
-    margin-bottom: 15px;
 }
 
 header label, header select{
@@ -79,6 +78,14 @@ header label, header select{
     padding: 5px 10px;
     border: 1px solid #636161;
     border-radius: 5px;
+}
+header select{
+    margin-right: 40px;
+}
+#time{
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--tertiary);
 }
 .je_sais_pas {
     display: flex;
@@ -98,8 +105,9 @@ header label, header select{
 
 }
 #input-field{
-    margin-left: 300px;
-    margin-top: 20px;
+    margin-left: 25%;
+    margin-block: 50px;
+    border-radius: 10px;
     width: 50%;
     padding: 10px;
 }
@@ -113,16 +121,15 @@ header label, header select{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 5px;
-    margin-left: 180px;
-    margin-top: 20px;
-    width: 70%;
+    margin-left: 25%;
+    width: 50%;
   }
 
   .key {
     background: #eee;
     border: none;
     padding: 15px;
-    font-size: 1em;
+    font-size: 0.5em;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.2s;
