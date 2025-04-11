@@ -1,4 +1,9 @@
 
+if (!navigator.onLine) {
+  // Afficher le message d'erreur
+  alert("Vous êtes hors ligne. Veuillez vérifier votre connexion internet.");
+}
+
 let result = localStorage.getItem('resultat');
 let inner = document.querySelector(".inner")
 let outer = document.querySelector(".outer")
@@ -31,8 +36,10 @@ function changeStrToNumber(array) {
 
 
 let accuracy = arrayResultant[arrayResultant.length - 1][2]
+let wpm = arrayResultant[arrayResultant.length - 1][1]
 
-
+const WPM = document.querySelector("#wpm-value")
+WPM.innerHTML = wpm
 inner.innerHTML = `${accuracy}%`
 //Time
 const time = document.querySelector(".time")
@@ -42,9 +49,9 @@ time.innerHTML = timer
 
 // border of accuracy 
 
-outer.style.background = `conic-gradient(blue ${(accuracy * 360)/100}deg, rgb(255, 255, 255) 0deg)`;
+outer.style.background = `conic-gradient(from 0deg, red 0%, blue ${(accuracy * 360) / 100}deg, white 0deg)`;
 
-
+// graph
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
@@ -64,17 +71,18 @@ function drawChart() {
     },
     vAxis: {  // y-axis
       gridlines: { color: 'FFFFFF' },
-      minValue: 0,
+      
     },
     series: {
       0: { targetAxisIndex: 0 }, // Series 1 on left axis
       1: { targetAxisIndex: 1 }  // Series 2 on right axis
     },
     vAxes: {
-      0: { title: 'Word per Minutes' }, // Left axis title
-      1: { title: 'Accuracy' }  // Right axis title
-    }
-
+      0: { title: 'Word per Minutes (WPM)', minValue: 0 }, // Left axis title
+      1: { title: 'Accuracy (%)', ticks: [0,20,40,60,80,100,120], minValue: 0 }  // Right axis title
+    },
+    fontName : 'Quicksand',
+    
   };
 
   var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
