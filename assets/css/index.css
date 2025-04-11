@@ -16,7 +16,6 @@
 }
 
 body{
-    padding: 50px;
     background-color: var(--primary);
     color: var(--secondary);
     transition: all 0.4s ease;

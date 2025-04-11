@@ -9,6 +9,10 @@
   box-sizing: border-box;
   font-family: 'Quicksand';
 }
+:root {
+  --primary: #777;
+  --secondary : #333;
+}
 
 #curve_chart {
   width: 90%;
@@ -19,6 +23,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
+  margin-top: 55px;
   color: #777;
 }
 .accuracy{
@@ -64,10 +69,24 @@
 .wpm-unit {
   font-size: 1.5rem;
   margin-left: 0.5rem;
-  color: #777;
+  color: var(--primary);
 }
 
 #wpm-value {
   transition: transform 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
+#btn-restart {
+  margin-left: 650px; 
+  padding: 10px;
+  
+}
+#btn-restart a{
+  text-decoration: none;
+}
+.tsyaiko {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  justify-content: space-around;
+}
