@@ -17,48 +17,52 @@
 
     <header>
         <h1 class="Typing_test">Typing Test</h1>
-        
-        <label for="mode">Select Level :</label>
-        <select id="mode">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
-
-        <label for="Langue">Language :</label>
-        <select name="" id="Langue">
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-        </select>
-
-        <label for="Number">Number of word :</label>
-        <select name="" id="Number">
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="30" selected >30</option>
-            <option value="40" >40</option>
-            <option value="50" >50</option>
-            <option value="60" >60</option>
-        </select>
-        <label for="duration">Choose duration :</label>
-        <select id="duration">
-            <option value="">00:15</option>
-            <option value="">00:30</option>
-            <option value="">00:45</option>
-            <option value="">01:00</option>
-            <option value="">01:30</option>
-            <option value="">02:00</option>
-            <option value="">02:30</option>
-        </select>
+    
+        <div class="je_sais_pas">
+            <label for="mode">Select Level :</label>
+            <select id="mode">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+    
+            <label for="Langue"><i class="fa-solid fa-earth-americas"></i></label>
+            <select name="" id="Langue">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+            </select>
+    
+            <label for="Number">Number of word :</label>
+            <select name="" id="Number">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30" selected >30</option>
+                <option value="40" >40</option>
+                <option value="50" >50</option>
+                <option value="60" >60</option>
+            </select>
+            <label for="duration"><i class="fa-solid fa-clock"></i></label>
+            <select id="duration">
+                <option value="">00:15</option>
+                <option value="">00:30</option>
+                <option value="">00:45</option>
+                <option value="">01:00</option>
+                <option value="">01:30</option>
+                <option value="">02:00</option>
+                <option value="">02:30</option>
+            </select>
+        </div>
+  
     </header>
 
     <main>
         <p id="word-display"></p>
         <input type="text" id="input-field" autofocus>
-        <div id="keyboard"></div>
+        <div id="keyboard" class="keyboard"></div>
+        <div id="information">
         <div class="info word">
             <p>Wpm :
                 <p id="wpm"></p>
@@ -74,6 +78,7 @@
             <p>Progression : </p>
             <p id="progres" >0%</p>
         </div>
+        </div>
     </main>
 
     <div class="ending_game">
@@ -82,6 +87,7 @@
 
     <script type="module" src="assets/js/script.js"></script>
     <script src="assets/js/theme mode.js"></script>
+    <script src="assets/js/keyboard.js"></script>
 </body>
 
 </html>
