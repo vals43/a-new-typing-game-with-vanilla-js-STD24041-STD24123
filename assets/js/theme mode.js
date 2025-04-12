@@ -39,7 +39,7 @@ if (themeConst != null) {
     
   }
   if (themeConst == 6) {
-    myFunction_set('#000', '#149414' , '#FF4B66')
+    myFunction_set('#000', '#149414' , 'red')
   }
   if (themeConst == 7) {
     myFunction_set('#37404F', '#E0E4EB' , '#FFF')
@@ -54,24 +54,31 @@ theme.addEventListener('change' , () => {
   
   if (theme.value == 1) {
     myFunction_set('white', 'black', '#37404F')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 2) {
     myFunction_set('black', 'white', '#BFC6D4')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 3) {
     myFunction_set('#2E2F5B', '#FAF0CA', '#F4D35E')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 4) {
     myFunction_set('#1D2955', '#DDE8F0', '#018ABD')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 5) {
     myFunction_set('#915A3C', '#E8E6E7', '#CFB79F')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 6) {
     myFunction_set('#000', '#149414' , '#FF4B66')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 7) {
     myFunction_set('#37404F', '#E0E4EB' , '#FFF')
+    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
 
 })

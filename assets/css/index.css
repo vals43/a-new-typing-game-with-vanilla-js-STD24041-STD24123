@@ -45,7 +45,6 @@ nav h1{
     object-fit: cover;
 }
 .info{
-    border: 2px solid var(--secondary);
     padding: 10px;
     border-radius: 5px;
     width: 160px;
@@ -90,6 +89,10 @@ header select{
     justify-content: center;
     font-size: 2rem;
     color: var(--tertiary);
+}
+#dark{
+    /*background: linear-gradient(to right, white , black);*/
+    background: linear-gradient(to right, dark , black);
 }
 .je_sais_pas {
     display: flex;

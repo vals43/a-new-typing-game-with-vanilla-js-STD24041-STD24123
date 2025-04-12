@@ -25,7 +25,7 @@ console.log(themeConst);
     myFunction_set('#915A3C', '#E8E6E7', '#CFB79F')
   }
   if (themeConst == 6) {
-    myFunction_set('#000', '#149414' , '#FF4B66')
+    myFunction_set('#000', '#149414' , 'red')
   }
   if (themeConst == 7) {
     myFunction_set('#37404F', '#E0E4EB' , '#FFF')

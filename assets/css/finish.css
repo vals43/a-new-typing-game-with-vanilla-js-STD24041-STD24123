@@ -87,7 +87,7 @@ body{
 }
 #btn-restart a{
   text-decoration: none;
-  color: var(--secondary);
+  color: black;
   font-weight: bold;
 }
 .tsyaiko {
