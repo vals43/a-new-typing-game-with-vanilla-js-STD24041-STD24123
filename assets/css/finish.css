@@ -46,7 +46,7 @@ body{
   align-items: center;
   justify-content: center;
   transition: all 2s ease;
-  box-shadow: -5px -3px 14px 1px #000000, 0px 1px 14px 0px #ffffff;
+  box-shadow: -5px -3px 14px 1px var(--secondary), 0px 1px 14px 0px #ffffff;
 }
 .inner {
   width: 80%;
@@ -80,12 +80,15 @@ body{
 }
 
 #btn-restart {
-  margin-left: 650px; 
+  margin-left: 45%;
+  width: 7%;
   padding: 10px;
   
 }
 #btn-restart a{
   text-decoration: none;
+  color: var(--secondary);
+  font-weight: bold;
 }
 .tsyaiko {
   display: flex;
