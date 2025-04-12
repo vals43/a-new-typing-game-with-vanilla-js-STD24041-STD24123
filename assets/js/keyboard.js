@@ -14,10 +14,12 @@ const keyboardLayout = [
 });
 
   
+
   keyboardLayout.forEach(key => {
     const keyButton = document.createElement('button');
     keyButton.textContent = key;
     keyButton.classList.add('key');
+
     
     if (key === '←' || key === 'ESPACE') {
       keyButton.classList.add('special');

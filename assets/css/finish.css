@@ -12,8 +12,11 @@
 :root {
   --primary: #777;
   --secondary : #333;
+  --tertiary : #333;
 }
-
+body{
+  background-color: var(--primary);
+}
 #curve_chart {
   width: 90%;
   height: 70vh;
@@ -24,7 +27,7 @@
   font-weight: bold;
   margin-left: 0.5rem;
   margin-top: 55px;
-  color: #777;
+  color: var(--secondary);
 }
 .accuracy{
   width: fit-content;
@@ -63,13 +66,13 @@
   justify-content: center;
   font-size: 2rem; /* Make the number big! */
   font-weight: bold;
-  color: #333; /* A nice dark color */
+  color: var(--secondary); /* A nice dark color */
 }
 
 .wpm-unit {
   font-size: 1.5rem;
   margin-left: 0.5rem;
-  color: var(--primary);
+  color: var(--tertiary);
 }
 
 #wpm-value {

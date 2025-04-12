@@ -89,6 +89,10 @@ const startTest = (wordCount = 30) => {
     incorrectWords = new Set();
     totalTypedWord = 0
     totalCorrectWord = 0
+    const sec = document.querySelector(".sec")
+    const min = document.querySelector(".min")
+    sec.innerText = '00'
+    min.innerText = '00'
 
 
     for (let i = 0; i < wordCount; i++) {
@@ -182,11 +186,9 @@ const updateWord = (event) => {
             if (result != null) {
                 localStorage.clear()
             }
+            
             localStorage.setItem('resultat', array_result);
             localStorage.setItem('timer', document.getElementById("time").innerHTML);
-
-        
-            
             window.location.href='finish_game.html';
         }
         previousEndTime = Date.now();
@@ -196,28 +198,30 @@ const updateWord = (event) => {
         event.preventDefault(); // Prevent adding extra spaces
     }
 };
-
+function timer() {
+    setInterval(() => {
+        const sec = document.querySelector(".sec")
+        const min = document.querySelector(".min")
+        sec.innerText++
+        if (sec.innerText.length == 1) {
+            sec.innerText = '0' + sec.innerText
+        }
+        if (min.innerText.length == 1) {
+            min.innerText = '0' + min.innerText
+        }
+        if (sec.innerHTML == 60) {
+            min.innerText++
+            sec.innerText = 0
+        }
+    }, 1000);
+}
 
 let interval = 1
 inputField.addEventListener("input", () => {
     if (interval === 1) {
         interval = 0
-        // affiche le temps
-        setInterval(() => {
-            const sec = document.querySelector(".sec")
-            const min = document.querySelector(".min")
-            sec.innerText++
-            if (sec.innerText.length == 1) {
-                sec.innerText = '0' + sec.innerText
-            }
-            if (min.innerText.length == 1) {
-                min.innerText = '0' + min.innerText
-            }
-            if (sec.innerHTML == 60) {
-                min.innerText++
-                sec.innerText = 0
-            }
-        }, 1000);
+        timer()
+
     }
 });
 // Highlight the current word in red
