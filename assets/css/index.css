@@ -90,10 +90,6 @@ header select{
     font-size: 2rem;
     color: var(--tertiary);
 }
-#dark{
-    /*background: linear-gradient(to right, white , black);*/
-    background: linear-gradient(to right, dark , black);
-}
 .je_sais_pas {
     display: flex;
     flex-direction: row;

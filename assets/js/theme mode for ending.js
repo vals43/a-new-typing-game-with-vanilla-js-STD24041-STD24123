@@ -6,7 +6,6 @@ function myFunction_set(primary, secondary, tertiary) {
   root.style.setProperty('--secondary', secondary);
   root.style.setProperty('--tertiary', tertiary);
 }
-console.log(themeConst);
 
 
   if (themeConst == 1) {

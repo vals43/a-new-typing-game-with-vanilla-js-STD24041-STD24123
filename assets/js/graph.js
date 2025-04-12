@@ -8,7 +8,6 @@ let result = localStorage.getItem('resultat');
 let inner = document.querySelector(".inner")
 let outer = document.querySelector(".outer")
 let theme = localStorage.getItem('theme');
-console.log(theme);
 
 
 

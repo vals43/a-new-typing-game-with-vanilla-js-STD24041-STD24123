@@ -1,7 +1,4 @@
 
-
-
-
 // Get the root element
 let root = document.querySelector(':root');
 let theme = document.getElementById("theme")
@@ -13,7 +10,6 @@ function myFunction_set(primary, secondary, tertiary) {
 }
 
 let themeConst = localStorage.getItem('theme');
-console.log(themeConst);
 localStorage.clear()
 localStorage.setItem('theme', theme.value);
 
@@ -45,7 +41,6 @@ if (themeConst != null) {
     myFunction_set('#37404F', '#E0E4EB' , '#FFF')
   }
 }
-console.log(theme.value);
 
 
 theme.addEventListener('change' , () => {
