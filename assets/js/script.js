@@ -133,69 +133,82 @@ const getCurrentAccuracy = () => {
 let array_result = [
     ['Word per minutes', 'WPM', 'accuracy (%)']
   ]
-  
+  // start timer 
+  let interval = 1
+  inputField.addEventListener("input", () => {
+      if (interval === 1) {
+          interval = 0
+          timer()
+      }
+      
+  });
 // Move to the next word and update stats only on spacebar press
 
 let wpm_acc = []
+
+function update() {
+    
+    const wordElements = wordDisplay.children;
+    const currentWordElement = wordElements[currentWordIndex];
+    const typedWord = inputField.value.trim();
+    const targetWord = wordsToType[currentWordIndex]
+
+    //compter les chars tapés
+    totalTypedWord += inputField.value.length;
+
+    if (typedWord == targetWord) {
+        totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
+    }else{
+        const correctWord = typedWord.split("").filter((lettre, index) =>
+            index < targetWord.length && lettre == targetWord[index]).length;
+        totalCorrectWord += correctWord;
+
+        //montrer que le mot est faux
+        incorrectWords.add(currentWordIndex);
+        currentWordElement.style.color = "red"
+    }
+
+
+    const wpm = getCurrentWpm();
+    const accuracy = getCurrentAccuracy();
+
+    //the wpm debbug
+    wpm_acc.push(wpm)
+    let acc = 0
+    for (let i = 0; i < wpm_acc.length; i++) {
+        acc += Math.floor(wpm_acc[i])
+    }  
+    acc = acc / wpm_acc.length
+    Wpm.innerText = acc.toFixed(0)
+    Accuracy.innerText = `${accuracy}%`
+    array_result.push([`${currentWordIndex}`, acc.toFixed(0), getCurrentAccuracy()])
+    
+    //initialise the progresssion
+    progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
+
+    currentWordIndex++;
+    if (currentWordIndex == Number.value) {
+        let result = localStorage.getItem('resultat');
+        if (result != null) {
+            localStorage.clear()
+        }
+        
+        localStorage.setItem('resultat', array_result);
+        localStorage.setItem('timer', document.getElementById("time").innerHTML);
+        window.location.href='finish_game.html';
+    }
+    previousEndTime = Date.now();
+    highlightNextWord();
+
+    inputField.value = ""; // Clear input field after space
+    event.preventDefault(); // Prevent adding extra spaces
+}
 const updateWord = (event) => {
     if (inputField.value[0] == " ") {
         inputField.value = ""
     }
     if (event.key === " " && inputField.value.length != 0) { // Check if spacebar is pressed
-        const wordElements = wordDisplay.children;
-        const currentWordElement = wordElements[currentWordIndex];
-        const typedWord = inputField.value.trim();
-        const targetWord = wordsToType[currentWordIndex]
-
-        //compter les chars tapés
-        totalTypedWord += inputField.value.length;
-
-        if (typedWord == targetWord) {
-            totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
-        }else{
-            const correctWord = typedWord.split("").filter((lettre, index) =>
-                index < targetWord.length && lettre == targetWord[index]).length;
-            totalCorrectWord += correctWord;
-
-            //montrer que le mot est faux
-            incorrectWords.add(currentWordIndex);
-            currentWordElement.style.color = "red"
-        }
-
-
-        const wpm = getCurrentWpm();
-        const accuracy = getCurrentAccuracy();
-
-        //the wpm debbug
-        wpm_acc.push(wpm)
-        let acc = 0
-        for (let i = 0; i < wpm_acc.length; i++) {
-            acc += Math.floor(wpm_acc[i])
-        }  
-        acc = acc / wpm_acc.length
-        Wpm.innerText = acc.toFixed(0)
-        Accuracy.innerText = `${accuracy}%`
-        array_result.push([`${currentWordIndex}`, acc.toFixed(0), getCurrentAccuracy()])
-        
-        //initialise the progresssion
-        progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
-
-        currentWordIndex++;
-        if (currentWordIndex == Number.value) {
-            let result = localStorage.getItem('resultat');
-            if (result != null) {
-                localStorage.clear()
-            }
-            
-            localStorage.setItem('resultat', array_result);
-            localStorage.setItem('timer', document.getElementById("time").innerHTML);
-            window.location.href='finish_game.html';
-        }
-        previousEndTime = Date.now();
-        highlightNextWord();
-
-        inputField.value = ""; // Clear input field after space
-        event.preventDefault(); // Prevent adding extra spaces
+        update()
     }
 };
 function timer() {
@@ -216,14 +229,7 @@ function timer() {
     }, 1000);
 }
 
-let interval = 1
-inputField.addEventListener("input", () => {
-    if (interval === 1) {
-        interval = 0
-        timer()
 
-    }
-});
 // Highlight the current word in red
 const highlightNextWord = () => {
     const wordElements = wordDisplay.children;
@@ -244,7 +250,73 @@ inputField.addEventListener("keydown", (event) => {
     startTimer();
     updateWord(event);
 });
+//keyboard
+
+
+const keyboardLayout = [
+    'A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
+    'Q', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
+    'W', 'X', 'C', 'V', 'B', 'N', '←', 'SPACE'
+  ];
+  
+  let Index = 0
+  const keyboard = document.getElementById('keyboard');
+  const textInput = document.getElementById('input-field');
+  let lastIndex = ''
+  
+  
+  
+  
+  keyboardLayout.forEach(key => {
+    const keyButton = document.createElement('button');
+    keyButton.textContent = key;
+    keyButton.classList.add('key');
+    keyButton.classList.add(key);
+  
+  
+  
+  
+    textInput.addEventListener("input", () => {
+      lastIndex = textInput.value[textInput.value.length - 1].toUpperCase()
+      if (keyButton.textContent == lastIndex) {
+  
+        keyButton.style.background = '#888787'
+        setInterval(() => {
+          keyButton.style.background = '#eee'
+        }, 300);
+      }
+    });
+  
+    // keyButton.style.background = 'grey'
+    if (key === '←' || key === 'SPACE') {
+      keyButton.classList.add('special');
+    }
+  
+  
+  
+    keyButton.addEventListener('click', () => {
+        if (interval === 1) {
+            interval = 0
+            timer()
+        }
+      if (key === '←') {
+        textInput.value = textInput.value.slice(0, -1);
+      } else if (key === 'SPACE') {
+        if (key === "SPACE" && inputField.value.length != 0) { // Check if spacebar is pressed
+            update()
+        }
+      } else {
+        textInput.value += key.toLowerCase();
+      }
+    });
+  
+    keyboard.appendChild(keyButton);
+  });
+
+
 
 // Start the test
 startTest();
+
+
 

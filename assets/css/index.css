@@ -23,9 +23,10 @@ body{
     margin-inline: 40px;
 }
 nav{
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     padding-inline: 50px;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,22 +34,16 @@ nav{
 .logo{
     display: flex;
 }
-nav h1{
-    text-align: center;
-    font-size: xx-large;
-    margin-top: 15px;
-}
- img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+#information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
 }
 .info{
     padding: 10px;
     border-radius: 5px;
-    width: 160px;
-    height: 50px;
+    height: fit-content;
 }
 
 #time{
@@ -90,15 +85,6 @@ header select{
     font-size: 2rem;
     color: var(--tertiary);
 }
-.je_sais_pas {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-    width: 90%;
-    padding:10px;
-    border-radius: 10px;
-}
 #word-display{
     text-align: center;
     font-size: 1.9rem;
@@ -114,17 +100,11 @@ header select{
     width: 50%;
     padding: 10px;
 }
-#information {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 30px;
-}
 .keyboard {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 5px;
-    margin-left: 25%;
+    margin: auto;
     width: 50%;
   }
 

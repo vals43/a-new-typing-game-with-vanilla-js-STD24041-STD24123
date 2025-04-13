@@ -68,8 +68,8 @@ theme.addEventListener('change' , () => {
     theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 6) {
-    myFunction_set('#000', '#149414' , '#FF4B66')
-    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
+    myFunction_set('#000', '#149414' , 'red')
+    theme.style.background =  'linear-gradient(to right , var(--secondary), var(--primary))';
   }
   if (theme.value == 7) {
     myFunction_set('#37404F', '#E0E4EB' , '#FFF')
