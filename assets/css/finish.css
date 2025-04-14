@@ -12,8 +12,11 @@
 :root {
   --primary: #777;
   --secondary : #333;
+  --tertiary : #333;
 }
-
+body{
+  background-color: var(--primary);
+}
 #curve_chart {
   width: 90%;
   height: 70vh;
@@ -24,15 +27,16 @@
   font-weight: bold;
   margin-left: 0.5rem;
   margin-top: 55px;
-  color: #777;
+  color: var(--secondary);
 }
 .accuracy{
   width: fit-content;
   height: fit-content;
-
 }
 .accuracy p{
   text-align: center;
+  
+  color: var(--secondary);
 }
 .outer { 
   width: 100px;
@@ -43,7 +47,7 @@
   align-items: center;
   justify-content: center;
   transition: all 2s ease;
-  box-shadow: -5px -3px 14px 1px #000000, 0px 1px 14px 0px #ffffff;
+  box-shadow: -5px -3px 14px 1px var(--secondary), 0px 1px 14px 0px #ffffff;
 }
 .inner {
   width: 80%;
@@ -63,13 +67,13 @@
   justify-content: center;
   font-size: 2rem; /* Make the number big! */
   font-weight: bold;
-  color: #333; /* A nice dark color */
+  color: var(--secondary); /* A nice dark color */
 }
 
 .wpm-unit {
   font-size: 1.5rem;
   margin-left: 0.5rem;
-  color: var(--primary);
+  color: var(--tertiary);
 }
 
 #wpm-value {
@@ -77,7 +81,8 @@
 }
 
 #btn-restart {
-  margin-left: 45%; 
+  margin-left: 45%;
+  width: 10%;
   padding: 10px;
   border-radius: 5px;
   background-color: green;
@@ -89,6 +94,5 @@
 .tsyaiko {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
   justify-content: space-around;
 }
