@@ -231,7 +231,7 @@ function timer() {
         }
         if (sec.innerHTML == 60) {
             min.innerText++
-            sec.innerText = 0
+            sec.innerText = '00'
         }
     }, 1000);
 }
