@@ -32,10 +32,11 @@ body{
 .accuracy{
   width: fit-content;
   height: fit-content;
-
 }
 .accuracy p{
   text-align: center;
+  
+  color: var(--secondary);
 }
 .outer { 
   width: 100px;
@@ -81,7 +82,7 @@ body{
 
 #btn-restart {
   margin-left: 45%;
-  width: 7%;
+  width: 10%;
   padding: 10px;
   
 }

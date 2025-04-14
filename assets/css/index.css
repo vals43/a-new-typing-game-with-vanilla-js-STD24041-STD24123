@@ -74,7 +74,7 @@ header{
 header label, header select{
     font-size: 1em;
     padding: 5px 10px;
-    border: 1px solid #636161;
+    border: 1px solid var(--secondary);
     border-radius: 5px;
 }
 header select{
@@ -90,8 +90,7 @@ header select{
     font-size: 1.9rem;
 }
 #keyboard {
-    font-size: 2.3rem;
-
+    font-size: 2rem;
 }
 #input-field{
     margin-left: 25%;

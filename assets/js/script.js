@@ -102,7 +102,7 @@ const startTest = (wordCount = 30) => {
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
         span.textContent = word + " ";
-        if (index === 0) span.style.color = "red"; // Highlight first word
+        if (index === 0) span.style.color = "blue"; // Highlight first word
         wordDisplay.appendChild(span);
 
     });
@@ -157,6 +157,9 @@ function update() {
     totalTypedWord += inputField.value.length;
 
     if (typedWord == targetWord) {
+        
+        currentWordElement.style.color = "green"
+        currentWordElement.style.textShadow = "none";
         totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
     }else{
         const correctWord = typedWord.split("").filter((lettre, index) =>
@@ -165,8 +168,11 @@ function update() {
 
         //montrer que le mot est faux
         incorrectWords.add(currentWordIndex);
+        
+        currentWordElement.style.textShadow = "none";
         currentWordElement.style.color = "red"
     }
+    
 
 
     const wpm = getCurrentWpm();
@@ -187,6 +193,8 @@ function update() {
     progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
 
     currentWordIndex++;
+
+    //get the value into result
     if (currentWordIndex == Number.value) {
         let result = localStorage.getItem('resultat');
         if (result != null) {
@@ -198,8 +206,7 @@ function update() {
         window.location.href='finish_game.html';
     }
     previousEndTime = Date.now();
-    highlightNextWord();
-
+    highlightNextWord()
     inputField.value = ""; // Clear input field after space
     event.preventDefault(); // Prevent adding extra spaces
 }
@@ -235,11 +242,7 @@ const highlightNextWord = () => {
     const wordElements = wordDisplay.children;
 
     if (currentWordIndex < wordElements.length) {
-        if ( currentWordIndex > 0) {
-            wordElements[currentWordIndex - 1].style.color = "green";
-            wordElements[currentWordIndex - 1].style.textShadow = "0 0 20px transparent";
-        }
-        wordElements[currentWordIndex].style.color = "red";
+        wordElements[currentWordIndex].style.color = "blue";
         wordElements[currentWordIndex].style.textShadow = "0 0 20px #ff9900";
     }
 };
