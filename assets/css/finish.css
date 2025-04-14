@@ -77,12 +77,14 @@
 }
 
 #btn-restart {
-  margin-left: 650px; 
+  margin-left: 45%; 
   padding: 10px;
-  
+  border-radius: 5px;
+  background-color: green;
 }
 #btn-restart a{
   text-decoration: none;
+  color: white;
 }
 .tsyaiko {
   display: flex;
