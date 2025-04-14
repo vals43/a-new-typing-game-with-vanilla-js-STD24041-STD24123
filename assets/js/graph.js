@@ -9,6 +9,7 @@ let inner = document.querySelector(".inner")
 let outer = document.querySelector(".outer")
 let theme = localStorage.getItem('theme');
 
+console.log(theme);
 
 
 function createArray(str) {
@@ -50,14 +51,20 @@ time.innerHTML = timer
 
 // border of accuracy 
 
-outer.style.background = `conic-gradient(from 0deg, red 0%, blue ${(accuracy * 360) / 100}deg, white 0deg)`;
+outer.style.background = `conic-gradient(from 0deg, red 0%, blue ${(accuracy * 360) / 100}deg, var(--secondary) 0deg)`;
 
 // graph
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
+
 function drawChart() {  
+  
+  let root = document.querySelector(':root');
+  
   var data = google.visualization.arrayToDataTable(changeStrToNumber(arrayResultant));
+  let primary = getComputedStyle(root).getPropertyValue('--primary')
+  let secondary = getComputedStyle(root).getPropertyValue('--secondary')
   
   var options = {
     title: 'Result',
@@ -67,11 +74,17 @@ function drawChart() {
     lineWidth: 3,
     pointSize: 10,
     vAxis: { title: 'WPM' },
+    backgroundColor: primary,
+    
+    legendTextStyle: { color: secondary },
+    titleTextStyle: { color: secondary },
     hAxis: {  // x-axis
-      gridlines: { color: 'FFFFFF' }
+      gridlines: { color: primary },
+        textStyle:{color: secondary}
     },
     vAxis: {  // y-axis
-      gridlines: { color: 'FFFFFF' },
+      gridlines: { color: primary },
+        textStyle:{color: secondary}
       
     },
     series: {
@@ -79,7 +92,7 @@ function drawChart() {
       1: { targetAxisIndex: 1 }  // Series 2 on right axis
     },
     vAxes: {
-      0: { title: 'Word per Minutes (WPM)', minValue: 0 }, // Left axis title
+      0: { title: 'Word per Minutes (WPM)', minValue: 0 , color: secondary }, // Left axis title
       1: { title: 'Accuracy (%)', ticks: [0,20,40,60,80,100,120], minValue: 0 }  // Right axis title
     },
     fontName : 'Quicksand',

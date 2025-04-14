@@ -2,6 +2,10 @@
     font-family: 'Quicksand';
     src: url(../font/Quicksand-Medium.ttf);
 }
+@font-face {
+    font-family: 'DS-DIGIT';
+    src: url(../font/DS-DIGIT.TTF);
+}
 
 *{
     margin: 0;
@@ -52,6 +56,10 @@ nav{
 #time{
     display: flex;
     flex-direction: row;
+    font-family: 'DS-DIGIT';
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--tertiary);
 }
 #word-display{
     animation: 1s fadeIn 1;
@@ -82,11 +90,6 @@ header label, header select{
 }
 header select{
     margin-right: 40px;
-}
-#time{
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--tertiary);
 }
 #word-display{
     text-align: center;
