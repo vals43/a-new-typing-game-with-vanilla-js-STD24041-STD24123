@@ -114,6 +114,7 @@ header label, header select{
 }
 header select{
     margin-right: 40px;
+    font-family: 'Quicksand';
 }
 #word-display{
     text-align: center;
@@ -128,6 +129,8 @@ header select{
     border-radius: 10px;
     width: 50%;
     padding: 10px;
+    font-family: 'Quicksand';
+    font-weight: bolder;
 }
 .keyboard {
     display: grid;
