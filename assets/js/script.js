@@ -149,7 +149,7 @@ let wpm_acc = []
 function update() {
     
     const wordElements = wordDisplay.children;
-    const currentWordElement = wordElements[currentWordIndex];
+    let currentWordElement = wordElements[currentWordIndex];
     const typedWord = inputField.value.trim();
     const targetWord = wordsToType[currentWordIndex]
 
@@ -162,6 +162,7 @@ function update() {
         currentWordElement.style.textShadow = "none";
         totalCorrectWord += targetWord.length //le mot est vraie == compter les caracteres comme vraie
     }else{
+
         const correctWord = typedWord.split("").filter((lettre, index) =>
             index < targetWord.length && lettre == targetWord[index]).length;
         totalCorrectWord += correctWord;
@@ -173,6 +174,13 @@ function update() {
         currentWordElement.style.color = "red"
     }
     
+    for (let i = 0; i < targetWord.length+1; i++) {
+        if (targetWord[i] != typedWord[i]) {
+            //continue raha vita
+
+        }
+
+    }
 
 
     const wpm = getCurrentWpm();
@@ -187,7 +195,7 @@ function update() {
     acc = acc / wpm_acc.length
     Wpm.innerText = acc.toFixed(0)
     Accuracy.innerText = `${accuracy}%`
-    array_result.push([`${currentWordIndex}`, acc.toFixed(0), getCurrentAccuracy()])
+    array_result.push([`${currentWordIndex+1}`, acc.toFixed(0), getCurrentAccuracy()])
     
     //initialise the progresssion
     progres.innerHTML = `${((currentWordIndex+1) * 100 / Number.value).toFixed(2)}%`
@@ -195,7 +203,7 @@ function update() {
     currentWordIndex++;
 
     //get the value into result
-    if (currentWordIndex == Number.value) {
+    if (currentWordIndex ==  Number.value) {
         let result = localStorage.getItem('resultat');
         if (result != null) {
             localStorage.clear()

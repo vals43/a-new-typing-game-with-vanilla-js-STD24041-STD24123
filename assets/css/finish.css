@@ -85,7 +85,8 @@ body{
   width: 10%;
   padding: 10px;
   border-radius: 5px;
-  background-color: green;
+  cursor: pointer;
+  background-color: var(--primary);
 }
 #btn-restart a{
   text-decoration: none;

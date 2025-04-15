@@ -24,7 +24,9 @@ function createArray(str) {
   }
   return array;
 }
-
+function goGame(){
+  window.location.href = 'index.html'
+}
 
 const arrayResultant = createArray(result);
 function changeStrToNumber(array) {
