@@ -21,7 +21,7 @@ function myFunction_set(primary, secondary, tertiary) {
     myFunction_set('#1D2955', '#DDE8F0', '#018ABD')
   }
   if (themeConst == 5) {
-    myFunction_set('#915A3C', '#E8E6E7', '#CFB79F')
+    myFunction_set('#5E3023', '#F3E9DC', '#C08552')
   }
   if (themeConst == 6) {
     myFunction_set('#000', '#149414' , 'red')

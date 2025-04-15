@@ -37,7 +37,7 @@ if (themeConst != null) {
   }
   if (themeConst == 5) {
     root.style.setProperty('--cinq', '--secondary');
-    myFunction_set('#915A3C', '#E8E6E7', '#CFB79F','#895737')
+    myFunction_set('#5E3023', '#F3E9DC', '#C08552','#895737')
   }
   if (themeConst == 6) {
     root.style.setProperty('--cinq', '--secondary');
@@ -75,7 +75,7 @@ theme.addEventListener('change' , () => {
     theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
   if (theme.value == 5) {
-    myFunction_set('#915A3C', '#E8E6E7', '#CFB79F','#895737')
+    myFunction_set('#5E3023', '#F3E9DC', '#C08552','#895737')
     root.style.setProperty('--cinq', '--secondary');
     theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
