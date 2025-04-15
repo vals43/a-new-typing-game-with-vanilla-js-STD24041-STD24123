@@ -30,7 +30,7 @@ body{
 nav{
     margin-bottom: 20px;
     margin-top: 20px;
-    padding-inline: 50px;
+    padding-left: 50px;
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -56,6 +56,8 @@ h1 span {
 #information {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
     justify-content: space-around;
     margin-top: 10px;
 }
@@ -83,7 +85,6 @@ h1 span {
     margin: auto;
     max-height: 9rem;
     color: var(--cinq);
-    overflow-y: hidden;
     animation: 1s fadeIn 1;
     background-color: var(--quatre);
     border: 2px solid var(--secondary);
@@ -114,14 +115,12 @@ header label, header select{
 }
 header select{
     margin-right: 40px;
+    margin-top: 10px;
     font-family: 'Quicksand';
 }
 #word-display{
     text-align: center;
     font-size: 1.9rem;
-}
-#keyboard {
-    font-size: 2rem;
 }
 #input-field{
     margin-left: 25%;
@@ -138,6 +137,7 @@ header select{
     gap: 5px;
     margin: auto;
     width: 50%;
+    font-size: 2rem;
   }
 
   .key {
@@ -159,3 +159,22 @@ header select{
   }
 
 
+@media (width <= 790px){
+    .keyboard{
+        display: none;
+    }
+    header{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    #word-display{
+        width: 95%;
+        padding: 10px;
+        max-height: 11rem;
+    }
+    #input-field{
+        width: 95%;
+        margin-left: 2.5%;
+    }
+}
