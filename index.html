@@ -21,13 +21,13 @@
             <div class="side-top">
               <button><i class="fas fa-book"></i> Tutorial</button>
               <button><i class="fas fa-star"></i> Score</button>
-              <button id="random"><i class="fas fa-dice"></i> Random Game</button>
+              <button id="random" ><i class="fas fa-dice"></i> Random Game</button>
               <button><i class="fas fa-comment-dots"></i> Feedback</button>
             </div>
             <div class="side-bottom">
               <button id="btn-deco" onclick="QuitGame()"><i class="fas fa-sign-out-alt"></i> Quit Game</button>
             </div>
-          </div>
+        </div>
 
     <div class="main">
         <header>
@@ -49,7 +49,16 @@
                     <option value="es">Español</option>
                 </select>
             </div>
-    
+            
+            <div class="select">
+                <label for="timed-mode"><i class="fa-solid fa-stopwatch"></i> Timed Mode :</label>
+                <select id="timed-mode">
+                    <option value="none">Off</option>
+                    <option value="60">1 minute</option>
+                    <option value="120">2 minutes</option>
+                </select>
+            </div>
+            
             <div class="select">
                 <label for="Number">Number of word :</label>
                 <select name="" id="Number">

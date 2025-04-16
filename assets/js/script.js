@@ -324,6 +324,26 @@ const keyboardLayout = [
     keyboard.appendChild(keyButton);
   });
 
+  function randomGame() {
+    const languages = ['en', 'fr', 'es'];
+    const levels = ['easy', 'medium', 'hard'];
+    const randomLang = languages[Math.floor(Math.random() * languages.length)];
+    const randomLevel = levels[Math.floor(Math.random() * levels.length)];
+    const randomCount = Math.floor(Math.random() * 41) + 10; // entre 10 et 50 mots
+
+    // Mettre à jour les sélections dans le DOM
+    Langue.value = randomLang;
+    modeSelect.value = randomLevel;
+    Number.value = randomCount;
+
+    // Mettre à jour currentWords et lancer le test
+    currentWords = wordLists[randomLang];
+    wordCount = randomCount;
+    startTest(wordCount);
+}
+document.getElementById("random").addEventListener("click", () => {
+    randomGame();
+});
 
 
 // Start the test

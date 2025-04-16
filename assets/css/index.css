@@ -37,6 +37,23 @@ nav{
     font-family: 'DS-DIGIT';
     justify-content: space-between;
 }
+.content{
+    margin-top: -5rem;
+}
+@keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .info, .keyboard {
+    animation: slideUp 0.5s ease;
+  }
+  
 .logo h1{
         margin-top: 18px;
         color: #00ffff;
@@ -177,6 +194,9 @@ nav{
     background-color: var(--quatre);
     border: 2px solid var(--secondary);
     width: 80%;
+    text-align: center;
+    font-size: 1.9rem;
+    
 }
 @keyframes fadeIn {
     from {
@@ -247,10 +267,6 @@ header select{
     color: black;
     padding: 10px;
   }
-#word-display{
-    text-align: center;
-    font-size: 1.9rem;
-}
 #input-field{
     margin-left: 25%;
     margin-block: 50px;
