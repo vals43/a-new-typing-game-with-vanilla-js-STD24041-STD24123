@@ -87,10 +87,15 @@ nav{
     z-index: 1000;
     transition: width 0.3s ease;
     overflow: hidden;
+    transition: 1s ease all;
 }
 
 .sidebar:hover {
     width: 240px;
+    .side-top,
+    .side-bottom {
+    border: none;
+    }
 }
 
 .side-top,
@@ -100,6 +105,7 @@ nav{
     gap: 15px;
     border: 2px solid var(--tertiary);
     border-radius: 10px;
+    transition: 1s ease all;
 }
 
 /* Boutons */
@@ -129,7 +135,7 @@ nav{
     max-width: 0;
     margin-left: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
 }
 
 .sidebar:hover button span {
@@ -196,7 +202,7 @@ nav{
     animation: 1s fadeIn 1;
     background-color: var(--quatre);
     border: 2px solid var(--secondary);
-    width: 70%;
+    width: 80%;
     text-align: center;
     font-size: 1.9rem;
 }
@@ -222,11 +228,8 @@ header{
     gap: 10px;
     margin-left: 15rem;
 }
-
 header label, header select{
     font-size: 1em;
-    padding: 5px 10px;
-    border: 1px solid var(--secondary);
     border-radius: 5px;
 }
 
