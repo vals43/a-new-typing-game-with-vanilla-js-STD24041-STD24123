@@ -65,6 +65,9 @@ nav{
     display: flex;
     flex-direction: row;
 }
+.logo img{
+  height: 5rem;
+}
 .logo h1 span {
     margin-left: 5px;
     color: #8a2be2;
@@ -72,13 +75,14 @@ nav{
 .logo{
     display: flex;
     flex-direction: row;
+    margin-left: -2rem;
 }
 
 .sidebar {
     position: fixed;
     top: 7rem;
     left: 1rem;
-    height: calc(100vh - 7rem);
+    height: calc(100vh - 8rem);
     color: var(--tertiary);
     display: flex;
     flex-direction: column;
@@ -226,7 +230,7 @@ header{
     flex-direction: row;
     justify-content: center;
     gap: 10px;
-    margin-left: 15rem;
+    margin-left: 7rem;
 }
 header label, header select{
     font-size: 1em;
