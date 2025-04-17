@@ -66,13 +66,15 @@ const getRandomWord = (mode) => {
 // change number of word
 Number.addEventListener('change' , () => {
     wordCount = Number.value;
-    
+    timeModeSelect.value = "off"
+    isTimedMode = false;
     startTest(wordCount)
 })
 // change language
 Langue.addEventListener('change' , () => {
     currentWords = wordLists[Langue.value];
-    
+    timeModeSelect.value = "off"
+    isTimedMode = false;
     startTest(wordCount)
     
 })
@@ -397,6 +399,7 @@ timeModeSelect.addEventListener("change", () => {
         isTimedMode = true;
         countdownDuration = parseInt(timeModeSelect.value);
         wordCount = 200;
+        Number.value = 200
     }
     startTest(wordCount);
 });
