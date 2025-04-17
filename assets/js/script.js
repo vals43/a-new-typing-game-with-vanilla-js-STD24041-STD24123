@@ -39,6 +39,9 @@ const Langue = document.getElementById("Langue");
 const Number = document.getElementById("Number")
 let currentWords = wordLists[Langue.value];
 let ending = document.getElementsByClassName("ending_game")
+let isTimedMode = false;
+let countdownDuration = 60; // par défaut 60s
+let countdownInterval = null;
 
 
 let startTime = null, previousEndTime = null;
@@ -102,14 +105,22 @@ const startTest = (wordCount = 30) => {
     wordsToType.forEach((word, index) => {
         const span = document.createElement("span");
         span.textContent = word + " ";
-        if (index === 0) span.style.color = "blue"; // Highlight first word
+        if (index === 0) span.style.color = "blue";
         wordDisplay.appendChild(span);
-
+        
+        if ((index + 1) % 10 === 0) {
+            wordDisplay.appendChild(document.createElement("br"));
+        }
     });
+    
 
     inputField.value = "";
     results.innerText = "";
 };
+const getWordSpans = () => {
+    return Array.from(wordDisplay.children).filter(el => el.tagName === "SPAN");
+};
+
 // Start the timer when user begins typing
 const startTimer = () => {
     if (!startTime) {
@@ -148,8 +159,9 @@ let wpm_acc = []
 
 function update() {
     
-    const wordElements = wordDisplay.children;
+    const wordElements = getWordSpans();
     let currentWordElement = wordElements[currentWordIndex];
+    
     const typedWord = inputField.value.trim();
     const targetWord = wordsToType[currentWordIndex]
 
@@ -203,16 +215,12 @@ function update() {
     currentWordIndex++;
 
     //get the value into result
-    if (currentWordIndex ==  Number.value) {
-        let result = localStorage.getItem('resultat');
-        if (result != null) {
-            localStorage.clear()
-        }
-        
-        localStorage.setItem('resultat', array_result);
-        localStorage.setItem('timer', document.getElementById("time").innerHTML);
-        window.location.href='finish_game.html';
+    if (!isTimedMode && currentWordIndex == Number.value) {
+        clearInterval(countdownInterval);
+        saveResults();          
+        endGame();
     }
+    
     previousEndTime = Date.now();
     highlightNextWord()
     inputField.value = ""; // Clear input field after space
@@ -227,27 +235,37 @@ const updateWord = (event) => {
     }
 };
 function timer() {
-    setInterval(() => {
-        const sec = document.querySelector(".sec")
-        const min = document.querySelector(".min")
-        sec.innerText++
-        if (sec.innerText.length == 1) {
-            sec.innerText = '0' + sec.innerText
+    const sec = document.querySelector(".sec");
+    const min = document.querySelector(".min");
+
+    let elapsed = 0;
+
+    countdownInterval = setInterval(() => {
+        elapsed++;
+        const total = isTimedMode ? countdownDuration : elapsed;
+        const remaining = isTimedMode ? countdownDuration - elapsed : elapsed;
+
+        const minutes = Math.floor((isTimedMode ? remaining : elapsed) / 60);
+        const seconds = (isTimedMode ? remaining : elapsed) % 60;
+
+        min.innerText = minutes < 10 ? "0" + minutes : minutes;
+        sec.innerText = seconds < 10 ? "0" + seconds : seconds;
+
+        // Si chrono fini
+        if (isTimedMode && elapsed >= countdownDuration) {
+            clearInterval(countdownInterval);
+            endGame();
         }
-        if (min.innerText.length == 1) {
-            min.innerText = '0' + min.innerText
-        }
-        if (sec.innerHTML == 60) {
-            min.innerText++
-            sec.innerText = '00'
-        }
+
     }, 1000);
 }
 
 
+
 // Highlight the current word in red
 const highlightNextWord = () => {
-    const wordElements = wordDisplay.children;
+    const wordElements = getWordSpans();
+
 
     if (currentWordIndex < wordElements.length) {
         wordElements[currentWordIndex].style.color = "blue";
@@ -327,23 +345,70 @@ const keyboardLayout = [
   function randomGame() {
     const languages = ['en', 'fr', 'es'];
     const levels = ['easy', 'medium', 'hard'];
-    const randomLang = languages[Math.floor(Math.random() * languages.length)];
+    const randomLanguage = languages[Math.floor(Math.random() * languages.length)];
     const randomLevel = levels[Math.floor(Math.random() * levels.length)];
-    const randomCount = Math.floor(Math.random() * 41) + 10; // entre 10 et 50 mots
+
+    // Tableau des valeurs de nombre de mots disponibles dans les options
+    const numberOptions = [10, 15, 20, 25, 30, 40, 50, 60];
+
+    // Choisir un nombre aléatoire parmi les options disponibles
+    const randomCount = numberOptions[Math.floor(Math.random() * numberOptions.length)];
 
     // Mettre à jour les sélections dans le DOM
-    Langue.value = randomLang;
+    Langue.value = randomLanguage;
     modeSelect.value = randomLevel;
-    Number.value = randomCount;
+    Number.value = randomCount; // Sélectionner un nombre de mots aléatoire
 
     // Mettre à jour currentWords et lancer le test
-    currentWords = wordLists[randomLang];
+    currentWords = wordLists[randomLanguage];
     wordCount = randomCount;
     startTest(wordCount);
 }
+
 document.getElementById("random").addEventListener("click", () => {
     randomGame();
 });
+// last 5 gemes stats
+function saveResults() {
+    const currentResult = `${Wpm.innerText},${Accuracy.innerText},${wordCount}`;
+
+    let allResults = localStorage.getItem('allResults');
+    let resultsArray = allResults || []; 
+    // Ajouter le nouveau résultat
+    resultsArray.push(currentResult);
+
+    // Limiter la liste des résultats aux 5 derniers
+    if (resultsArray.length > 5) {
+        resultsArray.shift(); // Supprimer le plus ancien résultat
+    }
+
+    // Sauvegarder la nouvelle liste dans le localStorage
+    localStorage.setItem('allResults', resultsArray.join("\n"));
+}
+
+//timer countdown
+const timeModeSelect = document.getElementById("timed-mode");
+
+timeModeSelect.addEventListener("change", () => {
+    if (timeModeSelect.value === "off") {
+        isTimedMode = false;
+        wordCount = Number.value;
+    } else {
+        isTimedMode = true;
+        countdownDuration = parseInt(timeModeSelect.value);
+        wordCount = 200; // mot très élevé pour ne pas bloquer
+    }
+    startTest(wordCount);
+});
+
+
+//endgame
+function endGame() {
+    localStorage.setItem('resultat', array_result);
+    localStorage.setItem('timer', document.getElementById("time").innerHTML);
+    window.location.href='finish_game.html';
+}
+
 
 
 // Start the test
@@ -351,3 +416,31 @@ startTest();
 
 
 
+/*
+// Fonction pour afficher les 5 derniers résultats
+function displayPreviousResults() {
+    const resultsContainer = document.getElementById('results-container'); // Exemple de conteneur pour afficher les résultats
+
+    // Récupérer les résultats précédents depuis le localStorage
+    const allResults = localStorage.getItem('allResults');
+
+    if (allResults) {
+        const resultsArray = allResults.split("\n"); // Divise par ligne (chaque ligne correspond à un jeu)
+
+        // Afficher les résultats
+        resultsArray.forEach(result => {
+            const [wpm, accuracy, wordsCount] = result.split(","); // Sépare les valeurs par virgule
+
+            const resultElement = document.createElement('div');
+            resultElement.innerHTML = `
+                <p>WPM: ${wpm}</p>
+                <p>Accuracy: ${accuracy}%</p>
+                <p>Number of words: ${wordsCount}</p>
+            `;
+            resultsContainer.appendChild(resultElement);
+        });
+    } else {
+        resultsContainer.innerHTML = "<p>No results saved.</p>";
+    }
+}
+*/

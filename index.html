@@ -19,14 +19,16 @@
     <div class="content">
         <div class="sidebar">
             <div class="side-top">
-              <button><i class="fas fa-book"></i> Tutorial</button>
-              <button><i class="fas fa-star"></i> Score</button>
-              <button id="random" ><i class="fas fa-dice"></i> Random Game</button>
-              <button><i class="fas fa-comment-dots"></i> Feedback</button>
+              <button><i class="fas fa-book"></i><span>Tutorial</span></button>
+              <button><i class="fas fa-star"></i><span>Score</span></button>
+              <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
+              <button><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
             </div>
             <div class="side-bottom">
-              <button id="btn-deco" onclick="QuitGame()"><i class="fas fa-sign-out-alt"></i> Quit Game</button>
+              <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
             </div>
+          </div>
+          
         </div>
 
     <div class="main">
@@ -53,10 +55,15 @@
             <div class="select">
                 <label for="timed-mode"><i class="fa-solid fa-stopwatch"></i> Timed Mode :</label>
                 <select id="timed-mode">
-                    <option value="none">Off</option>
-                    <option value="60">1 minute</option>
-                    <option value="120">2 minutes</option>
-                </select>
+                    <option value="off">Mode Classique</option>
+                    <option value="10">Chrono - 10 sec</option>
+                    <option value="15">Chrono - 15 sec</option>
+                    <option value="20">Chrono - 20 sec</option>
+                    <option value="30">Chrono - 30 sec</option>
+                    <option value="60">Chrono - 1 min</option>
+                    <option value="120">Chrono - 2 min</option>
+                  </select>
+                  
             </div>
             
             <div class="select">
