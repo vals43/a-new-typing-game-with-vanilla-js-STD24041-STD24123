@@ -27,13 +27,14 @@ if (themeConst != null) {
     root.style.setProperty('--cinq', '--secondary');
     myFunction_set('#292D38', 'white', '#BFC6D4', 'black')
   }
-  if (themeConst == 3) {
+  if (themeConst == 3) {  // Memory
     root.style.setProperty('--cinq', '--secondary');
-    myFunction_set('#2E2F5B', '#FAF0CA', '#F4D35E', '#0F1C46')
+    myFunction_set('#2E2F5B', '#FAF0CA', '#F4D35E', '#0F1C46');
   }
-  if (themeConst == 4) {
+  
+  if (themeConst == 4) {  // Sea Wave
     root.style.setProperty('--cinq', '--secondary');
-    myFunction_set('#1D2955', '#DDE8F0', '#018ABD' , '#191265')
+    myFunction_set('#0B132B', '#DDE8F0', '#00A8E8', '#1C2541');
   }
   if (themeConst == 5) {
     root.style.setProperty('--cinq', '--secondary');
@@ -64,15 +65,16 @@ theme.addEventListener('change' , () => {
     root.style.setProperty('--cinq', '--secondary');
     theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
   }
-  if (theme.value == 3) {
-    myFunction_set('#2E2F5B', '#FAF0CA', '#F4D35E', '#0F1C46')
+  if (theme.value == 3) {  // Memory Theme
+    myFunction_set('#2E2F5B', '#FAF0CA', '#F4D35E', '#0F1C46');
     root.style.setProperty('--cinq', '--secondary');
-    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
+    theme.style.background = 'linear-gradient(to right, var(--primary), var(--secondary))';
   }
-  if (theme.value == 4) {
-    myFunction_set('#1D2955', '#DDE8F0', '#018ABD' , '#191265')
+  
+  if (theme.value == 4) {  // Sea Wave Theme
+    myFunction_set('#0B132B', '#DDE8F0', '#00A8E8', '#1C2541');
     root.style.setProperty('--cinq', '--secondary');
-    theme.style.background =  'linear-gradient(to right , var(--primary), var(--secondary))';
+    theme.style.background = 'linear-gradient(to right, var(--primary), var(--secondary))';
   }
   if (theme.value == 5) {
     myFunction_set('#5E3023', '#F3E9DC', '#C08552','#895737')

@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Quicksand';
     src: url(../font/Quicksand-Medium.ttf);
@@ -6,6 +7,7 @@
     font-family: 'DS-DIGIT';
     src: url(../font/DS-DIGIT.TTF);
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -40,26 +42,28 @@ nav{
 .content{
     margin-top: -5rem;
 }
+
 @keyframes slideUp {
     from {
-      transform: translateY(30px);
-      opacity: 0;
+        transform: translateY(30px);
+        opacity: 0;
     }
     to {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
-  }
-  .info, .keyboard {
+}
+
+.info, .keyboard {
     animation: slideUp 0.5s ease;
-  }
-  
+}
+
 .logo h1{
-        margin-top: 18px;
-        color: #00ffff;
-        margin-right: 82%;
-        display: flex;
-        flex-direction: row;
+    margin-top: 18px;
+    color: #00ffff;
+    margin-right: 82%;
+    display: flex;
+    flex-direction: row;
 }
 .logo h1 span {
     margin-left: 5px;
@@ -69,92 +73,88 @@ nav{
     display: flex;
     flex-direction: row;
 }
+
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 70px;
-  background: linear-gradient(to bottom, var(--primary), var(--secondary));
-  color: var(--tertiary);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
-  padding: 20px 10px;
-  z-index: 1000;
-  transition: width 0.3s ease;
-  overflow: hidden;
+    position: fixed;
+    top: 7rem;
+    left: 1rem;
+    height: calc(100vh - 7rem);
+    color: var(--tertiary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 10px;
+    z-index: 1000;
+    transition: width 0.3s ease;
+    overflow: hidden;
 }
 
 .sidebar:hover {
-  width: 240px;
+    width: 240px;
 }
 
 .side-top,
 .side-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 2px solid var(--tertiary);
+    border-radius: 10px;
 }
 
 /* Boutons */
 .sidebar button {
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: none;
-  color: var(--tertiary);
-  font-size: 16px;
-  font-family: 'Quicksand';
-  padding: 12px 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  white-space: nowrap;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: var(--tertiary);
+    font-size: 16px;
+    font-family: 'Quicksand';
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-/* Icônes fixes */
 .sidebar button i {
-  min-width: 24px;
-  font-size: 18px;
-  text-align: center;
+    min-width: 30px;
+    font-size: 1.5rem;
 }
 
-/* Texte masqué par défaut */
 .sidebar button span {
-  opacity: 0;
-  max-width: 0;
-  margin-left: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
+    opacity: 0;
+    max-width: 0;
+    margin-left: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-/* Texte visible au survol */
 .sidebar:hover button span {
-  opacity: 1;
-  max-width: 200px;
-  margin-left: 12px;
+    opacity: 1;
+    max-width: 200px;
+    margin-left: 12px;
 }
 
 /* Hover effect */
 .sidebar button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateX(6px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar button:focus {
-  outline: none;
-  background: var(--tertiary);
-  color: white;
+    outline: none;
+    background: var(--tertiary);
+    color: white;
 }
 
-  #theme {
+#theme {
     background-image: linear-gradient(to right, var(--primary), var(--secondary));
 }
+
 #information {
     display: flex;
     flex-direction: row;
@@ -163,15 +163,18 @@ nav{
     justify-content: space-around;
     margin-top: 10px;
 }
+
 .info{
     padding: 10px;
     border-radius: 5px;
     height: fit-content;
 }
+
 .info p {
     margin-top: 3px;
     margin: auto;
 }
+
 #time{
     display: flex;
     flex-direction: row;
@@ -180,44 +183,44 @@ nav{
     font-size: 2.5rem;
     color: var(--tertiary);
 }
+
 #word-display{
-    overflow-y: auto;
     line-height: 2rem; /* pour aider au scroll net */
     margin-top: 20px !important;
     border-radius: 15px;
-    padding: 20px 100px;
+    padding: 20px 50px;
     margin: auto;
-    overflow-y: auto;
+    overflow-y: hidden;
     max-height: 9rem;
     color: var(--cinq);
     animation: 1s fadeIn 1;
     background-color: var(--quatre);
     border: 2px solid var(--secondary);
-    width: 80%;
+    width: 70%;
     text-align: center;
     font-size: 1.9rem;
 }
-.word-line {
-  margin-bottom: 8px;
-  white-space: nowrap;
-}
 
+.word-line {
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
 
 @keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 header{
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-left: 15rem;
 }
 
 header label, header select{
@@ -226,19 +229,21 @@ header label, header select{
     border: 1px solid var(--secondary);
     border-radius: 5px;
 }
+
 header select{
     margin-right: 40px;
     margin-top: 10px;
     font-family: 'Quicksand';
 }
+
 .select {
     display: flex;
     flex-direction: column;
     margin: 10px;
     font-family: 'Quicksand';
-  }
-  
-  .select label {
+}
+
+.select label {
     margin-bottom: 5px;
     font-weight: bold;
     color: var(--tertiary);
@@ -246,9 +251,9 @@ header select{
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-  
-  .select select {
+}
+
+.select select {
     padding: 10px 15px;
     border: 2px solid var(--tertiary);
     border-radius: 12px;
@@ -260,27 +265,29 @@ header select{
     appearance: none;
     outline: none;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
-  }
-  
-  .select select:hover {
+}
+
+.select select:hover {
     background: linear-gradient(135deg, #334155, #1e293b);
     border-color: #00ffff;
-  }
-  
-  .select select option {
+}
+
+.select select option {
     background: linear-gradient(90deg, #1e3a8a, #0f172a);
     color: black;
     padding: 10px;
-  }
+}
+
 #input-field{
     margin-left: 25%;
-    margin-block: 50px;
+    margin-block: 20px;
     border-radius: 10px;
     width: 50%;
     padding: 10px;
     font-family: 'Quicksand';
     font-weight: bolder;
 }
+
 .keyboard {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -288,9 +295,9 @@ header select{
     margin: auto;
     width: 50%;
     font-size: 2rem;
-  }
+}
 
-  .key {
+.key {
     background: #eee;
     border: none;
     padding: 15px;
@@ -298,33 +305,64 @@ header select{
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.2s;
-  }
+}
 
-  .key:hover {
+.key:hover {
     background: #ddd;
-  }
-  .key.special {
+}
+
+.key.special {
     grid-column: span 2;
     background-color: #ccc;
-  }
+}
 
+@media (max-width: 790px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        padding: 15px;
+    }
 
-@media (width <= 790px){
-    .keyboard{
+    .sidebar button span {
+        opacity: 1;
+        max-width: 200px;
+    }
+
+    .keyboard {
         display: none;
     }
-    header{
+
+    header {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
     }
-    #word-display{
+
+    #word-display {
         width: 95%;
         padding: 10px;
         max-height: 11rem;
     }
-    #input-field{
+
+    #input-field {
         width: 95%;
         margin-left: 2.5%;
+    }
+
+    .sidebar:hover {
+        width: 100%;
+    }
+
+    .logo h1 {
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .select {
+        width: 100%;
+        margin-top: 15px;
     }
 }

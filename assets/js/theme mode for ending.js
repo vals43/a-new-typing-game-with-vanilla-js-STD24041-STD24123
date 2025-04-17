@@ -28,4 +28,4 @@ function myFunction_set(primary, secondary, tertiary) {
   }
   if (themeConst == 7) {
     myFunction_set('#37404F', '#E0E4EB' , '#FFF')
-  }
+  } 
