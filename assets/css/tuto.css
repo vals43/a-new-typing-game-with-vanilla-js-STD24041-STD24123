@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url(../font/Quicksand-Medium.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +15,8 @@ h2, p {
 }
 
 .carrousel {
+    display: none;
+    border: 3px solid var(--secondary);
     width: 60%;
     max-width: 950px;
     background: var(--quatre);
@@ -23,9 +30,6 @@ h2, p {
     top: 30%;
     left: 20%;
     z-index: 999;
-}
-.content{
-    filter: blur(10px);
 }
 
 @keyframes slideIn {
@@ -77,30 +81,43 @@ h2, p {
 }
 
 .next-btn {
-    display: block;
-    width: 200px;
-    padding: 12px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, #ff6f61, #ff9d8e);
-    border: none;
+    width: 11rem;
+    height: 3rem;
+    background: black;
+    margin-left: 1%;
     color: white;
-    border-radius: 30px;
-    text-transform: uppercase;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-.next-btn:hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #ff9d8e, #ff6f61);
-}
-
-.next-btn:active {
-    transform: scale(0.98);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+   
+   .next-btn:hover {
+    color: black;
+   }
+   
+   .next-btn:after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+   
+   .next-btn:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+   }
 
 @keyframes textAppear {
     0% {
@@ -116,3 +133,74 @@ h2, p {
 .slide h2, .slide p {
     animation: textAppear 1s ease-in-out;
 }
+
+/*feedback*/
+.feedback-form {
+    display: none;
+    max-width: 500px;
+    margin: 50px auto;
+    position: absolute;
+    margin: auto;
+    left: 35%;
+    z-index: 999;
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0px 20px var(--secondary);
+    font-family: 'Quicksand';
+    transition: all 0.3s ease;
+  }
+  .feedback-form h2 {
+    margin-bottom: 20px;
+    color: var(--secondary);
+    text-align: center;
+  }
+  
+  .feedback-form label {
+    display: block;
+    margin-top: 15px;
+    color: var(--secondary);
+    font-weight: 600;
+  }
+  
+  .feedback-form input,
+  .feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid var(--quatre);
+    border-radius: 8px;
+    background-color: var(--quatre);
+    color: var(--secondary);
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .feedback-form input:focus,
+  .feedback-form textarea:focus {
+    border-color: var(--tertiary);
+    outline: none;
+    background-color: var(--primary);
+  }
+  
+  .feedback-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .feedback-form button:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
+  

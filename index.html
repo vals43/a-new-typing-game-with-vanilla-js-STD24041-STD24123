@@ -7,7 +7,9 @@
     <title>Typing Test</title>
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/tuto.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="body">
@@ -21,7 +23,8 @@
     <div class="carrousel tuto">
         <div class="slide active" id="slide-1">
             <h2>Bienvenue dans le jeu de dactylographie !</h2>
-            <p>Améliore ta vitesse et ta précision en tapant des mots dans un temps limité. Prêt à relever le défi et devenir le plus rapide ?</p>
+            <p>Améliore ta vitesse et ta précision en tapant des mots dans un temps limité. Prêt à relever le défi et
+                devenir le plus rapide ?</p>
             <button class="next-btn" onclick="nextSlide(2)">Suivant</button>
         </div>
 
@@ -32,14 +35,15 @@
                 <li><strong>Langue :</strong> Choisis entre anglais, français ou espagnol.</li>
                 <li><strong>Mode chronométré :</strong> 1 minute ou 2 minutes pour plus de challenge !</li>
                 <li><strong>Nombre de mots :</strong> Sélectionne le nombre de mots à taper (10, 20, 30...)</li>
-                <li><strong>Thème :</strong> Choisis entre plusieurs thèmes comme "Lumière", "Sombre", ou "Hacker".</li>
+                <li><strong>Thème :</strong> Choisis entre plusieurs thèmes parmis les proposés</li>
             </ul>
             <button class="next-btn" onclick="nextSlide(3)">Suivant</button>
         </div>
 
         <div class="slide" id="slide-3">
             <h2>Comment jouer</h2>
-            <p>Lis les mots affichés et tape-les dans le champ en bas de l'écran. Sois rapide et précis pour maximiser ton score !</p>
+            <p>Lis les mots affichés et tape-les dans le champ en bas de l'écran. Sois rapide et précis pour maximiser
+                ton score !</p>
             <button class="next-btn" onclick="nextSlide(4)">Suivant</button>
         </div>
 
@@ -56,119 +60,138 @@
                 <li>Ne te concentre pas uniquement sur la vitesse, la précision est clé !</li>
                 <li>Le mode chronométré te permettra de tester ta rapidité sous pression.</li>
             </ul>
-            <button class="next-btn" onclick="endTutorial()">Terminer le tutoriel</button>
+            <button class="next-btn" id="tuto-off">Terminer le tutoriel</button>
         </div>
+        
     </div>
-    <div class="sidebar">
-        <div class="side-top">
-          <button><i class="fas fa-book"></i><span>Tutorial</span></button>
-          <button><i class="fas fa-star"></i><span>Score</span></button>
-          <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
-          <button><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
-        </div>
-        <div class="side-bottom">
-          <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
-        </div>
+
+    <div class="feedback-form" id="feedbackForm">
+        <h2>Donnez-nous votre avis</h2>
+        <form onsubmit="handleFeedback(event)">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom" required>
+      
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Votre email" required>
+      
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+      
+          <button type="submit">Envoyer</button>
+        </form>
       </div>
       
+
+    <div class="sidebar">
+        <div class="side-top">
+            <button id="tuto-open"><i class="fas fa-book"></i><span>Tutorial</span></button>
+            <button><i class="fas fa-star"></i><span>Score</span></button>
+            <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
+            <button><i class="fas fa-comment-dots" id="feedback-on"></i><span>Feedback</span></button>
+        </div>
+        <div class="side-bottom">
+            <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
+        </div>
+    </div>
+
     </div>
     <div class="content">
 
-    <div class="main">
-        <header>
-                
-            <div class="select">
-                <label for="mode">Select Level :</label>
-                <select id="mode">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-            </div>
-    
-            <div class="select">
-                <label for="Langue"><i class="fa-sharp fa-solid fa-a"></i> Language :</label>
-                <select name="" id="Langue">
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="es">Español</option>
-                </select>
-            </div>
-            
-            <div class="select">
-                <label for="timed-mode"><i class="fa-solid fa-stopwatch"></i> Timed Mode :</label>
-                <select id="timed-mode">
-                    <option value="off">Mode Classique</option>
-                    <option value="10">Chrono - 10 sec</option>
-                    <option value="15">Chrono - 15 sec</option>
-                    <option value="20">Chrono - 20 sec</option>
-                    <option value="30">Chrono - 30 sec</option>
-                    <option value="60">Chrono - 1 min</option>
-                    <option value="120">Chrono - 2 min</option>
-                  </select>
-                  
-            </div>
-            
-            <div class="select">
-                <label for="Number">Number of word :</label>
-                <select name="" id="Number">
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="30" selected >30</option>
-                    <option value="40" >40</option>
-                    <option value="50" >50</option>
-                    <option value="60" >60</option>
-                </select>
-            </div>
-    
-            <div class="select">
-                <label for="theme"> <i class="fa-solid fa-palette"></i> Theme :</label>
-                <select name="" id="theme">
-                    <option value="1">Light</option>
-                    <option value="2">Dark</option>
-                    <option value="3">Memory</option>
-                    <option value="4">Sea Wave</option>
-                    <option value="5">brown</option>
-                    <option value="6">Hacker</option>
-                    <option value="7">Shades of grey</option>
-                </select>
-            </div>
-    
-            
-        </header>
-        <div id="time">
-            <p class="min">00</p>
-            <p>:</p>
-            <p class="sec">00</p>
-        </div>
-        <main>
-            <p id="word-display"></p>
-            <input type="text" id="input-field" autofocus  autocomplete="off" placeholder="Type here to play">
-            <div id="keyboard" class="keyboard"></div>
-            <div id="information">
-            <div class="info word">
-                <p>Wpm :
-                    <p id="wpm"></p>
-                </p>
-            </div>
-            <div class="info acc">
-                <p>Accuracy :
-                    <p id="accuracy"></p>
-                </p>
-            </div>
-            
-            <div class="info progression">
-                <p>Progression :
-                </p>
-                <p id="progres" >0%</p>
-            </div>
-            </div>
-        </main>
-    </div>
+        <div class="main">
+            <header>
 
-</div>
+                <div class="select">
+                    <label for="mode">Select Level :</label>
+                    <select id="mode">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="select">
+                    <label for="Langue"><i class="fa-sharp fa-solid fa-a"></i> Language :</label>
+                    <select name="" id="Langue">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+
+                <div class="select">
+                    <label for="timed-mode"><i class="fa-solid fa-stopwatch"></i> Timed Mode :</label>
+                    <select id="timed-mode">
+                        <option value="off">Mode Classique</option>
+                        <option value="10">Chrono - 10 sec</option>
+                        <option value="15">Chrono - 15 sec</option>
+                        <option value="20">Chrono - 20 sec</option>
+                        <option value="30">Chrono - 30 sec</option>
+                        <option value="60">Chrono - 1 min</option>
+                        <option value="120">Chrono - 2 min</option>
+                    </select>
+
+                </div>
+
+                <div class="select">
+                    <label for="Number">Number of word :</label>
+                    <select name="" id="Number">
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30" selected>30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                    </select>
+                </div>
+
+                <div class="select">
+                    <label for="theme"> <i class="fa-solid fa-palette"></i> Theme :</label>
+                    <select name="" id="theme">
+                        <option value="1">Light</option>
+                        <option value="2">Dark</option>
+                        <option value="3">Memory</option>
+                        <option value="4">Sea Wave</option>
+                        <option value="5">brown</option>
+                        <option value="6">Hacker</option>
+                        <option value="7">Shades of grey</option>
+                    </select>
+                </div>
+
+
+            </header>
+            <div id="time">
+                <p class="min">00</p>
+                <p>:</p>
+                <p class="sec">00</p>
+            </div>
+            <main>
+                <p id="word-display"></p>
+                <input type="text" id="input-field" autofocus autocomplete="off" placeholder="Type here to play">
+                <div id="keyboard" class="keyboard"></div>
+                <div id="information">
+                    <div class="info word">
+                        <p>Wpm :
+                        <p id="wpm"></p>
+                        </p>
+                    </div>
+                    <div class="info acc">
+                        <p>Accuracy :
+                        <p id="accuracy"></p>
+                        </p>
+                    </div>
+
+                    <div class="info progression">
+                        <p>Progression :
+                        </p>
+                        <p id="progres">0%</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
 
     <script type="module" src="assets/js/script.js"></script>
     <script src="assets/js/theme mode.js"></script>

@@ -396,7 +396,7 @@ timeModeSelect.addEventListener("change", () => {
     } else {
         isTimedMode = true;
         countdownDuration = parseInt(timeModeSelect.value);
-        wordCount = 200; // mot très élevé pour ne pas bloquer
+        wordCount = 200;
     }
     startTest(wordCount);
 });
@@ -408,6 +408,10 @@ function endGame() {
     localStorage.setItem('timer', document.getElementById("time").innerHTML);
     window.location.href='finish_game.html';
 }
+
+const tuto = document.getElementsByClassName('carrousel')
+const content = document.getElementsByClassName('content')
+const end = document.getElementById('finish-btn')
 
 
 
