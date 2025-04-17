@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, p {
+    text-align: center;
+    font-weight: 400;
+}
+
+.carrousel {
+    width: 60%;
+    max-width: 950px;
+    background: var(--quatre);
+    color: var(--secondary);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.5s ease;
+    animation: slideIn 0.7s ease-out;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    z-index: 999;
+}
+.content{
+    filter: blur(10px);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.slide p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.slide ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.slide ul li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.slide ul li::before {
+    position: absolute;
+    left: 0;
+    color: #ff6f61;
+}
+
+.next-btn {
+    display: block;
+    width: 200px;
+    padding: 12px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ff6f61, #ff9d8e);
+    border: none;
+    color: white;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff9d8e, #ff6f61);
+}
+
+.next-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes textAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide h2, .slide p {
+    animation: textAppear 1s ease-in-out;
+}

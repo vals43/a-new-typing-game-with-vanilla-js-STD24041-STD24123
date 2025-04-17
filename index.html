@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/tuto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -17,21 +18,61 @@
         </div>
     </nav>
 
-    
-    <div class="content">
-        <div class="sidebar">
-            <div class="side-top">
-              <button><i class="fas fa-book"></i><span>Tutorial</span></button>
-              <button><i class="fas fa-star"></i><span>Score</span></button>
-              <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
-              <button><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
-            </div>
-            <div class="side-bottom">
-              <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
-            </div>
-          </div>
-          
+    <div class="carrousel tuto">
+        <div class="slide active" id="slide-1">
+            <h2>Bienvenue dans le jeu de dactylographie !</h2>
+            <p>Améliore ta vitesse et ta précision en tapant des mots dans un temps limité. Prêt à relever le défi et devenir le plus rapide ?</p>
+            <button class="next-btn" onclick="nextSlide(2)">Suivant</button>
         </div>
+
+        <div class="slide" id="slide-2">
+            <h2>Choisir ton mode de jeu</h2>
+            <ul>
+                <li><strong>Niveau de difficulté :</strong> Facile, Moyen, Difficile</li>
+                <li><strong>Langue :</strong> Choisis entre anglais, français ou espagnol.</li>
+                <li><strong>Mode chronométré :</strong> 1 minute ou 2 minutes pour plus de challenge !</li>
+                <li><strong>Nombre de mots :</strong> Sélectionne le nombre de mots à taper (10, 20, 30...)</li>
+                <li><strong>Thème :</strong> Choisis entre plusieurs thèmes comme "Lumière", "Sombre", ou "Hacker".</li>
+            </ul>
+            <button class="next-btn" onclick="nextSlide(3)">Suivant</button>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <h2>Comment jouer</h2>
+            <p>Lis les mots affichés et tape-les dans le champ en bas de l'écran. Sois rapide et précis pour maximiser ton score !</p>
+            <button class="next-btn" onclick="nextSlide(4)">Suivant</button>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <h2>Statistiques et résultats</h2>
+            <p>Une fois ta partie terminée, tu verras ton WPM (mots par minute), ta précision, et ta progression !</p>
+            <button class="next-btn" onclick="nextSlide(5)">Suivant</button>
+        </div>
+
+        <div class="slide" id="slide-5">
+            <h2>Conseils pour améliorer ton score</h2>
+            <ul>
+                <li>Entraîne-toi régulièrement pour augmenter ta vitesse.</li>
+                <li>Ne te concentre pas uniquement sur la vitesse, la précision est clé !</li>
+                <li>Le mode chronométré te permettra de tester ta rapidité sous pression.</li>
+            </ul>
+            <button class="next-btn" onclick="endTutorial()">Terminer le tutoriel</button>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="side-top">
+          <button><i class="fas fa-book"></i><span>Tutorial</span></button>
+          <button><i class="fas fa-star"></i><span>Score</span></button>
+          <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
+          <button><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
+        </div>
+        <div class="side-bottom">
+          <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
+        </div>
+      </div>
+      
+    </div>
+    <div class="content">
 
     <div class="main">
         <header>
@@ -131,6 +172,7 @@
 
     <script type="module" src="assets/js/script.js"></script>
     <script src="assets/js/theme mode.js"></script>
+    <script src="assets/js/tuto.js"></script>
 </body>
 
 </html>
