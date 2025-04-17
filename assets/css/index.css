@@ -325,6 +325,8 @@ header select{
 
 @media (max-width: 790px) {
     .sidebar {
+        top: 0rem;
+        left: 1rem;
         position: relative;
         width: 100%;
         height: auto;
@@ -344,6 +346,8 @@ header select{
     header {
         display: flex;
         flex-wrap: wrap;
+        margin-left: 0;
+        margin-bottom: 0px;
         align-items: center;
     }
 

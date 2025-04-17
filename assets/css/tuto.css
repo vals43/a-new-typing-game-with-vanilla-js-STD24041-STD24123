@@ -210,3 +210,9 @@ h2, p {
     position: absolute;
     z-index: 999;
 }
+
+@media (max-width: 790px) {
+    .feedback-form {
+        left: 10%;
+    }
+}

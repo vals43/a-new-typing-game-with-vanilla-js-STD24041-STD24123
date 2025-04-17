@@ -37,6 +37,9 @@ function changeStrToNumber(array) {
   return result
 }
 
+//nbr de mot
+console.log((arrayResultant.length)-1);
+
 
 let accuracy = arrayResultant[arrayResultant.length - 1][2]
 let wpm = arrayResultant[arrayResultant.length - 1][1]

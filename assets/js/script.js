@@ -161,6 +161,7 @@ let wpm_acc = []
 
 function update() {
     
+    rmLigne(currentWordIndex)
     const wordElements = getWordSpans();
     let currentWordElement = wordElements[currentWordIndex];
     
@@ -196,7 +197,7 @@ function update() {
 
     }
 
-
+    
     const wpm = getCurrentWpm();
     const accuracy = getCurrentAccuracy();
 
@@ -412,10 +413,13 @@ function endGame() {
     window.location.href='finish_game.html';
 }
 
-const tuto = document.getElementsByClassName('carrousel')
-const content = document.getElementsByClassName('content')
-const end = document.getElementById('finish-btn')
 
+// monte a chaque saut de ligne || index % 10 == 0
+
+function rmLigne(index) {
+    const wordElements = getWordSpans();
+
+}
 
 
 // Start the test
