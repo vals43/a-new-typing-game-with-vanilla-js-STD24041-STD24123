@@ -48,3 +48,29 @@ function offFeedback(event) {
     form.style.display = "none";
     content.style.filter = "none";
 }
+
+function displayPreviousResults() {
+    const resultsContainer = document.getElementById('results-container');
+
+    // Récupérer les résultats précédents depuis le localStorage
+    const allResults = localStorage.getItem('allResults');
+
+    if (allResults) {
+        const resultsArray = allResults.split("\n");
+
+        // Afficher les résultats
+        resultsArray.forEach(result => {
+            const [wpm, accuracy, wordsCount] = result.split(",");
+
+            const resultElement = document.createElement('div');
+            resultElement.innerHTML = `
+                <p>WPM: ${wpm}</p>
+                <p>Accuracy: ${accuracy}%</p>
+                <p>Number of words: ${wordsCount}</p>
+            `;
+            resultsContainer.appendChild(resultElement);
+        });
+    } else {
+        resultsContainer.innerHTML = "<p>No results saved.</p>";
+    }
+}

@@ -204,3 +204,9 @@ h2, p {
     color: var(--primary);
   }
   
+
+#results-container{
+    color: white;
+    position: absolute;
+    z-index: 999;
+}

@@ -422,32 +422,3 @@ const end = document.getElementById('finish-btn')
 startTest();
 
 
-
-/*
-// Fonction pour afficher les 5 derniers résultats
-function displayPreviousResults() {
-    const resultsContainer = document.getElementById('results-container'); // Exemple de conteneur pour afficher les résultats
-
-    // Récupérer les résultats précédents depuis le localStorage
-    const allResults = localStorage.getItem('allResults');
-
-    if (allResults) {
-        const resultsArray = allResults.split("\n"); // Divise par ligne (chaque ligne correspond à un jeu)
-
-        // Afficher les résultats
-        resultsArray.forEach(result => {
-            const [wpm, accuracy, wordsCount] = result.split(","); // Sépare les valeurs par virgule
-
-            const resultElement = document.createElement('div');
-            resultElement.innerHTML = `
-                <p>WPM: ${wpm}</p>
-                <p>Accuracy: ${accuracy}%</p>
-                <p>Number of words: ${wordsCount}</p>
-            `;
-            resultsContainer.appendChild(resultElement);
-        });
-    } else {
-        resultsContainer.innerHTML = "<p>No results saved.</p>";
-    }
-}
-*/
