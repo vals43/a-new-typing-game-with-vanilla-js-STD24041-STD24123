@@ -253,10 +253,12 @@ function timer() {
 
         min.innerText = minutes < 10 ? "0" + minutes : minutes;
         sec.innerText = seconds < 10 ? "0" + seconds : seconds;
-
+        console.log(total);
+        
         // Si chrono fini
         if (isTimedMode && elapsed >= countdownDuration) {
             clearInterval(countdownInterval);
+            localStorage.setItem('elapsed', total);
             endGame();
         }
 

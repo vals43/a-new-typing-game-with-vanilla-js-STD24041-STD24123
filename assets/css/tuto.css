@@ -203,7 +203,12 @@ h2, p {
     background-color: var(--secondary);
     color: var(--primary);
   }
-  
+#feedback-off{
+    position: absolute;
+    top: -7%;
+    left: 93%;
+    width: fit-content;
+}  
 
 #results-container{
     color: white;

@@ -5,9 +5,12 @@ if (!navigator.onLine) {
 }
 
 let result = localStorage.getItem('resultat');
+let elapsed = localStorage.getItem('elapsed');
 let inner = document.querySelector(".inner")
 let outer = document.querySelector(".outer")
 let theme = localStorage.getItem('theme');
+
+
 
 
 
@@ -50,7 +53,13 @@ inner.innerHTML = `${accuracy}%`
 //Time
 const time = document.querySelector(".time")
 let timer = localStorage.getItem('timer');
-time.innerHTML = timer
+
+
+if (elapsed) {
+    time.innerText = `00 : ${elapsed} for ${(arrayResultant.length)-1} Words`
+}else{
+  time.innerHTML = `${timer}' for ${(arrayResultant.length)-1} Words`
+}
 
 
 // border of accuracy 
