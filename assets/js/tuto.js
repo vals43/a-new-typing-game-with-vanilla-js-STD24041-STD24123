@@ -13,6 +13,9 @@ off_tuto.addEventListener('click', endTutorial);
 on_feed.addEventListener('click', onFeedback);
 off_feed.addEventListener('click', offFeedback);
 
+
+
+
 function showSlide(slideNumber) {
     let slides = document.querySelectorAll('.slide');
     slides.forEach(slide => slide.classList.remove('active'));
