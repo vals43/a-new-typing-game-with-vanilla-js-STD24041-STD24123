@@ -403,11 +403,17 @@ const wordLists = {
   // Fonction rmLigne() (actuellement vide)
   // Si tu souhaites ajouter un effet lors d’un saut de ligne (chaque 10 mots), tu peux l’implémenter ici
   function rmLigne(index) {
-    if ((index + 1) % 10 === 0) {
-    wordDisplay.scrollTop += 30;
+    const wordElements = getWordSpans();
+    if (index === 0) return;
+
+    const current = wordElements[index];
+    const previous = wordElements[index - 1];
+
+    if (current.offsetTop > previous.offsetTop) {
+        wordDisplay.scrollTop += 30;
     }
-  }
-  
+}
+
   // Démarrage du test
   startTest();
   
