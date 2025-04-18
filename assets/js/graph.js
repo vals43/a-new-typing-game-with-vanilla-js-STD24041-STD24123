@@ -24,7 +24,9 @@ function createArray(str) {
   }
   return array;
 }
-
+function goGame(){
+  window.location.href = 'index.html'
+}
 
 const arrayResultant = createArray(result);
 function changeStrToNumber(array) {
@@ -51,7 +53,7 @@ time.innerHTML = timer
 
 // border of accuracy 
 
-outer.style.background = `conic-gradient(from 0deg, red 0%, blue ${(accuracy * 360) / 100}deg, var(--secondary) 0deg)`;
+outer.style.background = `conic-gradient(from 0deg, red 0%, blue ${(accuracy * 360) / 100}deg, beige 0deg)`;
 
 // graph
 google.charts.load('current', { 'packages': ['corechart'] });
