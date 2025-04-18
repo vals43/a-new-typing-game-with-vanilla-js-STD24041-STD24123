@@ -9,7 +9,7 @@ body {
   }
   
   .container {
-    
+    display: flex;
     text-align: center;
     padding: 50px 20px;
     position: relative;
@@ -18,7 +18,52 @@ body {
   img {
     height: 10rem;
   }
-  
+.left{
+    width: 45%;
+    padding-block: 7rem;
+    text-align: center;
+    h1{
+        margin-block: 20px;
+    }
+    p{
+        margin-block: 10px;
+    }
+}
+.mail, .pass{
+  width: min-content;
+  border: none;
+  background-color: rgb(190, 190, 190);
+  margin-block: 20px !important;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 5px;
+}
+.mail{
+  margin-top: 50px !important;
+}
+.pass{
+  margin-bottom: 30px !important;
+}
+input{
+  border: none;
+  padding: 13px;
+  padding-right: 50px;
+  padding-left: 20px;
+}
+.right{
+  width: max-content;
+  padding: 5rem 7rem;
+}
+.bars{  
+  position: absolute;
+  left: 45%;
+  z-index: -10;
+  height: 110vh;
+  margin-top: -3rem;
+  width: 100rem;
+  background-color: #000;
+  transform: skew(-20deg);
+}
   h1 {
     font-size: 3rem;
     background: linear-gradient(to right, #00ffff, #8a2be2);
@@ -99,12 +144,12 @@ body {
   .stats-box {
     margin: 30px auto;
     padding: 20px;
-    width: fit-content;
     background-color: #1a1a1a;
     color:#8a2be2;
     border: 2px solid rgba(0, 255, 255, 0.7);;
     font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
+    font-size: 10px;
+    gap: 1rem;
     text-align: left;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
     border-radius: 5px;

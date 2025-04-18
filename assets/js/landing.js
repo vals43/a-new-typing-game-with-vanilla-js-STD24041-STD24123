@@ -1,13 +1,30 @@
 const texts = [
-  "Améliore ta vitesse de frappe !",
-  "Défie tes amis !",
-  "Tapes vite, tapes juste !",
+  "Améliore ta vitesse de frappe ",
+  "Défie tes amis ! ",
+  "Tapes vite, tapes juste !  ",
   "Es-tu prêt pour le challenge ?"
 ];
 let index = 0;
 let charIndex = 0;
 let currentText = '';
 let isDeleting = false;
+let mail = document.querySelector("#email")
+let pass = document.querySelector("#password")
+let form = document.querySelector(".cta-button")
+
+form.addEventListener("click", sub)
+
+function sub() {
+    if (mail.value != "" && pass.value != "") {
+        form.innerText = ". . . .";
+        setTimeout(() => {
+            form.innerText = "Hello";
+            window.location = 'index.html';
+        }, 2000);
+    }else{
+      alert('Name or password missing ')
+    }
+}
 
 
 createParticles();
@@ -35,15 +52,9 @@ function typeEffect() {
   }
 }
 
-function startGame() {
-  const music = document.getElementById("bg-music");
-  music.play();
-
-  window.location.href = "index.html";
-}
 
 function createParticles() {
-  const count = 30;
+  const count = 100;
   for (let i = 0; i < count; i++) {
     const particle = document.createElement("div");
     particle.className = "particle";

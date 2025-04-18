@@ -10,3 +10,6 @@ Since this is an HTML project, you can use your favorite CSS framework of choice
 - Added bonus if you know how to use Git well.
 
 And most important of all, have fun 🔥
+
+
+In the login all input work
