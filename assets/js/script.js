@@ -102,10 +102,7 @@ const wordLists = {
       span.textContent = word + " ";
       if (index === 0) span.style.color = "blue";
       wordDisplay.appendChild(span);
-  
-      if ((index + 1) % 10 === 0) {
-        wordDisplay.appendChild(document.createElement("br"));
-      }
+
     });
   
     inputField.value = "";
@@ -151,12 +148,10 @@ const wordLists = {
   });
   
   let wpm_acc = [];
-  
-  //
-  // La fonction update() est appelée à chaque fois qu’un mot est terminé (en appuyant sur espace)
-  //
+
+
   function update(event) {
-    // Bug fix : vérifier que currentWordIndex n'est pas hors limites
+
     if (currentWordIndex >= wordsToType.length) return;
     
     rmLigne(currentWordIndex);
@@ -165,7 +160,7 @@ const wordLists = {
     const typedWord = inputField.value.trim();
     const targetWord = wordsToType[currentWordIndex];
   
-    // Compter les caractères tapés
+
     totalTypedWord += inputField.value.length;
   
     if (typedWord === targetWord) {

@@ -102,22 +102,22 @@ function drawChart() {
     
     legendTextStyle: { color: secondary },
     titleTextStyle: { color: secondary },
-    hAxis: {  // x-axis
+    hAxis: { 
       gridlines: { color: primary },
         textStyle:{color: secondary}
     },
-    vAxis: {  // y-axis
+    vAxis: {  
       gridlines: { color: primary },
         textStyle:{color: secondary}
       
     },
     series: {
-      0: { targetAxisIndex: 0 }, // Series 1 on left axis
-      1: { targetAxisIndex: 1 }  // Series 2 on right axis
+      0: { targetAxisIndex: 0 },
+      1: { targetAxisIndex: 1 } 
     },
     vAxes: {
-      0: { title: 'Word per Minutes (WPM)', minValue: 0 , color: secondary }, // Left axis title
-      1: { title: 'Accuracy (%)', ticks: [0,20,40,60,80,100,120], minValue: 0 }  // Right axis title
+      0: { title: 'Word per Minutes (WPM)', minValue: 0 , color: secondary },
+      1: { title: 'Accuracy (%)', ticks: [0,20,40,60,80,100,120], minValue: 0 }
     },
     fontName : 'Quicksand',
     
