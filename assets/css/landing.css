@@ -206,3 +206,14 @@ button:hover {
 }
   
   
+@media (width <= 790px){
+  .bars{
+    display: none;
+  }
+  .right{
+    display: none;
+  }
+  .left{
+    width: 100%;
+  }
+}
