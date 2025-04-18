@@ -7,7 +7,7 @@ function myFunction_set(primary, secondary, tertiary, quatre) {
   root.style.setProperty('--primary', primary);
   root.style.setProperty('--secondary', secondary);
   root.style.setProperty('--tertiary', tertiary);
-  root.style.setProperty('--quatre', quatre); 
+  root.style.setProperty('--quatre', quatre);
 }
 
 const themes = {
@@ -18,14 +18,12 @@ const themes = {
   7: ['#37404F', '#E0E4EB', '#FFF', '#37404F']
 };
 
-// Apply theme function
 function applyTheme(themeId) {
   if (themes[themeId]) {
     myFunction_set(...themes[themeId]);
     root.style.setProperty('--cinq', getComputedStyle(root).getPropertyValue('--secondary'));
     theme.style.background = 'linear-gradient(to right , var(--primary), var(--secondary))';
-    
-    // Remove custom colors when a theme is applied
+
     localStorage.removeItem('customPrimary');
     localStorage.removeItem('customSecondary');
     localStorage.removeItem('customTertiary');
@@ -44,7 +42,6 @@ theme.addEventListener('change', () => {
   applyTheme(parseInt(theme.value));
 });
 
-// Font change function
 function changePolice(fontName) {
   root.style.setProperty('--font', fontName);
   localStorage.setItem('fontName', fontName);
@@ -64,26 +61,23 @@ if (savedFont) {
   changePolice(savedFont);
 }
 
-// Color Pickers
-const bgColorPicker = document.getElementById('bgColor');  
-const textColorPicker = document.getElementById('textColor');  
+const bgColorPicker = document.getElementById('bgColor');
+const textColorPicker = document.getElementById('textColor');
 const btnColorPicker = document.getElementById('btnColor');
-const borderColorPicker = document.getElementById('borderColor'); 
+const borderColorPicker = document.getElementById('borderColor');
 
 function applyCustomColors(primary, secondary, tertiary, quatre) {
   root.style.setProperty('--primary', primary);
   root.style.setProperty('--secondary', secondary);
   root.style.setProperty('--tertiary', tertiary);
-  root.style.setProperty('--quatre', quatre); 
+  root.style.setProperty('--quatre', quatre);
 }
 
-// Load and apply custom colors if available
 let savedPrimary = localStorage.getItem('customPrimary');
 let savedSecondary = localStorage.getItem('customSecondary');
 let savedTertiary = localStorage.getItem('customTertiary');
-let savedQuatre = localStorage.getItem('customQuatre'); 
+let savedQuatre = localStorage.getItem('customQuatre');
 
-// If custom colors exist, apply them
 if (savedPrimary && savedSecondary && savedTertiary && savedQuatre) {
   bgColorPicker.value = savedPrimary;
   textColorPicker.value = savedSecondary;
@@ -92,7 +86,6 @@ if (savedPrimary && savedSecondary && savedTertiary && savedQuatre) {
   applyCustomColors(savedPrimary, savedSecondary, savedTertiary, savedQuatre);
 }
 
-// Event listener to update custom colors and save them
 [bgColorPicker, textColorPicker, btnColorPicker, borderColorPicker].forEach(picker => {
   picker.addEventListener('input', () => {
     const primary = bgColorPicker.value;

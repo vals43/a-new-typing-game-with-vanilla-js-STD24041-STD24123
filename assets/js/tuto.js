@@ -50,8 +50,8 @@ function startTutorial() {
 }
 
 function endTutorial() {
-        tuto.style.display = "none";
-        content.style.filter = "none";
+    tuto.style.display = "none";
+    content.style.filter = "none";
 }
 
 // Feedback
@@ -65,4 +65,27 @@ function offFeedback(event) {
     form.style.display = "none";
     content.style.filter = "none";
 }
-    
+
+function displayPreviousResults() {
+    const resultsContainer = document.getElementById('results-container');
+
+    const allResults = localStorage.getItem('allResults');
+
+    if (allResults) {
+        const resultsArray = allResults.split("\n");
+
+        resultsArray.forEach(result => {
+            const [wpm, accuracy, wordsCount] = result.split(",");
+
+            const resultElement = document.createElement('div');
+            resultElement.innerHTML = `
+                <p>WPM: ${wpm}</p>
+                <p>Accuracy: ${accuracy}%</p>
+                <p>Number of words: ${wordsCount}</p>
+            `;
+            resultsContainer.appendChild(resultElement);
+        });
+    } else {
+        resultsContainer.innerHTML = "<p>No results saved.</p>";
+    }
+}
