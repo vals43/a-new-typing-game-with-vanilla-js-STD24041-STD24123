@@ -4,6 +4,14 @@
     src: url(../font/Quicksand-Medium.ttf);
 }
 @font-face {
+    font-family: 'Fira';
+    src: url(../font/FiraCode-Medium.ttf);
+}
+@font-face {
+    font-family: 'JetBrains';
+    src: url(../font/JetBrainsMono-Medium.ttf);
+}
+@font-face {
     font-family: 'DS-DIGIT';
     src: url(../font/DS-DIGIT.TTF);
 }
