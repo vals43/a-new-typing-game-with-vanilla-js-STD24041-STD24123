@@ -83,27 +83,61 @@
         <button id="feedback-off"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-    <div id="option">
+
+      <div id="option">
+        <h1><i class="fa-solid fa-gear"></i> Paramètres</h1>
+    
         <div class="select">
-            <label for="theme"> <i class="fa-solid fa-palette"></i> Theme :</label>
-            <select name="" id="theme">
-                <option value="1">Light</option>
+            <h2><i class="fa-solid fa-palette"></i> Thème prédéfini</h2>
+            <label for="theme">Choisissez un thème :</label>
+            <select id="theme">
                 <option value="2">Dark</option>
                 <option value="3">Memory</option>
                 <option value="4">Sea Wave</option>
-                <option value="5">brown</option>
-                <option value="6">Hacker</option>
-                <option value="7">Shades of grey</option>
+                <option value="5">Brown</option>
+                <option value="7">Shades of Grey</option>
             </select>
         </div>
+    
+        <hr>
+    
         <div class="select">
-            <label for="font"> <i class="fa-solid fa-font"></i> font :</label>
-            <select name="" id="font">
+            <h2><i class="fa-solid fa-font"></i> Police</h2>
+            <label for="font">Choisissez une police :</label>
+            <select id="font">
                 <option value="1">Quicksand</option>
+                <option value="2">JetBrains</option>
+                <option value="3">FiraCode</option>
             </select>
         </div>
-
+    
+        <hr>
+    
+        <div class="select">
+            <h2><i class="fa-solid fa-sliders"></i> Thème personnalisé</h2>
+            <p>Personnalisez vos couleurs :</p>
+    
+            <div class="perso">
+                <div class="">
+                    <label for="bgColor">🎨 Fond :</label>
+                <input type="color" id="bgColor" value="#ffffff"><br>
+                </div>
+        
+                <div class="">
+                    <label for="textColor">🖋️ Texte :</label>
+                <input type="color" id="textColor" value="#000000"><br>
+                </div>
+        
+                <div class="">
+                    <label for="btnColor">📏 Bordures :</label>
+                <input type="color" id="btnColor" value="#007bff"><br><br>
+                </div>
+        
+            </div>
+            <button id="applyCustomTheme" class="next-btn center">Appliquer</button>
+        </div>
     </div>
+    
       
     
 
@@ -112,7 +146,7 @@
             <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>    
             <button id="tuto-open"><i class="fas fa-book"></i><span>Tutorial</span></button>
             <button  id="feedback-on"><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
-            <button id="score"><i class="fa-solid fa-gear"></i><span>Setting</span></button>
+            <button id="Setting"><i class="fa-solid fa-gear"></i><span>Setting</span></button>
         </div>
         <div class="side-bottom">
             <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>

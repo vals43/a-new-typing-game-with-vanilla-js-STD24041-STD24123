@@ -3,8 +3,11 @@ let currentSlide = 1;
 const on_tuto = document.getElementById('tuto-open');
 const off_tuto = document.getElementById('tuto-off');
 const on_feed = document.getElementById('feedback-on');
+const set = document.getElementById('Setting');
+const offset = document.getElementById('applyCustomTheme');
 const off_feed = document.getElementById('feedback-off');
 const form = document.getElementById("feedbackForm");
+const option = document.getElementById("option");
 const tuto = document.querySelector('.tuto');
 const content = document.querySelector(".content");
 
@@ -12,8 +15,18 @@ on_tuto.addEventListener('click', startTutorial);
 off_tuto.addEventListener('click', endTutorial);
 on_feed.addEventListener('click', onFeedback);
 off_feed.addEventListener('click', offFeedback);
+set.addEventListener('click', onSet);
+offset.addEventListener('click', offSet);
 
 
+function onSet() {
+    option.style.display = "block";
+    content.style.filter = "blur(10px)";
+}
+function offSet() {
+    option.style.display = "none";
+    content.style.filter = "none";
+}
 
 
 function showSlide(slideNumber) {

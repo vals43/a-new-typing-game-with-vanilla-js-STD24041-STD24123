@@ -141,7 +141,9 @@ h2, p {
     margin: 50px auto;
     position: absolute;
     margin: auto;
-    left: 35%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 999;
     background-color: var(--primary);
     color: var(--secondary);
@@ -222,7 +224,32 @@ h2, p {
     }
 }
 
-#option{
-    width: fit-content;
+
+#option {
+    display: none;
+    max-width: 500px;     
+    width: 100%;       
+    margin: 50px auto;  
     position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 30px;            
+    border-radius: 15px;    
+    box-shadow: 0 0px 20px var(--secondary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-family: var(--font);
+    transition: all 0.3s ease;
+}
+.perso{
+    display: flex;
+    margin: auto;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+.center{
+    position: relative;
+    left: 25%;
 }
