@@ -50,8 +50,8 @@ function startTutorial() {
 }
 
 function endTutorial() {
-        tuto.style.display = "none";
-        content.style.filter = "none";
+    tuto.style.display = "none";
+    content.style.filter = "none";
 }
 
 // Feedback
@@ -69,13 +69,11 @@ function offFeedback(event) {
 function displayPreviousResults() {
     const resultsContainer = document.getElementById('results-container');
 
-    // Récupérer les résultats précédents depuis le localStorage
     const allResults = localStorage.getItem('allResults');
 
     if (allResults) {
         const resultsArray = allResults.split("\n");
 
-        // Afficher les résultats
         resultsArray.forEach(result => {
             const [wpm, accuracy, wordsCount] = result.split(",");
 
