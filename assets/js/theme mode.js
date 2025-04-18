@@ -101,3 +101,24 @@ if (savedPrimary && savedSecondary && savedTertiary && savedQuatre) {
     localStorage.setItem('customQuatre', quatre);
   });
 });
+
+
+// responsive
+
+let btn_resp = document.getElementById("resp-btn");
+let sidebar = document.querySelector(".sidebar");
+
+btn_resp.addEventListener('click', reponsiveSidebar)
+
+function reponsiveSidebar(){
+  
+  if (sidebar.style.display == 'none') {
+    console.log('test');
+    sidebar.style.display = 'inline'
+  }
+
+  if (sidebar.style.display == 'inline') {
+    console.log('test');
+    sidebar.style.display = 'none'
+  }
+}

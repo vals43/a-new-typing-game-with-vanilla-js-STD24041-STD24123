@@ -141,13 +141,14 @@ function update(event) {
     const targetChar = targetWord[i];
     span.textContent = targetChar;
     span.style.color = typedChar === targetChar ? "green" : "red";
-    if (typedChar === targetChar) correctCharsCount++;
+    if (typedChar === targetChar) totalCorrectWord++;
     currentWordElement.appendChild(span);
   }
 
   currentWordElement.innerHTML += ' ';
   const wpm = getCurrentWpm();
   const accuracy = getCurrentAccuracy();
+  
   wpm_acc.push(wpm);
   let avgWpm = wpm_acc.reduce((a, b) => a + Math.floor(b), 0) / wpm_acc.length;
   Wpm.innerText = avgWpm.toFixed(0);
