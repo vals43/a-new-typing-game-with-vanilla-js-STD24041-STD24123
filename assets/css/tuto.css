@@ -148,7 +148,7 @@ h2, p {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0px 20px var(--secondary);
-    font-family: 'Quicksand';
+    font-family: var(--font);
     transition: all 0.3s ease;
   }
   .feedback-form h2 {
@@ -220,4 +220,9 @@ h2, p {
     .feedback-form {
         left: 10%;
     }
+}
+
+#option{
+    width: fit-content;
+    position: absolute;
 }

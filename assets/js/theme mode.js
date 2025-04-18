@@ -9,6 +9,9 @@ function myFunction_set(primary, secondary, tertiary, quatre) {
   root.style.setProperty('--tertiary', tertiary);
   root.style.setProperty('--quatre', quatre);
 }
+function changePolice(font) {
+  root.style.setProperty('--font', font);
+}
 
 let themeConst = localStorage.getItem('theme');
 localStorage.clear()

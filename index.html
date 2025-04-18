@@ -80,18 +80,39 @@
           <button type="submit">Envoyer</button>
         </form>
 
-        <button id="feedback-off"> off</button>
+        <button id="feedback-off"><i class="fa-solid fa-xmark"></i></button>
       </div>
+
+    <div id="option">
+        <div class="select">
+            <label for="theme"> <i class="fa-solid fa-palette"></i> Theme :</label>
+            <select name="" id="theme">
+                <option value="1">Light</option>
+                <option value="2">Dark</option>
+                <option value="3">Memory</option>
+                <option value="4">Sea Wave</option>
+                <option value="5">brown</option>
+                <option value="6">Hacker</option>
+                <option value="7">Shades of grey</option>
+            </select>
+        </div>
+        <div class="select">
+            <label for="font"> <i class="fa-solid fa-font"></i> font :</label>
+            <select name="" id="font">
+                <option value="1">Quicksand</option>
+            </select>
+        </div>
+
+    </div>
       
-    <div id="results-container"></div>
     
 
     <div class="sidebar">
         <div class="side-top">
+            <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>    
             <button id="tuto-open"><i class="fas fa-book"></i><span>Tutorial</span></button>
-            <button id="score"><i class="fas fa-star"></i><span>Score</span></button>
-            <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
             <button  id="feedback-on"><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
+            <button id="score"><i class="fa-solid fa-gear"></i><span>Setting</span></button>
         </div>
         <div class="side-bottom">
             <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
@@ -126,12 +147,13 @@
                     <label for="timed-mode"><i class="fa-solid fa-stopwatch"></i> Timed Mode :</label>
                     <select id="timed-mode">
                         <option value="off">Mode Classique</option>
-                        <option value="10">Chrono - 10 sec</option>
-                        <option value="15">Chrono - 15 sec</option>
-                        <option value="20">Chrono - 20 sec</option>
-                        <option value="30">Chrono - 30 sec</option>
-                        <option value="60">Chrono - 1 min</option>
-                        <option value="120">Chrono - 2 min</option>
+                        <option value="10">Chrono - 10sec</option>
+                        <option value="15">Chrono - 15sec</option>
+                        <option value="20">Chrono - 20sec</option>
+                        <option value="30">Chrono - 30sec</option>
+                        <option value="60">Chrono - 1min</option>
+                        <option value="90">Chrono - 1min 30sec</option>
+                        <option value="120">Chrono - 2min</option>
                     </select>
 
                 </div>
@@ -147,19 +169,6 @@
                         <option value="40">40</option>
                         <option value="50">50</option>
                         <option value="60">60</option>
-                    </select>
-                </div>
-
-                <div class="select">
-                    <label for="theme"> <i class="fa-solid fa-palette"></i> Theme :</label>
-                    <select name="" id="theme">
-                        <option value="1">Light</option>
-                        <option value="2">Dark</option>
-                        <option value="3">Memory</option>
-                        <option value="4">Sea Wave</option>
-                        <option value="5">brown</option>
-                        <option value="6">Hacker</option>
-                        <option value="7">Shades of grey</option>
                     </select>
                 </div>
 

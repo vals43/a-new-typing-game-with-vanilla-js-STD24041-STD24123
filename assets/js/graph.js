@@ -56,7 +56,18 @@ let timer = localStorage.getItem('timer');
 
 
 if (elapsed) {
-    time.innerText = `00 : ${elapsed} for ${(arrayResultant.length)-1} Words`
+ if (elapsed <=59) {
+      time.innerText = `00 : ${elapsed} for ${(arrayResultant.length)-1} Words`
+ }
+ if (elapsed == 60) {
+      time.innerText = `01 : 00 for ${(arrayResultant.length)-1} Words`
+ }
+ if (elapsed == 90) {
+      time.innerText = `01 : 30 for ${(arrayResultant.length)-1} Words`
+ }
+ if (elapsed == 120) {
+      time.innerText = `02 : 00 for ${(arrayResultant.length)-1} Words`
+ }
 }else{
   time.innerHTML = `${timer}' for ${(arrayResultant.length)-1} Words`
 }
