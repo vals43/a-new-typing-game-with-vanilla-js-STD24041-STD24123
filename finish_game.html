@@ -6,25 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="assets/css/finish.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
 <body>
   <nav>
     <div class="logo">
-        <img src="assets/img/typing-game_2.png" alt="">
-        <h1>Typing <span>Game</span></h1>
+      <img src="assets/img/typing-game_2.png" alt="">
+      <h1>Typing <span>Game</span></h1>
     </div>
-</nav>
+  </nav>
 
+  <div class="container">
     <div id="curve_chart"></div>
-    
-    <div class="tsyaiko">
+
+    <div class="stat">
       <div class="time"></div>
       <div class="wpm-container">
         <span id="wpm-value">0</span>
-        <span class="wpm-unit">WPM</span> 
+        <span class="wpm-unit">WPM</span>
       </div>
       <div class="accuracy">
         <div class="outer">
@@ -33,15 +36,16 @@
         <p>Accuracy</p>
       </div>
     </div>
-    
-    <button class="btn" onclick="goGame()"><i class="fa-solid fa-rotate-left"></i>&nbsp; Restart Test</button>
+  </div>
+
+  <button class="btn" onclick="goGame()"><i class="fa-solid fa-rotate-left"></i>&nbsp; Restart Test</button>
 
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="assets/js/graph.js"></script>
-    <script src="assets/js/theme mode for ending.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="assets/js/graph.js"></script>
+  <script src="assets/js/theme mode for ending.js"></script>
 
 
-  </body>
+</body>
 
 </html>

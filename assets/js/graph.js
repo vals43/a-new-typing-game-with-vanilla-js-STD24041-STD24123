@@ -96,7 +96,7 @@ function drawChart() {
     legend: { position: 'bottom' },
     colors: ['blue', 'red'],
     lineWidth: 3,
-    pointSize: 6,
+    pointSize: 5,
     vAxis: { title: 'WPM' },
     backgroundColor: primary,
     

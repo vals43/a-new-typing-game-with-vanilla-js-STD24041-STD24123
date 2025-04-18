@@ -156,64 +156,80 @@ const wordLists = {
   // La fonction update() est appelée à chaque fois qu’un mot est terminé (en appuyant sur espace)
   //
   function update(event) {
-    // Bug fix : vérifier que currentWordIndex n'est pas hors limites
     if (currentWordIndex >= wordsToType.length) return;
-    
+  
     rmLigne(currentWordIndex);
+  
     const wordElements = getWordSpans();
     let currentWordElement = wordElements[currentWordIndex];
     const typedWord = inputField.value.trim();
     const targetWord = wordsToType[currentWordIndex];
   
-    // Compter les caractères tapés
     totalTypedWord += inputField.value.length;
   
-    if (typedWord === targetWord) {
-      currentWordElement.style.color = "green";
-      currentWordElement.style.textShadow = "none";
-      totalCorrectWord += targetWord.length; // Le mot est correct donc tous les caractères sont comptés
-    } else {
-      const correctChars = typedWord.split("").filter((lettre, index) =>
-        index < targetWord.length && lettre === targetWord[index]
-      ).length;
-      totalCorrectWord += correctChars;
-      incorrectWords.add(currentWordIndex);
-      currentWordElement.style.textShadow = "none";
-      currentWordElement.style.color = "red";
+    currentWordElement.innerHTML = ''; // Réinitialiser l'élément
+    let correctCharsCount = 0;
+  
+    // Vérifier chaque lettre du mot
+    for (let i = 0; i < targetWord.length; i++) {
+      const span = document.createElement('span');
+      const typedChar = typedWord[i];
+      const targetChar = targetWord[i];
+  
+      if (typedChar === targetChar) {
+        span.textContent = targetChar;
+        span.style.color = "green"; // Lettre correcte en vert
+        correctCharsCount++;
+      } else {
+        span.textContent = targetChar;
+        span.style.color = "red"; // Lettre incorrecte en rouge
+      }
+  
+      currentWordElement.appendChild(span);
     }
   
+    // Ajouter un espace après chaque mot pour éviter qu'ils se collent
+    currentWordElement.innerHTML += ' '; 
+  
+    // Calcul de la WPM et de l'accuracy
     const wpm = getCurrentWpm();
     const accuracy = getCurrentAccuracy();
   
     wpm_acc.push(wpm);
     let avgWpm = 0;
-    for (let i = 0; i < wpm_acc.length; i++) {
-      avgWpm += Math.floor(wpm_acc[i]);
+    if (wpm_acc.length > 0) {
+      for (let i = 0; i < wpm_acc.length; i++) {
+        avgWpm += Math.floor(wpm_acc[i]);
+      }
+      avgWpm = avgWpm / wpm_acc.length;
     }
-    avgWpm = avgWpm / wpm_acc.length;
     Wpm.innerText = avgWpm.toFixed(0);
     Accuracy.innerText = `${accuracy}%`;
     array_result.push([`${currentWordIndex + 1}`, avgWpm.toFixed(0), accuracy]);
-    
-    progres.innerHTML = `${((currentWordIndex + 1) * 100 / Number.value).toFixed(2)}%`;
+  
+    // Affichage de la progression
+    progres.innerHTML = `${((currentWordIndex + 1) * 100 / wordsToType.length).toFixed(2)}%`;
   
     currentWordIndex++;
-    
+  
     // Fin du test en mode non chronométré
-    if (!isTimedMode && currentWordIndex === parseInt(Number.value)) {
+    if (!isTimedMode && currentWordIndex === wordsToType.length) {
       clearInterval(countdownInterval);
       saveResults();
       endGame();
-  }
+    }
   
-    
     previousEndTime = Date.now();
     highlightNextWord();
+  
+    // Garder l'espace entre les mots dans le champ de saisie
     inputField.value = ""; // Effacer l'input après espace
-    
+  
     // Pour empêcher l'ajout d'espaces supplémentaires
     if (event) event.preventDefault();
   }
+  
+  
   
   //
   // Modification de updateWord() pour gérer correctement l'espace initial
@@ -264,7 +280,6 @@ const wordLists = {
     const wordElements = getWordSpans();
     if (currentWordIndex < wordElements.length) {
       wordElements[currentWordIndex].style.color = "blue";
-      wordElements[currentWordIndex].style.textShadow = "0 0 20px #ff9900";
     }
   };
   
@@ -402,7 +417,7 @@ const wordLists = {
   
   // Fonction rmLigne() (actuellement vide)
   // Si tu souhaites ajouter un effet lors d’un saut de ligne (chaque 10 mots), tu peux l’implémenter ici
-  function rmLigne(index) {
+function rmLigne(index) {
     const wordElements = getWordSpans();
     if (index === 0) return;
 

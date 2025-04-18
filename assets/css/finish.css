@@ -27,14 +27,25 @@ nav{
   font-family: 'DS-DIGIT';
   justify-content: space-between;
 }
-#curve_chart {
+.container{
+  border: 5px solid var(--secondary);
+  padding: 20px;
+  border-radius: 10px;
   width: 90%;
+  margin: auto;
+  height: fit-content;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+#curve_chart {
+  width: 70%;
   height: 60vh;
   margin-top: -2rem;
 }
 .time{
   display: flex;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-left: 0.5rem;
   margin-top: 55px;
@@ -43,6 +54,7 @@ nav{
 .accuracy{
   width: fit-content;
   height: fit-content;
+  margin-left: 6rem !important;
 }
 .accuracy p{
   text-align: center;
@@ -57,10 +69,12 @@ nav{
   align-items: center;
   justify-content: center;
   transition: all 2s ease;
+  text-align: center;
 }
 .inner {
   width: 80%;
   height: 80%;
+  text-align: center; 
   background-color: var(--primary);
   color: var(--secondary);
   border-radius: 50%;
@@ -74,9 +88,11 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem; /* Make the number big! */
+  margin: auto;
+  margin-block: 4rem;
+  font-size: 4rem;
   font-weight: bold;
-  color: var(--secondary); /* A nice dark color */
+  color: var(--secondary);
 }
 
 .wpm-unit {
@@ -117,6 +133,7 @@ flex-direction: row;
   position: relative;
   z-index: 1;
   overflow: hidden;
+  margin-top: 20px;
  }
  
  .btn:hover {
@@ -141,8 +158,7 @@ flex-direction: row;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
  }
-.tsyaiko {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
+
+ .stat{
+  align-items: end;
+ }
