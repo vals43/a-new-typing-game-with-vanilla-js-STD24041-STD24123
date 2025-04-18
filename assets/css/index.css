@@ -23,10 +23,10 @@
 }
 
 :root{
-    --primary: white;
-    --secondary: black;
-    --tertiary: #37404f;
-    --quatre: black;
+    --primary: #0B132B;
+    --secondary: #DDE8F0;
+    --tertiary: #00A8E8;
+    --quatre: #1C2541;
     --cinq: white;
     --font: 'Quicksand'
 }
