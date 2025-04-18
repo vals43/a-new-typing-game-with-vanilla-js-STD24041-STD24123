@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+  <audio id="bg-music" loop>
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav"> 
+  </audio>
+
+  <div class="container">
+    <img src="assets/img/typing-game_2.png" alt="">
+    <h1>Typing Game</h1>
+    <p class="typing-animation" id="typing"></p>
+    <button class="cta-button" onclick="startGame()"> <a href="index.html"></a>Jouer Maintenant</button>
+  </div>
+  <div class="stats-box">
+    <h3>Statistiques </h3>
+    <p>  WPM (Moyenne Mondial): <span id="wpm">40</span></p>
+    <p>  WPM (Record du monde): <span id="wpm">293 WPM achieved by @MythicalRocket</span></p>
+  </div>
+  
+
+  <script src="assets/js/landing.js"></script>
+</body>
+</html>

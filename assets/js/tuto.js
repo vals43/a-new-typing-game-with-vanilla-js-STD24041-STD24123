@@ -7,6 +7,7 @@ const set = document.getElementById('Setting');
 const offset = document.getElementById('applyCustomTheme');
 const off_feed = document.getElementById('feedback-off');
 const form = document.getElementById("feedbackForm");
+const deco = document.getElementById("btn-deco");
 const option = document.getElementById("option");
 const tuto = document.querySelector('.tuto');
 const content = document.querySelector(".content");
@@ -18,6 +19,9 @@ off_feed.addEventListener('click', offFeedback);
 set.addEventListener('click', onSet);
 offset.addEventListener('click', offSet);
 
+deco.addEventListener('click', function () {
+    window.location.href = 'landing.html'
+})
 
 function onSet() {
     option.style.display = "block";
