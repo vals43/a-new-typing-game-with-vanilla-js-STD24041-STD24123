@@ -50,6 +50,7 @@ Number.addEventListener('change', () => {
   timeModeSelect.value = "off";
   isTimedMode = false;
   startTest(wordCount);
+  forceFocusInput()
 });
 
 Langue.addEventListener('change', () => {
@@ -57,9 +58,13 @@ Langue.addEventListener('change', () => {
   timeModeSelect.value = "off";
   isTimedMode = false;
   startTest(wordCount);
+  forceFocusInput()
 });
 
-modeSelect.addEventListener("change", () => startTest(wordCount));
+modeSelect.addEventListener("change", () => {
+  startTest(wordCount) ;
+  forceFocusInput()
+});
 
 
 
@@ -79,9 +84,11 @@ const startTest = (wordCount = 30) => {
   totalCorrectWord = 0;
   const sec = document.querySelector(".sec");
   const min = document.querySelector(".min");
-  sec.innerText = '00';
-  min.innerText = '00';
-
+  if (sec && min) {
+    sec.innerText = '00';
+    min.innerText = '00';
+  }
+  
   for (let i = 0; i < wordCount; i++) {
     wordsToType.push(getRandomWord(modeSelect.value));
   }
@@ -92,7 +99,7 @@ const startTest = (wordCount = 30) => {
     if (index === 0) span.style.color = "blue";
     wordDisplay.appendChild(span);
   });
-
+  inputField.focus()
   inputField.value = "";
   results.innerText = "";
 };
@@ -172,6 +179,19 @@ function update(event) {
   if (event) event.preventDefault();
 }
 
+document.addEventListener("keydown", function(e) {
+  if (e.altKey && e.key === "Enter") {
+    e.preventDefault(); 
+    resetTest();
+  }
+});
+
+
+function resetTest() {
+  timeModeSelect.value = isTimedMode ? countdownDuration : "off";
+  startTest(wordCount);
+  forceFocusInput();
+}
 const updateWord = (event) => {
   if (inputField.value.startsWith(" ")) inputField.value = "";
   if (event.key === " " && inputField.value.length !== 0) update(event);
@@ -272,6 +292,7 @@ function randomGame() {
   currentWords = wordLists[randomLanguage];
   wordCount = randomCount;
   startTest(wordCount);
+  inputField.focus()
 }
 
 document.getElementById("random").addEventListener("click", () => {
@@ -289,6 +310,20 @@ function saveResults() {
   localStorage.setItem('allResults', resultsArray.join("\n"));
 }
 
+function forceFocusInput() {
+  setTimeout(() => {
+    requestAnimationFrame(() => {
+      const input = document.getElementById("input-field");
+      if (input) {
+        input.focus();
+        input.select(); // Facultatif, sélectionne le texte si besoin
+        console.log("Focus forcé sur input-field");
+      } else {
+        console.warn("input-field non trouvé !");
+      }
+    });
+  }, 100);
+}
 
 const timeModeSelect = document.getElementById("timed-mode");
 timeModeSelect.addEventListener("change", () => {
@@ -303,6 +338,7 @@ timeModeSelect.addEventListener("change", () => {
     toggleTimerVisibility(true);
   }
   startTest(wordCount);
+    forceFocusInput()
 });
 
 function endGame() {
@@ -320,3 +356,6 @@ function rmLigne(index) {
 }
 
 startTest();
+
+
+

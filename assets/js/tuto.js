@@ -100,14 +100,9 @@ window.addEventListener("DOMContentLoaded", () => {
     };
   
     const rows = allResults.split("\n");
-    console.log(rows);
     while (rows.length > 5) {
         rows.shift()
     }
-
-
-
-    
   
     rows.forEach((entry, index) => {
       const [time,wpm, accuracy, count, langCode] = entry.split(",");

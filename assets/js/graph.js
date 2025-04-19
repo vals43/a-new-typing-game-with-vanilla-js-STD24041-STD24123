@@ -64,7 +64,7 @@ if (elapsed) {
     time.innerText = `00 : ${elapsed} for ${(arrayResultant.length) - 1} Words`
   }
   if (elapsed == 60) {
-    time.innerText = `01 : 00 for  ${(arrayResultant.length) - 1} Words`
+    time.innerText = `01 : 00 for ${(arrayResultant.length) - 1} Words`
   }
   if (elapsed == 90) {
     time.innerText = `01 : 30 for ${(arrayResultant.length) - 1} Words`
