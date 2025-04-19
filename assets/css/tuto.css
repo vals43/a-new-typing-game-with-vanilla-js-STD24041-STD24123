@@ -1,0 +1,334 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url(../font/Quicksand-Medium.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, p {
+    text-align: center;
+    font-weight: 400;
+}
+
+.carrousel {
+    display: none;
+    border: 3px solid var(--secondary);
+    width: 60%;
+    max-width: 950px;
+    background: var(--quatre);
+    color: var(--secondary);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.5s ease;
+    animation: slideIn 0.7s ease-out;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    z-index: 999;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.slide p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.slide ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.slide ul li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.slide ul li::before {
+    position: absolute;
+    left: 0;
+    color: #ff6f61;
+}
+
+.next-btn {
+    width: 11rem;
+    height: 3rem;
+    background: black;
+    margin-left: 1%;
+    color: white;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+   
+   .next-btn:hover {
+    color: black;
+   }
+   
+   .next-btn:after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+   
+   .next-btn:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+   }
+
+@keyframes textAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide h2, .slide p {
+    animation: textAppear 1s ease-in-out;
+}
+
+/*feedback*/
+.feedback-form {
+    display: none;
+    max-width: 500px;
+    margin: 50px auto;
+    position: absolute;
+    margin: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0px 20px var(--secondary);
+    font-family: var(--font);
+    transition: all 0.3s ease;
+  }
+  .feedback-form h2 {
+    margin-bottom: 20px;
+    color: var(--secondary);
+    text-align: center;
+  }
+  
+  .feedback-form label {
+    display: block;
+    margin-top: 15px;
+    color: var(--secondary);
+    font-weight: 600;
+  }
+  
+  .feedback-form input,
+  .feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid var(--quatre);
+    border-radius: 8px;
+    background-color: var(--quatre);
+    color: var(--secondary);
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .feedback-form input:focus,
+  .feedback-form textarea:focus {
+    border-color: var(--tertiary);
+    outline: none;
+    background-color: var(--primary);
+  }
+  
+  .feedback-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .feedback-form button:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+  }
+#feedback-off{
+    position: absolute;
+    top: -7%;
+    left: 93%;
+    width: fit-content;
+}  
+
+#results-container{
+    color: white;
+    position: absolute;
+    z-index: 999;
+}
+
+@media (max-width: 790px) {
+    .feedback-form {
+        left: 10%;
+    }
+}
+
+
+#option {
+    display: none;
+    max-width: 500px;     
+    width: 100%;       
+    margin: 50px auto;  
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 30px;            
+    border-radius: 15px;    
+    box-shadow: 0 0px 20px var(--secondary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    font-family: var(--font);
+    transition: all 0.3s ease;
+}
+.perso{
+    display: flex;
+    margin: auto;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+.center{
+    position: relative;
+    left: 25%;
+}
+
+
+#leaderboard {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    display: none;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--quatre);
+    border: 2px solid var(--secondary);
+    border-radius: 20px;
+    padding: 20px;
+    font-family: var(--font);
+    color: var(--cinq);
+    box-shadow: 0 0 15px rgba(0, 168, 232, 0.2);    
+}
+
+#leaderboard h2 {
+    text-align: center;
+    color: var(--tertiary);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#leaderboard thead {
+    background-color: var(--primary);
+    color: var(--tertiary);
+}
+
+#leaderboard th, 
+#leaderboard td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--secondary);
+}
+.close-btn{
+    position: absolute;
+    left: 98%;
+    top: -2rem;
+    width: fit-content;
+    margin-top: 20px;   
+    padding: 12px;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+#leaderboard tr:hover {
+    background-color: rgba(0, 168, 232, 0.05);
+}
+
+#leaderboard tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 768px) {
+    #leaderboard table {
+        font-size: 0.85rem;
+    }
+
+    #leaderboard th, 
+    #leaderboard td {
+        padding: 8px 10px;
+    }
+}
