@@ -1,268 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Test</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/tuto.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 
-<body class="body">
-    <nav>
-        <div class="logo">
-            <img src="assets/img/typing-game_2.png" alt="">
-            <h1>Typing <span>Game</span></h1>
-        </div>
-        <button id="resp-btn"><i class="fa-solid fa-bars"></i></button>
-    </nav>
+<body>
 
-    <div class="carrousel tuto">
-        <div class="slide active" id="slide-1">
-            <h2>Welcome to the typing game!</h2>
-            <p>Improve your speed and accuracy by typing words within a time limit. Ready to take on the challenge and become the fastest?</p>
-            <button class="next-btn" onclick="nextSlide(2)">Next</button>
-        </div>
 
-        <div class="slide" id="slide-2">
-            <h2>Choose your game mode</h2>
-            <ul>
-                <li><strong>Difficulty level:</strong> Easy, Medium, Hard</li>
-                <li><strong>Language:</strong> Choose between English, French, or Spanish.</li>
-                <li><strong>Timed mode:</strong> 10s, 15s, 20s, etc. for more challenge!</li>
-                <li><strong>Number of words:</strong> Select how many words to type (10, 20, 30...)</li>
-                <li><strong>Theme:</strong> Choose from the available themes</li>
-            </ul>
-            <button class="next-btn" onclick="nextSlide(3)">Next</button>
-        </div>
+  <div class="container">
+    <div class="left">
+      <div class="back"></div>
+      <h1>Sign in</h1>
 
-        <div class="slide" id="slide-3">
-            <h2>How to play</h2>
-            <p>Read the displayed words and type them in the field at the bottom of the screen. Be fast and accurate to maximize your score!</p>
-            <button class="next-btn" onclick="nextSlide(4)">Next</button>
-        </div>
+      <p class="typing-animation" id="typing"></p>
+      <div class="mail">
+          <i id="icon" class="fa-solid fa-user"></i>
+          <input type="email" name="email" id="email" placeholder="Name" autocomplete="off" required>
+      </div>
+      <div class="pass">
+          <i id="icon" class="fa-solid fa-key"></i>
+          <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+      </div>
+      <button class="cta-button">Sign in</button>
 
-        <div class="slide" id="slide-4">
-            <h2>Statistics and results</h2>
-            <p>Once your game is over, you'll see your WPM (words per minute), accuracy, and progress!</p>
-            <button class="next-btn" onclick="nextSlide(5)">Next</button>
-        </div>
+  </div>
+  <div class="bars"></div>
+  <div class="right">
+    <img src="assets/img/typing-game_2.png" alt="">
+    <h1>Typing Game</h1>
 
-        <div class="slide" id="slide-5">
-            <h2>Tips to improve your score</h2>
-            <ul>
-                <li>Practice regularly to increase your speed.</li>
-                <li>Don't focus only on speed – accuracy is key!</li>
-                <li>Timed mode will let you test your speed under pressure.</li>
-            </ul>
-            <button class="next-btn" id="tuto-off">Finish tutorial</button>
-        </div>
-
+    <div class="stats-box">
+      <h3>Statistiques </h3>
+      <p> WPM (Moyenne Mondial): <span id="wpm">40 WPM</span></p>
+      <p> WPM (Record du monde):  <br> <br><span id="wpm">  293 WPM achieved by @MythicalRocket</span></p>
     </div>
+  </div>
 
-    <div class="feedback-form" id="feedbackForm">
-        <h2>Give us your feedback</h2>
-        <form onsubmit="handleFeedback(event)">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required>
+  </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your email" required>
 
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
-
-            <button type="submit">Send</button>
-        </form>
-
-        <button id="feedback-off"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-
-    <div id="leaderboard">
-        <button id="close-btn" class="close-btn"><i class="fas fa-times"></i></button>
-        <h2>Score History</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Time</th>
-                    <th>WPM</th>
-                    <th>Accuracy</th>
-                    <th>Words</th>
-                    <th>Language</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboard-body"></tbody>
-        </table>
-    </div>
-
-    <div id="option">
-        <h1><i class="fa-solid fa-gear"></i> Settings</h1>
-
-        <div class="select">
-            <h2><i class="fa-solid fa-palette"></i> Preset Theme</h2>
-            <label for="theme">Choose a theme:</label>
-            <select id="theme">
-                <option value="2">Dark</option>
-                <option value="3">Memory</option>
-                <option value="5">Brown</option>
-                <option value="4" selected>Sea Wave</option>
-                <option value="7">Shades of Grey</option>
-            </select>
-        </div>
-
-        <hr>
-
-        <div class="select">
-            <h2><i class="fa-solid fa-font"></i> Font</h2>
-            <label for="font">Choose a font:</label>
-            <select id="font">
-                <option value="1">Quicksand</option>
-                <option value="2">JetBrains</option>
-                <option value="3">FiraCode</option>
-            </select>
-        </div>
-
-        <hr>
-
-        <div class="select">
-            <h2><i class="fa-solid fa-sliders"></i> Custom Theme</h2>
-            <p>Customize your colors:</p>
-
-            <div class="perso">
-                <div>
-                    <label for="bgColor">Background:</label>
-                    <input type="color" id="bgColor" value="#ffffff"><br>
-                </div>
-
-                <div>
-                    <label for="textColor">Text:</label>
-                    <input type="color" id="textColor" value="#000000"><br>
-                </div>
-
-                <div>
-                    <label for="btnColor">Borders:</label>
-                    <input type="color" id="btnColor" value="#007bff"><br><br>
-                </div>
-
-                <div>
-                    <label for="borderColor">Secondary background:</label>
-                    <input type="color" id="borderColor" value="#FFD700"><br><br>
-                </div>
-            </div>
-
-            <button id="applyCustomTheme" class="next-btn center">Apply</button>
-        </div>
-    </div>
-
-    <div class="sidebar">
-        <div class="side-top">
-            <button id="random"><i class="fas fa-dice"></i><span>Random Game</span></button>
-            <button id="score-btn" class="score-btn"><i class="fas fa-trophy"></i><span>Score</span></button>
-            <button id="tuto-open"><i class="fas fa-book"></i><span>Tutorial</span></button>
-            <button id="feedback-on"><i class="fas fa-comment-dots"></i><span>Feedback</span></button>
-            <button id="Setting"><i class="fa-solid fa-gear"></i><span>Settings</span></button>
-        </div>
-        <div class="side-bottom">
-            <button id="btn-deco"><i class="fas fa-sign-out-alt"></i><span>Quit Game</span></button>
-        </div>
-    </div>
-
-    </div>
-    <div class="content">
-        <div class="main">
-            <header>
-
-                <div class="select">
-                    <label for="mode">Select Level:</label>
-                    <select id="mode">
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
-                </div>
-
-                <div class="select">
-                    <label for="Langue"><i class="fa-sharp fa-solid fa-a"></i> Language:</label>
-                    <select name="" id="Langue">
-                        <option value="en">English</option>
-                        <option value="fr">Francais</option>
-                        <option value="es">Espanõl</option>
-                    </select>
-                </div>
-
-                <div class="select">
-                    <label for="timed-mode"><i class="fa-solid fa-stopwatch"></i> Timed Mode:</label>
-                    <select id="timed-mode">
-                        <option value="off">Classic Mode</option>
-                        <option value="10">Timer - 10sec</option>
-                        <option value="15">Timer - 15sec</option>
-                        <option value="20">Timer - 20sec</option>
-                        <option value="30">Timer - 30sec</option>
-                        <option value="60">Timer - 1min</option>
-                        <option value="90">Timer - 1min 30sec</option>
-                        <option value="120">Timer - 2min</option>
-                    </select>
-                </div>
-
-                <div class="select">
-                    <label for="Number">Number of words:</label>
-                    <select name="" id="Number">
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30" selected>30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="60">60</option>
-                    </select>
-                </div>
-            </header>
-
-            <div id="time">
-                <p class="min">00</p>
-                <p>:</p>
-                <p class="sec">00</p>
-            </div>
-
-            <div id="progress-timer-container">
-                <div id="progress-timer-bar"></div>
-            </div>
-
-            <main>
-                <p id="word-display"></p>
-                <input type="text" id="input-field" autofocus autocomplete="off" placeholder="Type here to play">
-                <div id="keyboard" class="keyboard"></div>
-                <div id="information">
-                    <div class="info word">
-                        <p>Wpm:
-                        <p id="wpm"></p>
-                        </p>
-                    </div>
-                    <div class="info acc">
-                        <p>Accuracy:
-                        <p id="accuracy"></p>
-                        </p>
-                    </div>
-
-                    <div class="info progression">
-                        <p>Progress:</p>
-                        <p id="progres">0%</p>
-                    </div>
-                </div>
-            </main>
-        </div>
-        <p>Press Alt + Enter to make a new test</p>
-    </div>
-
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/theme mode.js"></script>
-    <script src="assets/js/tuto.js"></script>
+  <script src="assets/js/landing.js"></script>
 </body>
 
 </html>

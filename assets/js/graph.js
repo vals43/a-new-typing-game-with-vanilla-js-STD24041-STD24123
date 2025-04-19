@@ -13,7 +13,7 @@ let theme = localStorage.getItem('theme');
 document.getElementById('replay-btn').addEventListener('click', function() {
   localStorage.removeItem('resultat');
   localStorage.removeItem('elapsed');
-  window.location.href = 'index.html';
+  window.location.href = 'game_page.html';
 });
 
 function createArray(str) {
@@ -31,7 +31,7 @@ function createArray(str) {
 
 function goGame() {
   localStorage.removeItem('elapsed')
-  window.location.href = 'index.html'
+  window.location.href = 'game_page.html'
 }
 
 const arrayResultant = createArray(result);

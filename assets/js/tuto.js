@@ -40,7 +40,7 @@ on_feed.addEventListener("click", () => {
 });
 
 deco.addEventListener('click', function () {
-    window.location.href = 'landing.html'
+    window.location.href = 'index.html'
 })
 
 function onSet() {

@@ -17,12 +17,12 @@ let form = document.querySelector(".cta-button");
 form.addEventListener("click", sub);
 
 function sub(event) {
-  event.preventDefault();  // Empêche la soumission du formulaire par défaut
+  event.preventDefault();
   if (mail.value !== "" && pass.value !== "") {
     form.innerText = ". . . .";
     setTimeout(() => {
       form.innerText = "Hello";
-      window.location = 'index.html'; // Redirection après 2 secondes
+      window.location = 'game_page.html';
     }, 2000);
   } else {
     alert('Name or password missing');
