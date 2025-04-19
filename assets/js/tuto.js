@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", () => {
       tr.innerHTML = `
         <td>${index + 1}</td>
         <td>${wpm}</td>
-        <td>${accuracy}%</td>
+        <td>${accuracy}</td>
         <td>${count}</td>
         <td>${lang}</td>
       `;

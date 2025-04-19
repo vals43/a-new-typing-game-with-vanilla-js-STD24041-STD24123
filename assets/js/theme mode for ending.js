@@ -29,3 +29,7 @@ if (themeConst == 6) {
 if (themeConst == 7) {
   myFunction_set('#37404F', '#E0E4EB', '#FFF')
 } 
+
+//font
+let font = localStorage.getItem('fontName')
+root.style.setProperty('--font', font);

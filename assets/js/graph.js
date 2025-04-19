@@ -6,6 +6,7 @@ let result = localStorage.getItem('resultat');
 let elapsed = localStorage.getItem('elapsed');
 let inner = document.querySelector(".inner")
 let outer = document.querySelector(".outer")
+let comment = document.querySelector(".comment")
 let theme = localStorage.getItem('theme');
 
 function createArray(str) {
@@ -42,6 +43,17 @@ let wpm = arrayResultant[arrayResultant.length - 1][1]
 const WPM = document.querySelector("#wpm-value")
 WPM.innerHTML = wpm
 inner.innerHTML = `${accuracy}%`
+
+
+if (Math.floor(wpm) > 60) {
+  comment.innerText = "You're fast at typing"
+}
+if (Math.floor(wpm) < 60 && Math.floor(wpm) > 30) {
+  comment.innerText = "You are in the middle"
+}
+if (Math.floor(wpm) < 30) {
+  comment.innerText = "You can do better"
+}
 
 const time = document.querySelector(".time")
 let timer = localStorage.getItem('timer');
