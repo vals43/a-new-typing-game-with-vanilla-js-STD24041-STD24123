@@ -180,9 +180,9 @@ const updateWord = (event) => {
 const toggleTimerVisibility = (show) => {
   const progressContainer = document.getElementById("progress-timer-container");
   if (show) {
-    progressContainer.style.display = "block"; // Afficher la barre de progression
+    progressContainer.style.display = "block"; 
   } else {
-    progressContainer.style.display = "none"; // Cacher la barre de progression
+    progressContainer.style.display = "none";
   }
 };
 function timer() {
@@ -279,7 +279,9 @@ document.getElementById("random").addEventListener("click", () => {
 });
 
 function saveResults() {
-  const currentResult = `${Wpm.innerText},${Accuracy.innerText},${wordCount},${Langue.value}`;
+  const sec = document.querySelector(".sec");
+  const min = document.querySelector(".min");
+  const currentResult = `${min.innerText}:${sec.innerText},${Wpm.innerText},${Accuracy.innerText},${wordCount},${Langue.value}`;
   let allResults = localStorage.getItem('allResults');
   let resultsArray = allResults ? allResults.split("\n") : [];
   resultsArray.push(currentResult);

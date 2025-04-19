@@ -80,7 +80,7 @@ function onFeedback() {
     content.style.filter = "blur(10px)";
 }
 
-function offFeedback(event) {
+function offFeedback() {
     form.style.display = "none";
     content.style.filter = "none";
 }
@@ -100,14 +100,23 @@ window.addEventListener("DOMContentLoaded", () => {
     };
   
     const rows = allResults.split("\n");
+    console.log(rows);
+    while (rows.length > 5) {
+        rows.shift()
+    }
+
+
+
+    
   
     rows.forEach((entry, index) => {
-      const [wpm, accuracy, count, langCode] = entry.split(",");
+      const [time,wpm, accuracy, count, langCode] = entry.split(",");
       const lang = languageMap[langCode] || langCode;
-  
+      
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${index + 1}</td>
+        <td>${time}</td>
         <td>${wpm}</td>
         <td>${accuracy}</td>
         <td>${count}</td>
