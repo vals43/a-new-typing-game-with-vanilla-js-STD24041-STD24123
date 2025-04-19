@@ -189,6 +189,9 @@ document.addEventListener("keydown", function(e) {
 
 function resetTest() {
   timeModeSelect.value = isTimedMode ? countdownDuration : "off";
+  Wpm.innerText = '';
+  Accuracy.innerText = '';
+  progres.innerText= '';
   startTest(wordCount);
   forceFocusInput();
 }
