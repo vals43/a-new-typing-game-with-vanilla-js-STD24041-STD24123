@@ -495,12 +495,11 @@ header select{
 
 #progress-timer-container {
     width: 80%;
-    height: 8px;
+    height: 1.5rem;
     background-color: var(--quatre);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
     display: none;
   }
   

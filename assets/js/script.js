@@ -318,24 +318,3 @@ function rmLigne(index) {
 }
 
 startTest();
-
-
-let tabPressed = false;
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Tab") {
-    e.preventDefault();
-    tabPressed = true;
-    setTimeout(() => tabPressed = false, 500);
-  }
-
-  if (e.key === "Enter" && tabPressed) {
-    if (countdownInterval) {
-      clearInterval(countdownInterval);
-      countdownInterval = null;
-    }
-    isTimedMode = false;
-    timeModeSelect.value = "off";
-    startTest(Number.value);
-  }
-});
