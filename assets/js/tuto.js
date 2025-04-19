@@ -66,26 +66,35 @@ function offFeedback(event) {
     content.style.filter = "none";
 }
 
-function displayPreviousResults() {
-    const resultsContainer = document.getElementById('results-container');
 
-    const allResults = localStorage.getItem('allResults');
+//leaderboar score
 
-    if (allResults) {
-        const resultsArray = allResults.split("\n");
-
-        resultsArray.forEach(result => {
-            const [wpm, accuracy, wordsCount] = result.split(",");
-
-            const resultElement = document.createElement('div');
-            resultElement.innerHTML = `
-                <p>WPM: ${wpm}</p>
-                <p>Accuracy: ${accuracy}%</p>
-                <p>Number of words: ${wordsCount}</p>
-            `;
-            resultsContainer.appendChild(resultElement);
-        });
-    } else {
-        resultsContainer.innerHTML = "<p>No results saved.</p>";
-    }
-}
+window.addEventListener("DOMContentLoaded", () => {
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    const allResults = localStorage.getItem("allResults");
+    if (!allResults) return;
+  
+    const languageMap = {
+      en: "English",
+      fr: "Français",
+      es: "Español",
+    };
+  
+    const rows = allResults.split("\n");
+  
+    rows.forEach((entry, index) => {
+      const [wpm, accuracy, count, langCode] = entry.split(",");
+      const lang = languageMap[langCode] || langCode;
+  
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${wpm}</td>
+        <td>${accuracy}%</td>
+        <td>${count}</td>
+        <td>${lang}</td>
+      `;
+      leaderboardBody.appendChild(tr);
+    });
+  });
+  

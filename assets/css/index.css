@@ -349,7 +349,6 @@ header select{
 }
 @media (width < 790px) {
     .sidebar {
-        display: none;
         position: absolute !important;
         top: 7rem;
         gap: 0;
@@ -362,6 +361,11 @@ header select{
         background-color: var(--quatre);
         justify-content: left;
     }
+    
+.sidebar.hidden {
+    display: none;
+}
+
     #resp-btn{
         display: block;
         margin-top: 20px;
@@ -426,5 +430,64 @@ header select{
         top: 0;
         background-color: var(--primary);
         height: 7rem;
+    }
+}
+
+
+#leaderboard {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--quatre);
+    border: 2px solid var(--secondary);
+    border-radius: 20px;
+    padding: 20px;
+    font-family: var(--font);
+    color: var(--cinq);
+    box-shadow: 0 0 15px rgba(0, 168, 232, 0.2);
+    animation: fadeIn 0.7s ease;
+}
+
+#leaderboard h2 {
+    text-align: center;
+    color: var(--tertiary);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+#leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#leaderboard thead {
+    background-color: var(--primary);
+    color: var(--tertiary);
+}
+
+#leaderboard th, 
+#leaderboard td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--secondary);
+}
+
+#leaderboard tr:hover {
+    background-color: rgba(0, 168, 232, 0.05);
+}
+
+#leaderboard tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 768px) {
+    #leaderboard table {
+        font-size: 0.85rem;
+    }
+
+    #leaderboard th, 
+    #leaderboard td {
+        padding: 8px 10px;
     }
 }

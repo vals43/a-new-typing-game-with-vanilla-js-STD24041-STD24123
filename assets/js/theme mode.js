@@ -108,17 +108,20 @@ if (savedPrimary && savedSecondary && savedTertiary && savedQuatre) {
 let btn_resp = document.getElementById("resp-btn");
 let sidebar = document.querySelector(".sidebar");
 
-btn_resp.addEventListener('click', reponsiveSidebar)
-
-function reponsiveSidebar(){
-  
-  if (sidebar.style.display == 'none') {
-    console.log('test');
-    sidebar.style.display = 'inline'
-  }
-
-  if (sidebar.style.display == 'inline') {
-    console.log('test');
-    sidebar.style.display = 'none'
-  }
+if (window.innerWidth < 790) {
+    sidebar.classList.add('hidden');
 }
+
+btn_resp.addEventListener('click', reponsiveSidebar);
+
+function reponsiveSidebar() {
+    sidebar.classList.toggle('hidden');
+}
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth >= 790) {
+        sidebar.classList.remove('hidden');
+    } else {
+        sidebar.classList.add('hidden');
+    }
+});

@@ -62,6 +62,13 @@ Langue.addEventListener('change', () => {
 modeSelect.addEventListener("change", () => startTest(wordCount));
 
 const startTest = (wordCount = 30) => {
+
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+    }
+  
+
   wordsToType.length = 0;
   wordDisplay.innerHTML = "";
   currentWordIndex = 0;
@@ -221,7 +228,8 @@ keyboardLayout.forEach(key => {
     lastIndex = textInput.value[textInput.value.length - 1]?.toUpperCase();
     if (keyButton.textContent === lastIndex) {
       keyButton.style.background = '#888787';
-      setInterval(() => keyButton.style.background = '#eee', 300);
+      setTimeout(() => keyButton.style.background = '#eee', 300);
+
     }
   });
   if (key === '←' || key === 'SPACE') keyButton.classList.add('special');
@@ -261,13 +269,14 @@ document.getElementById("random").addEventListener("click", () => {
 });
 
 function saveResults() {
-  const currentResult = `${Wpm.innerText},${Accuracy.innerText},${wordCount}`;
+  const currentResult = `${Wpm.innerText},${Accuracy.innerText},${wordCount},${Langue.value}`;
   let allResults = localStorage.getItem('allResults');
   let resultsArray = allResults ? allResults.split("\n") : [];
   resultsArray.push(currentResult);
   if (resultsArray.length > 5) resultsArray.shift();
   localStorage.setItem('allResults', resultsArray.join("\n"));
 }
+
 
 const timeModeSelect = document.getElementById("timed-mode");
 timeModeSelect.addEventListener("change", () => {
@@ -298,3 +307,24 @@ function rmLigne(index) {
 }
 
 startTest();
+
+
+let tabPressed = false;
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") {
+    e.preventDefault();
+    tabPressed = true;
+    setTimeout(() => tabPressed = false, 500);
+  }
+
+  if (e.key === "Enter" && tabPressed) {
+    if (countdownInterval) {
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+    }
+    isTimedMode = false;
+    timeModeSelect.value = "off";
+    startTest(Number.value);
+  }
+});
