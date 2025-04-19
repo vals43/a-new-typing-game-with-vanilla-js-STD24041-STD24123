@@ -12,12 +12,32 @@ const option = document.getElementById("option");
 const tuto = document.querySelector('.tuto');
 const content = document.querySelector(".content");
 
-on_tuto.addEventListener('click', startTutorial);
 off_tuto.addEventListener('click', endTutorial);
-on_feed.addEventListener('click', onFeedback);
 off_feed.addEventListener('click', offFeedback);
-set.addEventListener('click', onSet);
 offset.addEventListener('click', offSet);
+
+
+on_tuto.addEventListener("click", () => {
+  if (tuto.style.display === "none" || tuto.style.display === "") {
+    startTutorial()
+  } else {
+    endTutorial();
+  }
+});
+set.addEventListener("click", () => {
+  if (option.style.display === "none" || option.style.display === "") {
+    onSet()
+  } else {
+    offSet();
+  }
+});
+on_feed.addEventListener("click", () => {
+  if (form.style.display === "none" || form.style.display === "") {
+    onFeedback()
+  } else {
+    offFeedback()
+  }
+});
 
 deco.addEventListener('click', function () {
     window.location.href = 'landing.html'
@@ -61,7 +81,6 @@ function onFeedback() {
 }
 
 function offFeedback(event) {
-    event.preventDefault();
     form.style.display = "none";
     content.style.filter = "none";
 }
