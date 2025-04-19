@@ -61,6 +61,8 @@ Langue.addEventListener('change', () => {
 
 modeSelect.addEventListener("change", () => startTest(wordCount));
 
+
+
 const startTest = (wordCount = 30) => {
 
   clearInterval(countdownInterval);
@@ -175,6 +177,14 @@ const updateWord = (event) => {
   if (event.key === " " && inputField.value.length !== 0) update(event);
 };
 
+const toggleTimerVisibility = (show) => {
+  const progressContainer = document.getElementById("progress-timer-container");
+  if (show) {
+    progressContainer.style.display = "block"; // Afficher la barre de progression
+  } else {
+    progressContainer.style.display = "none"; // Cacher la barre de progression
+  }
+};
 function timer() {
   const sec = document.querySelector(".sec");
   const min = document.querySelector(".min");
@@ -187,6 +197,10 @@ function timer() {
     const seconds = (isTimedMode ? remaining : elapsed) % 60;
     min.innerText = minutes < 10 ? "0" + minutes : minutes;
     sec.innerText = seconds < 10 ? "0" + seconds : seconds;
+    if (isTimedMode) {
+      const percentLeft = ((countdownDuration - elapsed) / countdownDuration) * 100;
+      document.getElementById("progress-timer-bar").style.width = percentLeft + "%";
+    }    
     if (isTimedMode && elapsed >= countdownDuration) {
       clearInterval(countdownInterval);
       localStorage.setItem('elapsed', total);
@@ -278,12 +292,13 @@ const timeModeSelect = document.getElementById("timed-mode");
 timeModeSelect.addEventListener("change", () => {
   if (timeModeSelect.value === "off") {
     isTimedMode = false;
-    wordCount = Number.value;
+    toggleTimerVisibility(false);
   } else {
     isTimedMode = true;
     countdownDuration = parseInt(timeModeSelect.value);
     wordCount = 200;
     Number.value = 200;
+    toggleTimerVisibility(true);
   }
   startTest(wordCount);
 });

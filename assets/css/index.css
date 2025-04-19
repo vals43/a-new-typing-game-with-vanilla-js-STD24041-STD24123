@@ -492,3 +492,22 @@ header select{
         padding: 8px 10px;
     }
 }
+
+#progress-timer-container {
+    width: 80%;
+    height: 8px;
+    background-color: var(--quatre);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+  }
+  
+  #progress-timer-bar {
+    height: 100%;
+    width: 100%;
+    background-color: var(--tertiary);
+    transition: width 1s linear;
+  }
+  
