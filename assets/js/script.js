@@ -198,7 +198,7 @@ function timer() {
     min.innerText = minutes < 10 ? "0" + minutes : minutes;
     sec.innerText = seconds < 10 ? "0" + seconds : seconds;
     if (isTimedMode) {
-      const percentLeft = ((countdownDuration - elapsed) / countdownDuration) * 100;
+      const percentLeft = ((countdownDuration - elapsed-1) / countdownDuration) * 100;
       document.getElementById("progress-timer-bar").style.width = percentLeft + "%";
     }    
     if (isTimedMode && elapsed >= countdownDuration) {
