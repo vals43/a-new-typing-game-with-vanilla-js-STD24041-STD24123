@@ -12,4 +12,5 @@ Since this is an HTML project, you can use your favorite CSS framework of choice
 And most important of all, have fun 🔥
 
 
-In the login all input work
+In the login all input work, you can insert all you want it will word 
+as long as both inputs are not empty
