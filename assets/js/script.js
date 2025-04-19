@@ -62,13 +62,6 @@ Langue.addEventListener('change', () => {
 modeSelect.addEventListener("change", () => startTest(wordCount));
 
 const startTest = (wordCount = 30) => {
-
-    if (countdownInterval) {
-      clearInterval(countdownInterval);
-      countdownInterval = null;
-    }
-  
-
   wordsToType.length = 0;
   wordDisplay.innerHTML = "";
   currentWordIndex = 0;
@@ -97,7 +90,6 @@ const startTest = (wordCount = 30) => {
   inputField.value = "";
   results.innerText = "";
 };
-
 const getWordSpans = () => {
   return Array.from(wordDisplay.children).filter(el => el.tagName === "SPAN");
 };

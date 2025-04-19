@@ -435,6 +435,7 @@ header select{
 
 
 #leaderboard {
+    display: none;
     margin: 2rem auto;
     width: 90%;
     max-width: 1000px;

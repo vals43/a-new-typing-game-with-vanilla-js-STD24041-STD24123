@@ -98,3 +98,27 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+
+  const leaderboardBtn = document.getElementById("score-btn");
+  const leaderboardContent = document.getElementById("leaderboard");
+  
+  function onBoard() {
+    leaderboardContent.style.display = "block";
+    content.style.filter = "blur(10px)"; 
+  }
+  
+  function offBoard() {
+    leaderboardContent.style.display = "none";
+    content.style.filter = "none";
+  }
+  
+
+  leaderboardBtn.addEventListener("click", () => {
+
+    if (leaderboardContent.style.display === "none" || leaderboardContent.style.display === "") {
+      onBoard();
+    } else {
+      offBoard();
+    }
+  });
+  
