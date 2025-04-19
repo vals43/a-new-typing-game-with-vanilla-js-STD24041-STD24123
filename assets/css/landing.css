@@ -4,8 +4,8 @@ body {
     background: linear-gradient(to bottom right, #1a1a1a);
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
   }
   
   .container {
@@ -29,26 +29,29 @@ body {
         margin-block: 10px;
     }
 }
-.mail, .pass{
-  width: min-content;
-  border: none;
-  background-color: rgb(190, 190, 190);
-  margin-block: 20px !important;
-  overflow: hidden;
-  margin: auto;
-  border-radius: 5px;
-}
-.mail{
-  margin-top: 50px !important;
-}
-.pass{
-  margin-bottom: 30px !important;
-}
+#email , #password{
+  border: 2px solid #e8e8e8;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #212121;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+ }
+ 
+ #email:focus , #password:focus{
+  outline-color: white;
+  background-color: #212121;
+  color: #e8e8e8;
+  box-shadow: 5px 5px #888888;
+ }
 input{
   border: none;
   padding: 13px;
   padding-right: 50px;
   padding-left: 20px;
+  margin-bottom: 2rem !important;
 }
 .right{
   width: max-content;
@@ -205,15 +208,69 @@ button:hover {
   box-shadow: inset 0px 0px 25px #1479EA;
 }
   
-  
+
+.particle {
+  position: absolute;
+  background-color: rgba(0, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  animation: particles 5s infinite;
+  z-index: 1000;
+}
+
+.particle:nth-child(odd) {
+  animation-duration: 7s;
+}
+
+.particle:nth-child(even) {
+  animation-duration: 6s;
+}
+
+.bars {
+  position: absolute;
+  left: 45%;
+  z-index: -1;
+  height: 110vh;
+  margin-top: -3rem;
+  width: 100rem;
+  background-color: #000;
+  transform: skew(-20deg);
+}
+.input {
+  border: 2px solid #e8e8e8;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #212121;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+ }
+ 
+ .input:focus {
+  outline-color: white;
+  background-color: #212121;
+  color: #e8e8e8;
+  box-shadow: 5px 5px #888888;
+ }
 @media (width <= 790px){
+  body{
+    overflow-y: auto;
+  }
+  .container{
+    display: block;
+  }
   .bars{
     display: none;
   }
   .right{
-    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   .left{
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
