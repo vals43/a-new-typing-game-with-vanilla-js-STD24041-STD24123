@@ -13,9 +13,11 @@
 
 
 :root {
-  --primary: #777;
-  --secondary : #333;
-  --tertiary : #7e0000;
+  --primary: #0B132B;
+  --secondary: #DDE8F0;
+  --tertiary: #00A8E8;
+  --quatre: #1C2541;
+  --cinq: white;
   --font : 'Quicksand'
 }
 *{
