@@ -107,6 +107,15 @@ if (savedPrimary && savedSecondary && savedTertiary && savedQuatre) {
 
 let btn_resp = document.getElementById("resp-btn");
 let sidebar = document.querySelector(".sidebar");
+const sidebarButtons = document.querySelectorAll('.sidebar button');
+
+sidebarButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (window.innerWidth < 790) {
+            sidebar.classList.add('hidden');
+        }
+    });
+});
 
 if (window.innerWidth < 790) {
     sidebar.classList.add('hidden');

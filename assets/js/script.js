@@ -62,6 +62,10 @@ Langue.addEventListener('change', () => {
 modeSelect.addEventListener("change", () => startTest(wordCount));
 
 const startTest = (wordCount = 30) => {
+
+  clearInterval(countdownInterval);
+  countdownInterval = null;
+  interval = 1;
   wordsToType.length = 0;
   wordDisplay.innerHTML = "";
   currentWordIndex = 0;

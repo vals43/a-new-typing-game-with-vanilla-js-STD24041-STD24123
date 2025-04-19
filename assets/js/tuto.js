@@ -100,6 +100,7 @@ window.addEventListener("DOMContentLoaded", () => {
   
 
   const leaderboardBtn = document.getElementById("score-btn");
+  const closeBtn = document.getElementById("close-btn");
   const leaderboardContent = document.getElementById("leaderboard");
   
   function onBoard() {
@@ -112,7 +113,8 @@ window.addEventListener("DOMContentLoaded", () => {
     content.style.filter = "none";
   }
   
-
+  closeBtn.addEventListener("click", offBoard);
+  
   leaderboardBtn.addEventListener("click", () => {
 
     if (leaderboardContent.style.display === "none" || leaderboardContent.style.display === "") {
